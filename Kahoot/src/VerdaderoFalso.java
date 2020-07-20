@@ -1,21 +1,14 @@
-
-
+import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class VerdaderoFalso {
 
     private String contenido;
     private Boolean penalidad;
 
-    //Falta que sea una lista de respuestas
-    public int recibirRespuesta(Respuesta respuesta){
+    public int recibirRespuesta(ArrayList<Respuesta> respuestas){
 
-    int puntos = 0;
-
-    if (respuesta.getEsCorrecta()){
-        puntos += 1;
-    }
-
-    return puntos;
+        return (int) respuestas.stream().filter(Respuesta::getEsCorrecta).count();
     }
 
 

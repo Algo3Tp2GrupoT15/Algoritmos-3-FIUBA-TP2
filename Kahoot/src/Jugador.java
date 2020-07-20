@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Jugador {
 
 
@@ -15,11 +17,11 @@ public class Jugador {
         this.nombre = nombre;
     }
 
-    public void responde(VerdaderoFalso pregunta, Respuesta respuesta){
+    public void responde(VerdaderoFalso pregunta, ArrayList<Respuesta> respuestas){
 
-        respuesta.remitente(this);
+        respuestas.forEach((respuesta -> respuesta.remitente(this)));
 
-        this.puntos = pregunta.recibirRespuesta(respuesta);
+        this.puntos = pregunta.recibirRespuesta(respuestas);
 
     }
 
