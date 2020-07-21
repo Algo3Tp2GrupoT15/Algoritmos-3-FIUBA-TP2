@@ -10,7 +10,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 
 ## Grupo {N}
 
-* **Integrante 1** - [Leandro Van Kemenade](102826)
+* **Leandro Van Kemenade** - [102826](https://github.com/leanvanke)
 * **Integrante 2** - [integrante2](https://github.com/integrante2)
 * **Integrante 3** - [integrante3](https://github.com/integrante3)
 
