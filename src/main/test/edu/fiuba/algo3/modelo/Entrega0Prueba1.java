@@ -11,20 +11,13 @@ public class Entrega0Prueba1 {
     @Test
     public void UnaPreguntadeVerdaderoFalsoPuedeCrearseIndicandoCualEsLaRespuestaCorrectaTest(){
 
-    VerdaderoFalso pregunta = new VerdaderoFalso();
+    VerdaderoFalso pregunta = new VerdaderoFalso("En Algo3 se ve POO.");
 
     Respuesta respuestaVerdadera = new Respuesta("", Boolean.TRUE);
-    Respuesta respuestaFalsa = new Respuesta("", Boolean.FALSE);
 
-    ArrayList<Respuesta> respuestas = new ArrayList<Respuesta>();
-    respuestas.add(respuestaVerdadera);
-    respuestas.add(respuestaFalsa);
+    pregunta.setRespuestaCorrecta(respuestaVerdadera);
 
-    pregunta.recibirRespuesta(respuestas);
-
-    Assert.assertEquals(true, true);
-
-
+    Assert.assertEquals(pregunta.esVerdadera(), true);
 
 
     }

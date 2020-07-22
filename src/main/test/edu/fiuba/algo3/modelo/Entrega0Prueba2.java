@@ -15,7 +15,7 @@ public class Entrega0Prueba2{
     Jugador jugador1 = new Jugador("lean");
     Jugador jugador2 = new Jugador("juan");
 
-    VerdaderoFalso pregunta = new VerdaderoFalso();
+    VerdaderoFalso pregunta = new VerdaderoFalso("");
 
     Respuesta respuestaVerdadera = new Respuesta("", Boolean.TRUE);
     Respuesta respuestaFalsa = new Respuesta("", Boolean.FALSE);
