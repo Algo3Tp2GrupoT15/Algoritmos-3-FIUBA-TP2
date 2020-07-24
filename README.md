@@ -9,7 +9,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 ## Grupo {N}
 
 * **Leandro Van Kemenade** - [102826](https://github.com/leanvanke)
-* **Ricardo Luizaga** - [integrante2](https://github.com/integrante2)
+* **Ricardo Luizaga** - [87528](https://github.com/integrante2)
 * **Integrante 3** - [integrante3](https://github.com/integrante3)
 
 Corrector: **{Edson}**
