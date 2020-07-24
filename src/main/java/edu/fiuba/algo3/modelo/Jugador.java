@@ -1,34 +1,19 @@
 package edu.fiuba.algo3.modelo;
 
-
-import java.util.ArrayList;
-
 public class Jugador {
+    private int puntaje;
 
-
-    private String nombre;
-    private int puntos;
-
-
-    public Jugador(String nombre){
-
-        this.nombrar(nombre);
+    public Jugador() {
+        puntaje = 0;
     }
 
-    public void nombrar(String nombre){
-
-        this.nombre = nombre;
+    public void asignarPuntaje(Respuesta respuesta) {
+        if (respuesta.esCorrecta()) {
+            puntaje = puntaje + 1;
+        }
     }
 
-    public void responde(VerdaderoFalso pregunta, ArrayList<Respuesta> respuestas){
-
-        respuestas.forEach((respuesta -> respuesta.remitente(this)));
-
-        this.puntos = pregunta.recibirRespuesta(respuestas);
-
-    }
-
-    public int getPuntos() {
-        return puntos;
+    public int puntaje() {
+        return puntaje;
     }
 }

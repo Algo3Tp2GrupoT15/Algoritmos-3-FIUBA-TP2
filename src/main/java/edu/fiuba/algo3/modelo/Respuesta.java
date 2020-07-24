@@ -1,26 +1,26 @@
 package edu.fiuba.algo3.modelo;
 
-
+import java.util.ArrayList;
 
 public class Respuesta {
+    private ArrayList<Opcion> opciones;
 
-    private Jugador jugadorQueResponde;
-    private Boolean esCorrecta;
-    private String  contenido;
-
-    public Respuesta(String contenido, Boolean esCorrecta){
-
-        this.esCorrecta = esCorrecta;
-        this.contenido = contenido;
-
+    public Respuesta() {
+        opciones = new ArrayList<Opcion>();
     }
 
-    public Boolean getEsCorrecta() {
-        return esCorrecta;
+    public void agregarOption(Opcion opcion) {
+        opciones.add(opcion);
     }
 
-    public void remitente(Jugador jugador) {
-        this.jugadorQueResponde = jugador;
+    public boolean esCorrecta() {
+        Boolean valor = true;
+        for (Opcion opcion: opciones
+             ) {
+            if (opcion.esCorrecta() == false) {
+                valor = false;
+            }
+        }
+        return valor;
     }
 }
-
