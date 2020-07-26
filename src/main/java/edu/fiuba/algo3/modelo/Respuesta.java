@@ -11,6 +11,7 @@ public class Respuesta {
         opciones = new ArrayList<Opcion>();
     }
 
+
     public void agregarOption(Opcion opcion) {
 
         opciones.add(opcion);
@@ -19,28 +20,17 @@ public class Respuesta {
 
     public int cantidadDeOpcionesCorrectas(){
 
-        int cantidad = 0;
-        for (Opcion opcion : opciones){
-            if (opcion.esCorrecta()) {
-                cantidad += 1;
-            }
-        }
+        long cantidad = opciones.stream().filter(opcion -> opcion.esCorrecta()).count();
 
-        return cantidad;
+        return (int)cantidad;
     }
-
 
 
     public int cantidadDeOpcionesIncorrectas(){
 
-        int cantidad = 0;
-        for (Opcion opcion : opciones){
-            if (!opcion.esCorrecta()) {
-                cantidad += 1;
-            }
-        }
+        long cantidad = opciones.stream().filter(opcion -> !opcion.esCorrecta()).count();
 
-        return cantidad;
+        return (int)cantidad;
     }
 
 
