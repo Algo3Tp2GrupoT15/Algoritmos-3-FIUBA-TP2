@@ -1,21 +1,20 @@
-package edu.fiuba.algo3.modelo.preguntas.multipleChoice;
+package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Jugador;
-import edu.fiuba.algo3.modelo.preguntas.MultipleChoice;
+import edu.fiuba.algo3.modelo.MultipleChoiceParcial;
 import edu.fiuba.algo3.modelo.Opcion;
 import edu.fiuba.algo3.modelo.Respuesta;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.*;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PreguntaMultipleChoiceClasicoTest {
+public class PreguntaMultipleChoiceConPuntajeParcialTest {
 
     @Test
-    public void testUnaPreguntaMultipleChoiceClasicoPuedeCrearseIndicandoleCualEsLaRespuestaCorrecta(){
-
+    public void testUnaPreguntaMultipleChoiceConPuntajeParcialPuedeCrearseIndicandoleCualEsLaRespuestaCorrecta(){
 
         Opcion opcionCorrecta = new Opcion("4",true);
         Opcion opcionCorrecta2 = new Opcion("2^2",true);
@@ -24,15 +23,16 @@ public class PreguntaMultipleChoiceClasicoTest {
 
         ArrayList<Opcion> opciones = new ArrayList<Opcion>(Arrays.asList(opcionCorrecta,opcionCorrecta2,opcionIncorrecta,opcionIncorrecta2));
 
-        MultipleChoice multipleChoice = new MultipleChoice(" 2+2=..? ", opciones);
+        MultipleChoiceParcial multipleChoiceParcial = new MultipleChoiceParcial(" 2+2=..? ", opciones);
 
         ArrayList<Opcion> opcionesCorrectas = new ArrayList<Opcion>(Arrays.asList(opcionCorrecta,opcionCorrecta2));
 
-        assertEquals(opcionesCorrectas, multipleChoice.opcionesCorrectas());
+        assertEquals(opcionesCorrectas, multipleChoiceParcial.opcionesCorrectas());
+
     }
 
     @Test
-    public void testUnaPreguntaMultipleChoiceClasicoRecibeUnaListaDeRespuestasYAsignaCorrectamentePuntosALosJugadoresQueRespondieronCorrectamente(){
+    public void testUnaPreguntaMultipleChoiceConPuntajeParcialRecibeUnaListaDeRespuestasYAsignaCorrectamentePuntosALosJugadoresQueRespondieronCorrectamente(){
 
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador();
@@ -44,7 +44,7 @@ public class PreguntaMultipleChoiceClasicoTest {
 
         ArrayList<Opcion> opciones = new ArrayList<Opcion>(Arrays.asList(opcionCorrecta,opcionCorrecta2,opcionIncorrecta,opcionIncorrecta2));
 
-        MultipleChoice multipleChoice = new MultipleChoice(" 2+2=..? ", opciones);
+        MultipleChoiceParcial multipleChoiceParcial = new MultipleChoiceParcial(" 2+2=..? ", opciones);
 
         Respuesta respuestaJugador1 = new Respuesta();
         Respuesta respuestaJugador2 = new Respuesta();
@@ -53,18 +53,12 @@ public class PreguntaMultipleChoiceClasicoTest {
         respuestaJugador2.agregarOption(opcionIncorrecta);
         respuestaJugador2.agregarOption(opcionCorrecta2);
 
-        jugador1.asignarPuntaje(respuestaJugador1, multipleChoice);
-        jugador2.asignarPuntaje(respuestaJugador2, multipleChoice);
+        jugador1.asignarPuntaje(respuestaJugador1, multipleChoiceParcial);
+        jugador2.asignarPuntaje(respuestaJugador2, multipleChoiceParcial);
 
-        assertEquals(1,jugador1.puntaje());
+        assertEquals(2,jugador1.puntaje());
         assertEquals(0,jugador2.puntaje());
 
     }
+
 }
-
-
-
-
-
-
-

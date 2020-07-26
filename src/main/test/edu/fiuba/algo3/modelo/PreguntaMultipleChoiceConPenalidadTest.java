@@ -1,9 +1,9 @@
-package edu.fiuba.algo3.modelo.preguntas.multipleChoice;
+package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Opcion;
 import edu.fiuba.algo3.modelo.Respuesta;
-import edu.fiuba.algo3.modelo.preguntas.MultipleChoiceConPenalidad;
+import edu.fiuba.algo3.modelo.MultipleChoiceConPenalidad;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

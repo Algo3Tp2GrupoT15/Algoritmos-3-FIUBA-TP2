@@ -1,7 +1,4 @@
-package edu.fiuba.algo3.modelo.preguntas;
-
-import edu.fiuba.algo3.modelo.Opcion;
-import edu.fiuba.algo3.modelo.Respuesta;
+package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
 
