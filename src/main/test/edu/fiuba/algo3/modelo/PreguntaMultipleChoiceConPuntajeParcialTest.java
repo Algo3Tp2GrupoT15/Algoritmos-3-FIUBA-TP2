@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PreguntaMultipleChoiceConPuntajeParcialTest {
 
@@ -25,9 +26,10 @@ public class PreguntaMultipleChoiceConPuntajeParcialTest {
 
         MultipleChoiceParcial multipleChoiceParcial = new MultipleChoiceParcial(" 2+2=..? ", opciones);
 
-        ArrayList<Opcion> opcionesCorrectas = new ArrayList<Opcion>(Arrays.asList(opcionCorrecta,opcionCorrecta2));
+        ArrayList<Opcion> opcionesCorrectas = new ArrayList<Opcion>(Arrays.asList(opcionCorrecta2,opcionCorrecta));
 
-        assertEquals(opcionesCorrectas, multipleChoiceParcial.opcionesCorrectas());
+
+        assertTrue(multipleChoiceParcial.opcionesCorrectas().containsAll(opcionesCorrectas));
 
     }
 

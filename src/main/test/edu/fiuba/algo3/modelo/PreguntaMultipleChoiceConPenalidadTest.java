@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PreguntaMultipleChoiceConPenalidadTest {
 
@@ -26,9 +27,10 @@ public class PreguntaMultipleChoiceConPenalidadTest {
 
         MultipleChoiceConPenalidad multipleChoiceConPenalidad = new MultipleChoiceConPenalidad(" 2+2=..? ", opciones);
 
-        ArrayList<Opcion> opcionesCorrectas = new ArrayList<Opcion>(Arrays.asList(opcionCorrecta,opcionCorrecta2));
+        ArrayList<Opcion> opcionesCorrectas = new ArrayList<Opcion>(Arrays.asList(opcionCorrecta2,opcionCorrecta));
 
-        assertEquals(opcionesCorrectas, multipleChoiceConPenalidad.opcionesCorrectas());
+        assertTrue(multipleChoiceConPenalidad.opcionesCorrectas().containsAll(opcionesCorrectas));
+
     }
 
     @Test

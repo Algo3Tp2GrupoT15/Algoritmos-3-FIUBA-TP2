@@ -6,10 +6,11 @@ import edu.fiuba.algo3.modelo.Opcion;
 import edu.fiuba.algo3.modelo.Respuesta;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PreguntaMultipleChoiceClasicoTest {
 
@@ -26,9 +27,10 @@ public class PreguntaMultipleChoiceClasicoTest {
 
         MultipleChoice multipleChoice = new MultipleChoice(" 2+2=..? ", opciones);
 
-        ArrayList<Opcion> opcionesCorrectas = new ArrayList<Opcion>(Arrays.asList(opcionCorrecta,opcionCorrecta2));
+        ArrayList<Opcion> opcionesCorrectas = new ArrayList<Opcion>(Arrays.asList(opcionCorrecta2,opcionCorrecta));
 
-        assertEquals(opcionesCorrectas, multipleChoice.opcionesCorrectas());
+        assertTrue(multipleChoice.opcionesCorrectas().containsAll(opcionesCorrectas));
+
     }
 
     @Test
