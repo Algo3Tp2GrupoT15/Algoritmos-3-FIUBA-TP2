@@ -1,11 +1,11 @@
 package edu.fiuba.algo3.modelo;
 
 public class Opcion {
-    private final String opcion;
+    private final String texto;
     private final boolean esCorrecta;
 
     public Opcion(String unaOpcion, boolean correcta) {
-        opcion = unaOpcion;
+        texto = unaOpcion;
         esCorrecta = correcta;
     }
 

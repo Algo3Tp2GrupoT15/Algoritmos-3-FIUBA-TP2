@@ -14,7 +14,7 @@ public class PreguntaVerdaderoFalsoTest {
         pregunta.agregarOpcion(opcion1);
         pregunta.agregarOpcion(opcion2);
         Respuesta respuesta = new Respuesta();
-        respuesta.agregarOption(opcion1);
+        respuesta.agregarOpcion(opcion1);
         assertTrue(respuesta.esCorrecta());
     }
 
@@ -29,8 +29,8 @@ public class PreguntaVerdaderoFalsoTest {
         pregunta.agregarOpcion(opcion2);
         Respuesta respuestaJugador1 = new Respuesta();
         Respuesta respuestaJugador2 = new Respuesta();
-        respuestaJugador1.agregarOption(opcion1);
-        respuestaJugador2.agregarOption(opcion2);
+        respuestaJugador1.agregarOpcion(opcion1);
+        respuestaJugador2.agregarOpcion(opcion2);
         jugador1.asignarPuntaje(respuestaJugador1);
         jugador2.asignarPuntaje(respuestaJugador2);
         assertEquals(1,jugador1.puntaje());

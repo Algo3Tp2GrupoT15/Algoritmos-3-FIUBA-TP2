@@ -9,7 +9,7 @@ public class Respuesta {
         opciones = new ArrayList<Opcion>();
     }
 
-    public void agregarOption(Opcion opcion) {
+    public void agregarOpcion(Opcion opcion) {
         opciones.add(opcion);
     }
 
