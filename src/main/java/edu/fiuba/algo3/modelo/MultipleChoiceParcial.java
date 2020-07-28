@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class MultipleChoiceParcial extends MultipleChoice{
 
-
     public MultipleChoiceParcial(String pregunta, ArrayList<Opcion> opciones) {
         super(pregunta, opciones);
     }
+
 
     public int asignarPuntaje(Respuesta respuesta) {
 
@@ -21,5 +21,6 @@ public class MultipleChoiceParcial extends MultipleChoice{
 
         return puntaje;
     }
+
 
 }

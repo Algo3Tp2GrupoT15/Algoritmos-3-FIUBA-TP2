@@ -5,13 +5,13 @@ import java.util.ArrayList;
 
 public class MultipleChoice implements Preguntas{
 
-    private final String pregunta;
+    private final String texto;
     private ArrayList<Opcion> opciones;
 
     public MultipleChoice(String pregunta, ArrayList<Opcion> opciones){
 
         this.opciones = opciones;
-        this.pregunta = pregunta;
+        this.texto = pregunta;
 
     }
 
@@ -37,7 +37,7 @@ public class MultipleChoice implements Preguntas{
 
     @Override
     public String contenido() {
-        return pregunta;
+        return texto;
     }
 
     @Override

@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class VerdaderoYFalso implements Preguntas{
 
 
-    private final String pregunta;
+    private final String texto;
     private ArrayList<Opcion> opciones;
 
     public VerdaderoYFalso(String enunciado,ArrayList<Opcion> opciones) {
-        pregunta = enunciado;
+        texto = enunciado;
         this.opciones = opciones;
     }
 
@@ -25,7 +25,7 @@ public class VerdaderoYFalso implements Preguntas{
 
     @Override
     public String contenido() {
-        return pregunta;
+        return texto;
     }
 
     @Override
