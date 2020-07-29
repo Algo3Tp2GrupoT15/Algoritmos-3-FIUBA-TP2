@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
+import static java.util.stream.Collectors.toCollection;
 
 public class VerdaderoYFalso implements Preguntas{
 
@@ -31,13 +32,9 @@ public class VerdaderoYFalso implements Preguntas{
     @Override
     public ArrayList<Opcion> opcionesCorrectas() {
 
-        ArrayList<Opcion> correctas = new ArrayList<Opcion>();
+        ArrayList<Opcion> correctas;
 
-        for (Opcion opcion : opciones){
-            if (opcion.esCorrecta()) {
-                correctas.add(opcion);
-            }
-        }
+        correctas = opciones.stream().filter(opcion -> opcion.esCorrecta()).collect(toCollection(ArrayList::new));
 
         return correctas;
 

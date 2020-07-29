@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
-
 import java.util.ArrayList;
+import static java.util.stream.Collectors.toCollection;
 
 public class MultipleChoice implements Preguntas{
 
@@ -27,7 +27,6 @@ public class MultipleChoice implements Preguntas{
         int puntaje = 0;
         int opcionesCorrectas = respuesta.cantidadDeOpcionesCorrectas();
 
-
         if(this.opcionesCorrectas().size() == opcionesCorrectas){
             puntaje += 1;
         }
@@ -43,13 +42,9 @@ public class MultipleChoice implements Preguntas{
     @Override
     public ArrayList<Opcion> opcionesCorrectas() {
 
-        ArrayList<Opcion> correctas = new ArrayList<Opcion>();
+        ArrayList<Opcion> correctas;
 
-        for (Opcion opcion : opciones){
-            if (opcion.esCorrecta()) {
-                correctas.add(opcion);
-            }
-        }
+        correctas = opciones.stream().filter(opcion -> opcion.esCorrecta()).collect(toCollection(ArrayList::new));
 
         return correctas;
 
