@@ -12,7 +12,7 @@ public class Respuesta {
     }
 
 
-    public void agregarOption(Opcion opcion) {
+    public void agregarOpcion(Opcion opcion) {
 
         opciones.add(opcion);
     }

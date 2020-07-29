@@ -50,10 +50,10 @@ public class PreguntaMultipleChoiceClasicoTest {
 
         Respuesta respuestaJugador1 = new Respuesta();
         Respuesta respuestaJugador2 = new Respuesta();
-        respuestaJugador1.agregarOption(opcionCorrecta);
-        respuestaJugador1.agregarOption(opcionCorrecta2);
-        respuestaJugador2.agregarOption(opcionIncorrecta);
-        respuestaJugador2.agregarOption(opcionCorrecta2);
+        respuestaJugador1.agregarOpcion(opcionCorrecta);
+        respuestaJugador1.agregarOpcion(opcionCorrecta2);
+        respuestaJugador2.agregarOpcion(opcionIncorrecta);
+        respuestaJugador2.agregarOpcion(opcionCorrecta2);
 
         jugador1.asignarPuntaje(respuestaJugador1, multipleChoice);
         jugador2.asignarPuntaje(respuestaJugador2, multipleChoice);

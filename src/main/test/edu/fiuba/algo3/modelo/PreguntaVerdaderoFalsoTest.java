@@ -44,8 +44,8 @@ public class PreguntaVerdaderoFalsoTest {
 
         Respuesta respuestaJugador1 = new Respuesta();
         Respuesta respuestaJugador2 = new Respuesta();
-        respuestaJugador1.agregarOption(opcionCorrecta);
-        respuestaJugador2.agregarOption(opcionIncorrecta);
+        respuestaJugador1.agregarOpcion(opcionCorrecta);
+        respuestaJugador2.agregarOpcion(opcionIncorrecta);
 
         jugador1.asignarPuntaje(respuestaJugador1, verdaderoYFalso);
         jugador2.asignarPuntaje(respuestaJugador2, verdaderoYFalso);
