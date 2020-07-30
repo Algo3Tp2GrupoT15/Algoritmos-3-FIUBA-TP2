@@ -45,8 +45,11 @@ public class PreguntaVerdaderoFalsoConPenalidadTest {
         respuestaJugador1.agregarOpcion(opcionCorrecta);
         respuestaJugador2.agregarOpcion(opcionIncorrecta);
 
-        jugador1.asignarPuntaje(respuestaJugador1, verdaderoYFalsoConPenalidad);
-        jugador2.asignarPuntaje(respuestaJugador2, verdaderoYFalsoConPenalidad);
+        respuestaJugador1.agregarJugador(jugador1);
+        respuestaJugador2.agregarJugador(jugador2);
+
+        verdaderoYFalsoConPenalidad.asignarPuntaje(respuestaJugador1);
+        verdaderoYFalsoConPenalidad.asignarPuntaje(respuestaJugador2);
 
         assertEquals(1,jugador1.puntaje());
         assertEquals(-1,jugador2.puntaje());

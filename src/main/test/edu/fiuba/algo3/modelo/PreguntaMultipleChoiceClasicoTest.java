@@ -55,8 +55,11 @@ public class PreguntaMultipleChoiceClasicoTest {
         respuestaJugador2.agregarOpcion(opcionIncorrecta);
         respuestaJugador2.agregarOpcion(opcionCorrecta2);
 
-        jugador1.asignarPuntaje(respuestaJugador1, multipleChoice);
-        jugador2.asignarPuntaje(respuestaJugador2, multipleChoice);
+        respuestaJugador1.agregarJugador(jugador1);
+        respuestaJugador2.agregarJugador(jugador2);
+
+        multipleChoice.asignarPuntaje(respuestaJugador1);
+        multipleChoice.asignarPuntaje(respuestaJugador2);
 
         assertEquals(1,jugador1.puntaje());
         assertEquals(0,jugador2.puntaje());

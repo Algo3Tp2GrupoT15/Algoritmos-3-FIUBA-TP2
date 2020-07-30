@@ -47,8 +47,11 @@ public class PreguntaVerdaderoFalsoTest {
         respuestaJugador1.agregarOpcion(opcionCorrecta);
         respuestaJugador2.agregarOpcion(opcionIncorrecta);
 
-        jugador1.asignarPuntaje(respuestaJugador1, verdaderoYFalso);
-        jugador2.asignarPuntaje(respuestaJugador2, verdaderoYFalso);
+        respuestaJugador1.agregarJugador(jugador1);
+        respuestaJugador2.agregarJugador(jugador2);
+
+        verdaderoYFalso.asignarPuntaje(respuestaJugador1);
+        verdaderoYFalso.asignarPuntaje(respuestaJugador2);
 
         assertEquals(1,jugador1.puntaje());
         assertEquals(0,jugador2.puntaje());

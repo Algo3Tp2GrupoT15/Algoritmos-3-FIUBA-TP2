@@ -8,14 +8,13 @@ public class Jugador {
         puntaje = 0;
     }
 
-    public void asignarPuntaje(Respuesta respuesta, Preguntas Pregunta) {
+    public void agregarPuntaje(int unPuntaje) {
 
-        puntaje = Pregunta.asignarPuntaje(respuesta);
-
+        puntaje = unPuntaje;
 
     }
 
-    public void asignarNombre(String nombre){
+    public void agregarNombre(String nombre){
 
         this.nombre = nombre;
     }

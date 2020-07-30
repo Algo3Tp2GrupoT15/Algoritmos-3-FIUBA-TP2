@@ -18,26 +18,27 @@ public class MultipleChoice implements Preguntas{
 
     @Override
     public ArrayList<Opcion> opciones() {
+
         return opciones;
+
     }
+
 
     @Override
-    public int asignarPuntaje(Respuesta respuesta) {
+    public void asignarPuntaje(Respuesta respuesta) {
 
-        int puntaje = 0;
-        int opcionesCorrectas = respuesta.cantidadDeOpcionesCorrectas();
+        respuesta.asignarPuntajeClasico(this.opcionesCorrectas().size());
 
-        if(this.opcionesCorrectas().size() == opcionesCorrectas){
-            puntaje += 1;
-        }
-
-        return puntaje;
     }
+
 
     @Override
     public String contenido() {
+
         return texto;
+
     }
+
 
     @Override
     public ArrayList<Opcion> opcionesCorrectas() {

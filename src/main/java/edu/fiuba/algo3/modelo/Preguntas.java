@@ -9,7 +9,7 @@ public interface Preguntas {
 
     ArrayList<Opcion> opciones();
 
-    int asignarPuntaje(Respuesta respuesta);
+    void asignarPuntaje(Respuesta respuesta);
 
     String contenido();
 

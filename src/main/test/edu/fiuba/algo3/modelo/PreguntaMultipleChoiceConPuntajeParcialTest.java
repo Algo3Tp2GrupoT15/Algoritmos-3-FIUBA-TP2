@@ -55,8 +55,11 @@ public class PreguntaMultipleChoiceConPuntajeParcialTest {
         respuestaJugador2.agregarOpcion(opcionIncorrecta);
         respuestaJugador2.agregarOpcion(opcionCorrecta2);
 
-        jugador1.asignarPuntaje(respuestaJugador1, multipleChoiceParcial);
-        jugador2.asignarPuntaje(respuestaJugador2, multipleChoiceParcial);
+        respuestaJugador1.agregarJugador(jugador1);
+        respuestaJugador2.agregarJugador(jugador2);
+
+        multipleChoiceParcial.asignarPuntaje(respuestaJugador1);
+        multipleChoiceParcial.asignarPuntaje(respuestaJugador2);
 
         assertEquals(2,jugador1.puntaje());
         assertEquals(0,jugador2.puntaje());

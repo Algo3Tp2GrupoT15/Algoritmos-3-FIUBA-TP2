@@ -59,8 +59,11 @@ public class PreguntaMultipleChoiceConPenalidadTest {
         respuestaJugador2.agregarOpcion(opcionCorrecta);
         respuestaJugador2.agregarOpcion(opcionCorrecta2);
 
-        jugador1.asignarPuntaje(respuestaJugador1, multipleChoiceConPenalidad);
-        jugador2.asignarPuntaje(respuestaJugador2, multipleChoiceConPenalidad);
+        respuestaJugador1.agregarJugador(jugador1);
+        respuestaJugador2.agregarJugador(jugador2);
+
+        multipleChoiceConPenalidad.asignarPuntaje(respuestaJugador1);
+        multipleChoiceConPenalidad.asignarPuntaje(respuestaJugador2);
 
         assertEquals(0,jugador1.puntaje());
         assertEquals(1,jugador2.puntaje());
