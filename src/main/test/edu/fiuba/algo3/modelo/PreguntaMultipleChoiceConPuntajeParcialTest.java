@@ -48,15 +48,13 @@ public class PreguntaMultipleChoiceConPuntajeParcialTest {
 
         MultipleChoiceParcial multipleChoiceParcial = new MultipleChoiceParcial(" 2+2=..? ", opciones);
 
-        Respuesta respuestaJugador1 = new Respuesta();
-        Respuesta respuestaJugador2 = new Respuesta();
+        TipoParcial tipoParcial = new TipoParcial();
+        Respuesta respuestaJugador1 = new Respuesta(jugador1,tipoParcial);
+        Respuesta respuestaJugador2 = new Respuesta(jugador2,tipoParcial);
         respuestaJugador1.agregarOpcion(opcionCorrecta);
         respuestaJugador1.agregarOpcion(opcionCorrecta2);
         respuestaJugador2.agregarOpcion(opcionIncorrecta);
         respuestaJugador2.agregarOpcion(opcionCorrecta2);
-
-        respuestaJugador1.agregarJugador(jugador1);
-        respuestaJugador2.agregarJugador(jugador2);
 
         multipleChoiceParcial.asignarPuntaje(respuestaJugador1);
         multipleChoiceParcial.asignarPuntaje(respuestaJugador2);

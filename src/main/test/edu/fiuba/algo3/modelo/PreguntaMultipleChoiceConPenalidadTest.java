@@ -48,8 +48,9 @@ public class PreguntaMultipleChoiceConPenalidadTest {
 
         MultipleChoiceConPenalidad multipleChoiceConPenalidad = new MultipleChoiceConPenalidad(" 2+2=..? ", opciones);
 
-        Respuesta respuestaJugador1 = new Respuesta();
-        Respuesta respuestaJugador2 = new Respuesta();
+        TipoConPenalidad tipoConPenalidad = new TipoConPenalidad();
+        Respuesta respuestaJugador1 = new Respuesta(jugador1,tipoConPenalidad);
+        Respuesta respuestaJugador2 = new Respuesta(jugador2,tipoConPenalidad);
         respuestaJugador1.agregarOpcion(opcionCorrecta);
         respuestaJugador1.agregarOpcion(opcionCorrecta2);
         respuestaJugador1.agregarOpcion(opcionIncorrecta);
@@ -58,9 +59,6 @@ public class PreguntaMultipleChoiceConPenalidadTest {
         respuestaJugador2.agregarOpcion(opcionIncorrecta);
         respuestaJugador2.agregarOpcion(opcionCorrecta);
         respuestaJugador2.agregarOpcion(opcionCorrecta2);
-
-        respuestaJugador1.agregarJugador(jugador1);
-        respuestaJugador2.agregarJugador(jugador2);
 
         multipleChoiceConPenalidad.asignarPuntaje(respuestaJugador1);
         multipleChoiceConPenalidad.asignarPuntaje(respuestaJugador2);

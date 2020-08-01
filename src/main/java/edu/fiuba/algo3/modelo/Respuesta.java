@@ -6,11 +6,18 @@ public class Respuesta {
 
     private ArrayList<Opcion> opciones;
 
+    private TipoRespuesta tipo;
+
     private Jugador jugador;
 
-    public Respuesta() {
+
+    public Respuesta(Jugador unJugador,TipoRespuesta unTipo) {
 
         opciones = new ArrayList<Opcion>();
+
+        jugador = unJugador;
+
+        tipo = unTipo;
     }
 
 
@@ -19,9 +26,10 @@ public class Respuesta {
         opciones.add(opcion);
     }
 
-    public void agregarJugador(Jugador unJugador) {
 
-        jugador=unJugador;
+    public void asignarPuntajeAlJugador(int puntaje) {
+
+        jugador.agregarPuntaje(puntaje);
     }
 
 
@@ -41,33 +49,10 @@ public class Respuesta {
     }
 
 
-    public void asignarPuntajeClasico(int cantidadDeCorrectas){
+    public void asignarPuntaje(int cantidadDeCorrectas){
 
-        if(cantidadDeCorrectas == this.cantidadDeOpcionesCorrectas()){
-
-            jugador.agregarPuntaje(1);
-
-        }
+        tipo.asignarPuntaje(this,cantidadDeCorrectas);
 
     }
-
-
-    public void asignarPuntajeConPenalidad(){
-
-        int puntaje = this.cantidadDeOpcionesCorrectas() - this.cantidadDeOpcionesIncorrectas();
-
-        jugador.agregarPuntaje(puntaje);
-    }
-
-
-    public void asignarPuntajeParcial(){
-
-        if (this.cantidadDeOpcionesIncorrectas() == 0) {
-
-            jugador.agregarPuntaje(this.cantidadDeOpcionesCorrectas());
-
-        }
-    }
-
 
 }

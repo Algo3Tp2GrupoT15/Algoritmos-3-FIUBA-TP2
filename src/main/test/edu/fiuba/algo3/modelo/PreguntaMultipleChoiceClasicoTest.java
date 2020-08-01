@@ -48,15 +48,13 @@ public class PreguntaMultipleChoiceClasicoTest {
 
         MultipleChoice multipleChoice = new MultipleChoice(" 2+2=..? ", opciones);
 
-        Respuesta respuestaJugador1 = new Respuesta();
-        Respuesta respuestaJugador2 = new Respuesta();
+        TipoClásico tipoClásico = new TipoClásico();
+        Respuesta respuestaJugador1 = new Respuesta(jugador1,tipoClásico);
+        Respuesta respuestaJugador2 = new Respuesta(jugador2,tipoClásico);
         respuestaJugador1.agregarOpcion(opcionCorrecta);
         respuestaJugador1.agregarOpcion(opcionCorrecta2);
         respuestaJugador2.agregarOpcion(opcionIncorrecta);
         respuestaJugador2.agregarOpcion(opcionCorrecta2);
-
-        respuestaJugador1.agregarJugador(jugador1);
-        respuestaJugador2.agregarJugador(jugador2);
 
         multipleChoice.asignarPuntaje(respuestaJugador1);
         multipleChoice.asignarPuntaje(respuestaJugador2);

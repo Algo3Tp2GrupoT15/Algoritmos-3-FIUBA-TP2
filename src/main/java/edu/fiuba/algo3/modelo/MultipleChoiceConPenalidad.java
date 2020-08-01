@@ -13,7 +13,7 @@ public class MultipleChoiceConPenalidad extends MultipleChoice{
 
     public void asignarPuntaje(Respuesta respuesta) {
 
-        respuesta.asignarPuntajeConPenalidad();
+        respuesta.asignarPuntaje(this.opcionesCorrectas().size());
 
     }
 

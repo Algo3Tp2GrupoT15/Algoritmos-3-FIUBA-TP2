@@ -13,7 +13,7 @@ public class MultipleChoiceParcial extends MultipleChoice{
 
     public void asignarPuntaje(Respuesta respuesta) {
 
-        respuesta.asignarPuntajeParcial();
+        respuesta.asignarPuntaje(this.opcionesCorrectas().size());
 
     }
 

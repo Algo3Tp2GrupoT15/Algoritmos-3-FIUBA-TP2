@@ -42,13 +42,11 @@ public class PreguntaVerdaderoFalsoTest {
 
         VerdaderoYFalso verdaderoYFalso = new VerdaderoYFalso("El cielo es azul", opciones);
 
-        Respuesta respuestaJugador1 = new Respuesta();
-        Respuesta respuestaJugador2 = new Respuesta();
+        TipoClásico tipoClásico = new TipoClásico();
+        Respuesta respuestaJugador1 = new Respuesta(jugador1,tipoClásico);
+        Respuesta respuestaJugador2 = new Respuesta(jugador2,tipoClásico);
         respuestaJugador1.agregarOpcion(opcionCorrecta);
         respuestaJugador2.agregarOpcion(opcionIncorrecta);
-
-        respuestaJugador1.agregarJugador(jugador1);
-        respuestaJugador2.agregarJugador(jugador2);
 
         verdaderoYFalso.asignarPuntaje(respuestaJugador1);
         verdaderoYFalso.asignarPuntaje(respuestaJugador2);

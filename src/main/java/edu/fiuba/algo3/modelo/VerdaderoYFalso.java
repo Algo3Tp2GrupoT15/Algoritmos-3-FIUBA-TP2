@@ -28,7 +28,7 @@ public class VerdaderoYFalso implements Preguntas{
     @Override
     public void asignarPuntaje(Respuesta respuesta) {
 
-        respuesta.asignarPuntajeClasico(this.opcionesCorrectas().size());
+        respuesta.asignarPuntaje(this.opcionesCorrectas().size());
 
     }
 

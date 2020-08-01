@@ -40,13 +40,11 @@ public class PreguntaVerdaderoFalsoConPenalidadTest {
 
         VerdaderoYFalsoConPenalidad verdaderoYFalsoConPenalidad = new VerdaderoYFalsoConPenalidad("El cielo es azul", opciones);
 
-        Respuesta respuestaJugador1 = new Respuesta();
-        Respuesta respuestaJugador2 = new Respuesta();
+        TipoConPenalidad tipoConPenalidad = new TipoConPenalidad();
+        Respuesta respuestaJugador1 = new Respuesta(jugador1,tipoConPenalidad);
+        Respuesta respuestaJugador2 = new Respuesta(jugador2,tipoConPenalidad);
         respuestaJugador1.agregarOpcion(opcionCorrecta);
         respuestaJugador2.agregarOpcion(opcionIncorrecta);
-
-        respuestaJugador1.agregarJugador(jugador1);
-        respuestaJugador2.agregarJugador(jugador2);
 
         verdaderoYFalsoConPenalidad.asignarPuntaje(respuestaJugador1);
         verdaderoYFalsoConPenalidad.asignarPuntaje(respuestaJugador2);
