@@ -1,6 +1,15 @@
 language: java
+jdk:
+  - oraclejdk11
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+sudo: false
+install: true
+git:
+  depth: 3
+
+script: mvn clean verify
+  
   
 
   
