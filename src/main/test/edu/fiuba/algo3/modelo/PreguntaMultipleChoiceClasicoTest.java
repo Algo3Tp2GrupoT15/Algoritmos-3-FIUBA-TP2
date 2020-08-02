@@ -25,7 +25,9 @@ public class PreguntaMultipleChoiceClasicoTest {
 
         ArrayList<Opcion> opciones = new ArrayList<Opcion>(Arrays.asList(opcionCorrecta,opcionCorrecta2,opcionIncorrecta,opcionIncorrecta2));
 
-        MultipleChoice multipleChoice = new MultipleChoice(" 2+2=..? ", opciones);
+        TipoClásico tipoClásico = new TipoClásico();
+
+        MultipleChoice multipleChoice = new MultipleChoice(" 2+2=..? ", opciones, tipoClásico);
 
         ArrayList<Opcion> opcionesCorrectas = new ArrayList<Opcion>(Arrays.asList(opcionCorrecta2,opcionCorrecta));
 
@@ -46,11 +48,12 @@ public class PreguntaMultipleChoiceClasicoTest {
 
         ArrayList<Opcion> opciones = new ArrayList<Opcion>(Arrays.asList(opcionCorrecta,opcionCorrecta2,opcionIncorrecta,opcionIncorrecta2));
 
-        MultipleChoice multipleChoice = new MultipleChoice(" 2+2=..? ", opciones);
-
         TipoClásico tipoClásico = new TipoClásico();
-        Respuesta respuestaJugador1 = new Respuesta(jugador1,tipoClásico);
-        Respuesta respuestaJugador2 = new Respuesta(jugador2,tipoClásico);
+
+        MultipleChoice multipleChoice = new MultipleChoice(" 2+2=..? ", opciones,tipoClásico);
+
+        Respuesta respuestaJugador1 = new Respuesta(jugador1);
+        Respuesta respuestaJugador2 = new Respuesta(jugador2);
         respuestaJugador1.agregarOpcion(opcionCorrecta);
         respuestaJugador1.agregarOpcion(opcionCorrecta2);
         respuestaJugador2.agregarOpcion(opcionIncorrecta);

@@ -25,7 +25,9 @@ public class PreguntaMultipleChoiceConPenalidadTest {
 
         ArrayList<Opcion> opciones = new ArrayList<Opcion>(Arrays.asList(opcionCorrecta,opcionCorrecta2,opcionIncorrecta,opcionIncorrecta2));
 
-        MultipleChoiceConPenalidad multipleChoiceConPenalidad = new MultipleChoiceConPenalidad(" 2+2=..? ", opciones);
+        TipoConPenalidad tipoConPenalidad = new TipoConPenalidad();
+
+        MultipleChoiceConPenalidad multipleChoiceConPenalidad = new MultipleChoiceConPenalidad(" 2+2=..? ", opciones, tipoConPenalidad);
 
         ArrayList<Opcion> opcionesCorrectas = new ArrayList<Opcion>(Arrays.asList(opcionCorrecta2,opcionCorrecta));
 
@@ -46,11 +48,12 @@ public class PreguntaMultipleChoiceConPenalidadTest {
 
         ArrayList<Opcion> opciones = new ArrayList<Opcion>(Arrays.asList(opcionCorrecta,opcionCorrecta2,opcionIncorrecta,opcionIncorrecta2));
 
-        MultipleChoiceConPenalidad multipleChoiceConPenalidad = new MultipleChoiceConPenalidad(" 2+2=..? ", opciones);
-
         TipoConPenalidad tipoConPenalidad = new TipoConPenalidad();
-        Respuesta respuestaJugador1 = new Respuesta(jugador1,tipoConPenalidad);
-        Respuesta respuestaJugador2 = new Respuesta(jugador2,tipoConPenalidad);
+
+        MultipleChoiceConPenalidad multipleChoiceConPenalidad = new MultipleChoiceConPenalidad(" 2+2=..? ", opciones,tipoConPenalidad);
+
+        Respuesta respuestaJugador1 = new Respuesta(jugador1);
+        Respuesta respuestaJugador2 = new Respuesta(jugador2);
         respuestaJugador1.agregarOpcion(opcionCorrecta);
         respuestaJugador1.agregarOpcion(opcionCorrecta2);
         respuestaJugador1.agregarOpcion(opcionIncorrecta);

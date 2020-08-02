@@ -4,16 +4,16 @@ import java.util.ArrayList;
 
 public class VerdaderoYFalsoConPenalidad extends VerdaderoYFalso {
 
-    public VerdaderoYFalsoConPenalidad(String enunciado, ArrayList<Opcion> opciones) {
+    public VerdaderoYFalsoConPenalidad(String enunciado, ArrayList<Opcion> opciones,TipoPuntaje tipo) {
 
-        super(enunciado, opciones);
+        super(enunciado, opciones, tipo);
 
     }
 
 
     public void asignarPuntaje(Respuesta respuesta) {
 
-        respuesta.asignarPuntaje(this.opcionesCorrectas().size());
+        tipo.asignarPuntaje(respuesta,this.opcionesCorrectas().size());
 
     }
 

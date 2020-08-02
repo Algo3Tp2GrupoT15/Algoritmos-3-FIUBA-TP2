@@ -4,16 +4,16 @@ import java.util.ArrayList;
 
 public class MultipleChoiceConPenalidad extends MultipleChoice{
 
-    public MultipleChoiceConPenalidad(String pregunta, ArrayList<Opcion> opciones) {
+    public MultipleChoiceConPenalidad(String pregunta, ArrayList<Opcion> opciones,TipoPuntaje tipo) {
 
-        super(pregunta, opciones);
+        super(pregunta, opciones, tipo);
 
     }
 
 
     public void asignarPuntaje(Respuesta respuesta) {
 
-        respuesta.asignarPuntaje(this.opcionesCorrectas().size());
+        tipo.asignarPuntaje(respuesta,this.opcionesCorrectas().size());
 
     }
 

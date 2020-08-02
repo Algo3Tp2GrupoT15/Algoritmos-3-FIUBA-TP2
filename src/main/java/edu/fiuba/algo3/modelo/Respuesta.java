@@ -6,18 +6,15 @@ public class Respuesta {
 
     private ArrayList<Opcion> opciones;
 
-    private TipoRespuesta tipo;
-
     private Jugador jugador;
 
 
-    public Respuesta(Jugador unJugador,TipoRespuesta unTipo) {
+    public Respuesta(Jugador unJugador) {
 
         opciones = new ArrayList<Opcion>();
 
         jugador = unJugador;
 
-        tipo = unTipo;
     }
 
 
@@ -48,11 +45,5 @@ public class Respuesta {
         return (int)cantidad;
     }
 
-
-    public void asignarPuntaje(int cantidadDeCorrectas){
-
-        tipo.asignarPuntaje(this,cantidadDeCorrectas);
-
-    }
 
 }

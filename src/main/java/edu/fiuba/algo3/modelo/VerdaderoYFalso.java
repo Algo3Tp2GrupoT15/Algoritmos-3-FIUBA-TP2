@@ -7,12 +7,13 @@ public class VerdaderoYFalso implements Preguntas{
 
     private final String texto;
     private ArrayList<Opcion> opciones;
+    protected TipoPuntaje tipo;
 
-    public VerdaderoYFalso(String enunciado,ArrayList<Opcion> opciones) {
+    public VerdaderoYFalso(String enunciado,ArrayList<Opcion> opciones,TipoPuntaje unTipo) {
 
-        texto = enunciado;
-
+        this.texto = enunciado;
         this.opciones = opciones;
+        this.tipo = unTipo;
 
     }
 
@@ -28,7 +29,7 @@ public class VerdaderoYFalso implements Preguntas{
     @Override
     public void asignarPuntaje(Respuesta respuesta) {
 
-        respuesta.asignarPuntaje(this.opcionesCorrectas().size());
+        tipo.asignarPuntaje(respuesta,this.opcionesCorrectas().size());
 
     }
 

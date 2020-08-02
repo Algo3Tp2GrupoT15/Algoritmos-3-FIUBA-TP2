@@ -23,7 +23,9 @@ public class PreguntaVerdaderoFalsoTest {
         opciones.add(opcionCorrecta);
         opciones.add(opcionIncorrecta);
 
-        VerdaderoYFalso verdaderoYFalso = new VerdaderoYFalso("El cielo es azul", opciones);
+        TipoClásico tipoClásico = new TipoClásico();
+
+        VerdaderoYFalso verdaderoYFalso = new VerdaderoYFalso("El cielo es azul", opciones, tipoClásico);
 
         assertEquals(opcionCorrecta, verdaderoYFalso.opcionesCorrectas().get(0));
 
@@ -40,11 +42,12 @@ public class PreguntaVerdaderoFalsoTest {
         opciones.add(opcionCorrecta);
         opciones.add(opcionIncorrecta);
 
-        VerdaderoYFalso verdaderoYFalso = new VerdaderoYFalso("El cielo es azul", opciones);
-
         TipoClásico tipoClásico = new TipoClásico();
-        Respuesta respuestaJugador1 = new Respuesta(jugador1,tipoClásico);
-        Respuesta respuestaJugador2 = new Respuesta(jugador2,tipoClásico);
+
+        VerdaderoYFalso verdaderoYFalso = new VerdaderoYFalso("El cielo es azul", opciones,tipoClásico);
+
+        Respuesta respuestaJugador1 = new Respuesta(jugador1);
+        Respuesta respuestaJugador2 = new Respuesta(jugador2);
         respuestaJugador1.agregarOpcion(opcionCorrecta);
         respuestaJugador2.agregarOpcion(opcionIncorrecta);
 

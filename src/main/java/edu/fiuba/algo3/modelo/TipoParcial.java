@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-public class TipoParcial extends TipoRespuesta{
+public class TipoParcial extends TipoPuntaje {
 
     public void asignarPuntaje(Respuesta respuesta, int cantidadDeCorrectas) {
 

@@ -24,7 +24,9 @@ public class PreguntaMultipleChoiceConPuntajeParcialTest {
 
         ArrayList<Opcion> opciones = new ArrayList<Opcion>(Arrays.asList(opcionCorrecta,opcionCorrecta2,opcionIncorrecta,opcionIncorrecta2));
 
-        MultipleChoiceParcial multipleChoiceParcial = new MultipleChoiceParcial(" 2+2=..? ", opciones);
+        TipoParcial tipoParcial = new TipoParcial();
+
+        MultipleChoiceParcial multipleChoiceParcial = new MultipleChoiceParcial(" 2+2=..? ", opciones, tipoParcial);
 
         ArrayList<Opcion> opcionesCorrectas = new ArrayList<Opcion>(Arrays.asList(opcionCorrecta2,opcionCorrecta));
 
@@ -46,11 +48,12 @@ public class PreguntaMultipleChoiceConPuntajeParcialTest {
 
         ArrayList<Opcion> opciones = new ArrayList<Opcion>(Arrays.asList(opcionCorrecta,opcionCorrecta2,opcionIncorrecta,opcionIncorrecta2));
 
-        MultipleChoiceParcial multipleChoiceParcial = new MultipleChoiceParcial(" 2+2=..? ", opciones);
-
         TipoParcial tipoParcial = new TipoParcial();
-        Respuesta respuestaJugador1 = new Respuesta(jugador1,tipoParcial);
-        Respuesta respuestaJugador2 = new Respuesta(jugador2,tipoParcial);
+
+        MultipleChoiceParcial multipleChoiceParcial = new MultipleChoiceParcial(" 2+2=..? ", opciones,tipoParcial);
+
+        Respuesta respuestaJugador1 = new Respuesta(jugador1);
+        Respuesta respuestaJugador2 = new Respuesta(jugador2);
         respuestaJugador1.agregarOpcion(opcionCorrecta);
         respuestaJugador1.agregarOpcion(opcionCorrecta2);
         respuestaJugador2.agregarOpcion(opcionIncorrecta);

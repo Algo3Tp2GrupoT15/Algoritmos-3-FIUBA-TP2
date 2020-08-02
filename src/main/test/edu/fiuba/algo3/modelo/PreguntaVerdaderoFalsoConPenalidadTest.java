@@ -22,7 +22,9 @@ public class PreguntaVerdaderoFalsoConPenalidadTest {
         opciones.add(opcionCorrecta);
         opciones.add(opcionIncorrecta);
 
-        VerdaderoYFalsoConPenalidad verdaderoYFalsoConPenalidad = new VerdaderoYFalsoConPenalidad("El cielo es azul", opciones);
+        TipoConPenalidad tipoConPenalidad = new TipoConPenalidad();
+
+        VerdaderoYFalsoConPenalidad verdaderoYFalsoConPenalidad = new VerdaderoYFalsoConPenalidad("El cielo es azul", opciones, tipoConPenalidad);
 
         assertEquals(opcionCorrecta, verdaderoYFalsoConPenalidad.opcionesCorrectas().get(0));
     }
@@ -38,11 +40,12 @@ public class PreguntaVerdaderoFalsoConPenalidadTest {
         opciones.add(opcionCorrecta);
         opciones.add(opcionIncorrecta);
 
-        VerdaderoYFalsoConPenalidad verdaderoYFalsoConPenalidad = new VerdaderoYFalsoConPenalidad("El cielo es azul", opciones);
-
         TipoConPenalidad tipoConPenalidad = new TipoConPenalidad();
-        Respuesta respuestaJugador1 = new Respuesta(jugador1,tipoConPenalidad);
-        Respuesta respuestaJugador2 = new Respuesta(jugador2,tipoConPenalidad);
+
+        VerdaderoYFalsoConPenalidad verdaderoYFalsoConPenalidad = new VerdaderoYFalsoConPenalidad("El cielo es azul", opciones,tipoConPenalidad);
+
+        Respuesta respuestaJugador1 = new Respuesta(jugador1);
+        Respuesta respuestaJugador2 = new Respuesta(jugador2);
         respuestaJugador1.agregarOpcion(opcionCorrecta);
         respuestaJugador2.agregarOpcion(opcionIncorrecta);
 

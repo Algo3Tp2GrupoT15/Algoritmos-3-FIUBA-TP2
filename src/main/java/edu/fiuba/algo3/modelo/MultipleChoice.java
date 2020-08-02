@@ -7,11 +7,13 @@ public class MultipleChoice implements Preguntas{
 
     private final String texto;
     private ArrayList<Opcion> opciones;
+    protected TipoPuntaje tipo;
 
-    public MultipleChoice(String pregunta, ArrayList<Opcion> opciones){
+    public MultipleChoice(String pregunta, ArrayList<Opcion> opciones,TipoPuntaje unTipo){
 
         this.opciones = opciones;
         this.texto = pregunta;
+        this.tipo = unTipo;
 
     }
 
@@ -27,7 +29,7 @@ public class MultipleChoice implements Preguntas{
     @Override
     public void asignarPuntaje(Respuesta respuesta) {
 
-        respuesta.asignarPuntaje(this.opcionesCorrectas().size());
+        tipo.asignarPuntaje(respuesta,this.opcionesCorrectas().size());
 
     }
 
