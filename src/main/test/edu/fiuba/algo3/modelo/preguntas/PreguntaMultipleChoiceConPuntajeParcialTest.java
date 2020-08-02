@@ -1,5 +1,10 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.preguntas;
 
+import edu.fiuba.algo3.modelo.Jugador;
+import edu.fiuba.algo3.modelo.Opcion;
+import edu.fiuba.algo3.modelo.Respuesta;
+import edu.fiuba.algo3.modelo.preguntas.MultipleChoice;
+import edu.fiuba.algo3.modelo.preguntas.TipoParcial;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

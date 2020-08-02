@@ -1,4 +1,7 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.preguntas;
+
+import edu.fiuba.algo3.modelo.Opcion;
+import edu.fiuba.algo3.modelo.Respuesta;
 
 import java.util.ArrayList;
 import static java.util.stream.Collectors.toCollection;
