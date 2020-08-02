@@ -1,9 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.Jugador;
-import edu.fiuba.algo3.modelo.Opcion;
-import edu.fiuba.algo3.modelo.Respuesta;
-import edu.fiuba.algo3.modelo.VerdaderoYFalsoConPenalidad;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -24,7 +20,7 @@ public class PreguntaVerdaderoFalsoConPenalidadTest {
 
         TipoConPenalidad tipoConPenalidad = new TipoConPenalidad();
 
-        VerdaderoYFalsoConPenalidad verdaderoYFalsoConPenalidad = new VerdaderoYFalsoConPenalidad("El cielo es azul", opciones, tipoConPenalidad);
+        VerdaderoYFalso verdaderoYFalsoConPenalidad = new VerdaderoYFalso("El cielo es azul", opciones, tipoConPenalidad);
 
         assertEquals(opcionCorrecta, verdaderoYFalsoConPenalidad.opcionesCorrectas().get(0));
     }
@@ -42,7 +38,7 @@ public class PreguntaVerdaderoFalsoConPenalidadTest {
 
         TipoConPenalidad tipoConPenalidad = new TipoConPenalidad();
 
-        VerdaderoYFalsoConPenalidad verdaderoYFalsoConPenalidad = new VerdaderoYFalsoConPenalidad("El cielo es azul", opciones,tipoConPenalidad);
+        VerdaderoYFalso verdaderoYFalsoConPenalidad = new VerdaderoYFalso("El cielo es azul", opciones,tipoConPenalidad);
 
         Respuesta respuestaJugador1 = new Respuesta(jugador1);
         Respuesta respuestaJugador2 = new Respuesta(jugador2);

@@ -1,9 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.Jugador;
-import edu.fiuba.algo3.modelo.Opcion;
-import edu.fiuba.algo3.modelo.Respuesta;
-import edu.fiuba.algo3.modelo.MultipleChoiceConPenalidad;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -27,7 +23,7 @@ public class PreguntaMultipleChoiceConPenalidadTest {
 
         TipoConPenalidad tipoConPenalidad = new TipoConPenalidad();
 
-        MultipleChoiceConPenalidad multipleChoiceConPenalidad = new MultipleChoiceConPenalidad(" 2+2=..? ", opciones, tipoConPenalidad);
+        MultipleChoice multipleChoiceConPenalidad = new MultipleChoice(" 2+2=..? ", opciones, tipoConPenalidad);
 
         ArrayList<Opcion> opcionesCorrectas = new ArrayList<Opcion>(Arrays.asList(opcionCorrecta2,opcionCorrecta));
 
@@ -50,7 +46,7 @@ public class PreguntaMultipleChoiceConPenalidadTest {
 
         TipoConPenalidad tipoConPenalidad = new TipoConPenalidad();
 
-        MultipleChoiceConPenalidad multipleChoiceConPenalidad = new MultipleChoiceConPenalidad(" 2+2=..? ", opciones,tipoConPenalidad);
+        MultipleChoice multipleChoiceConPenalidad = new MultipleChoice(" 2+2=..? ", opciones,tipoConPenalidad);
 
         Respuesta respuestaJugador1 = new Respuesta(jugador1);
         Respuesta respuestaJugador2 = new Respuesta(jugador2);

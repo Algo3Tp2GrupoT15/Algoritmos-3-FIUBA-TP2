@@ -1,9 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.Jugador;
-import edu.fiuba.algo3.modelo.MultipleChoiceParcial;
-import edu.fiuba.algo3.modelo.Opcion;
-import edu.fiuba.algo3.modelo.Respuesta;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -26,7 +22,7 @@ public class PreguntaMultipleChoiceConPuntajeParcialTest {
 
         TipoParcial tipoParcial = new TipoParcial();
 
-        MultipleChoiceParcial multipleChoiceParcial = new MultipleChoiceParcial(" 2+2=..? ", opciones, tipoParcial);
+        MultipleChoice multipleChoiceParcial = new MultipleChoice(" 2+2=..? ", opciones, tipoParcial);
 
         ArrayList<Opcion> opcionesCorrectas = new ArrayList<Opcion>(Arrays.asList(opcionCorrecta2,opcionCorrecta));
 
@@ -50,7 +46,7 @@ public class PreguntaMultipleChoiceConPuntajeParcialTest {
 
         TipoParcial tipoParcial = new TipoParcial();
 
-        MultipleChoiceParcial multipleChoiceParcial = new MultipleChoiceParcial(" 2+2=..? ", opciones,tipoParcial);
+        MultipleChoice multipleChoiceParcial = new MultipleChoice(" 2+2=..? ", opciones,tipoParcial);
 
         Respuesta respuestaJugador1 = new Respuesta(jugador1);
         Respuesta respuestaJugador2 = new Respuesta(jugador2);
