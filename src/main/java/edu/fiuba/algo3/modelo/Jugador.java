@@ -10,7 +10,7 @@ public class Jugador {
 
     public void agregarPuntaje(int unPuntaje) {
 
-        puntaje = unPuntaje;
+        puntaje += unPuntaje;
 
     }
 

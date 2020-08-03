@@ -3,11 +3,11 @@
 
 
 
-# TP2 Algoritmos 3: {nombre}
+# TP2 Algoritmos 3: Kahoot
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
-## Grupo {N}
+## Grupo T15
 
 * **Leandro Van Kemenade** - [102826](https://github.com/leanvanke)
 * **Ricardo Luizaga** - [87528](https://github.com/integrante2)

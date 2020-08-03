@@ -46,4 +46,7 @@ public class Respuesta {
     }
 
 
+    public ArrayList<Opcion> opciones() {
+        return opciones;
+    }
 }
