@@ -12,7 +12,6 @@ public class OrderedChoice implements Preguntas {
     private final String texto;
     private ArrayList<Opcion> opciones;
 
-
     public OrderedChoice(String enunciado,ArrayList<Opcion> opciones) {
 
         this.texto = enunciado;

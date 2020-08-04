@@ -5,17 +5,20 @@ import edu.fiuba.algo3.modelo.Respuesta;
 
 import java.util.ArrayList;
 
+import static java.util.stream.Collectors.toCollection;
+
 public class GroupChoice implements Preguntas{
 
 
     private final String texto;
     private ArrayList<Opcion> opciones;
+    protected TipoPuntaje tipo;
 
-
-    public GroupChoice(String enunciado,ArrayList<Opcion> opciones) {
+    public GroupChoice(String enunciado,ArrayList<Opcion> opciones,TipoPuntaje unTipo) {
 
         this.texto = enunciado;
         this.opciones = opciones;
+        this.tipo = unTipo;
 
     }
 
@@ -27,6 +30,7 @@ public class GroupChoice implements Preguntas{
     @Override
     public void asignarPuntaje(Respuesta respuesta) {
 
+        tipo.asignarPuntaje(respuesta,this.opcionesCorrectas().size());
 
     }
 
@@ -37,6 +41,12 @@ public class GroupChoice implements Preguntas{
 
     @Override
     public ArrayList<Opcion> opcionesCorrectas() {
-        return null;
+
+        ArrayList<Opcion> correctas;
+
+        correctas = opciones.stream().filter(opcion -> opcion.esCorrecta()).collect(toCollection(ArrayList::new));
+
+        return correctas;
+
     }
 }
