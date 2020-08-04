@@ -72,5 +72,43 @@ public class PreguntaMultipleChoiceConPenalidadTest {
 
     }
 
+    @Test
+    public void testUnaPreguntaMultipleChoiceClasicoAsignaPuntosALosJugadoresQueRespondieronCorrectamenteUsandoMultiplicador(){
+
+        Jugador jugador1 = new Jugador();
+        Jugador jugador2 = new Jugador();
+
+        Opcion opcionCorrecta = new Opcion("4",true);
+        Opcion opcionCorrecta2 = new Opcion("2^2",true);
+        Opcion opcionIncorrecta = new Opcion("8",false);
+        Opcion opcionIncorrecta2 = new Opcion("Pez",false);
+
+        ArrayList<Opcion> opciones = new ArrayList<Opcion>(Arrays.asList(opcionCorrecta,opcionCorrecta2,opcionIncorrecta,opcionIncorrecta2));
+
+        TipoConPenalidad tipoConPenalidad = new TipoConPenalidad();
+
+        MultipleChoice multipleChoiceConPenalidad = new MultipleChoice(" 2+2=..? ", opciones,tipoConPenalidad);
+
+        Respuesta respuestaJugador1 = new Respuesta(jugador1);
+        Respuesta respuestaJugador2 = new Respuesta(jugador2);
+        respuestaJugador1.agregarOpcion(opcionCorrecta);
+        respuestaJugador1.agregarOpcion(opcionCorrecta2);
+        respuestaJugador1.agregarOpcion(opcionIncorrecta);
+        respuestaJugador1.agregarOpcion(opcionIncorrecta2);
+
+        respuestaJugador2.agregarOpcion(opcionIncorrecta);
+        respuestaJugador2.agregarOpcion(opcionCorrecta);
+        respuestaJugador2.agregarOpcion(opcionCorrecta2);
+
+        multipleChoiceConPenalidad.asignarPuntaje(respuestaJugador1);
+
+        multipleChoiceConPenalidad.asignarMultiplicador(3);
+
+        multipleChoiceConPenalidad.asignarPuntaje(respuestaJugador2);
+
+        assertEquals(0,jugador1.puntaje());
+        assertEquals(3,jugador2.puntaje());
+
+    }
 
 }

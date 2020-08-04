@@ -55,4 +55,11 @@ public class MultipleChoice implements Preguntas{
         return correctas;
 
     }
+
+    public void asignarMultiplicador(int factor){
+
+        tipo.asignarMultiplicador(factor);
+
+    }
+
 }
