@@ -24,6 +24,8 @@ public class KahootVista extends Application {
 
         stage.setTitle("Kahoot Algos 3");
 
+        Text tipoDePregunta = new Text("VervaderoFalso Clasico");
+        tipoDePregunta.setFont(Font.font("Arial", FontWeight.BLACK, 36));
         Text pregunta = new Text("¿El cielo es azul?");
         pregunta.setFont(Font.font("Verdana", FontWeight.BOLD, 36));
         pregunta.setFill(Color.BLUE);
@@ -44,7 +46,7 @@ public class KahootVista extends Application {
         Button responder = new Button("Responder");
         //flowpane.getChildren().add(responder);
 
-        VBox vbox = new VBox(pregunta, flowpane, responder);
+        VBox vbox = new VBox(tipoDePregunta,pregunta, flowpane, responder);
         vbox.setAlignment(Pos.CENTER);
         vbox.setSpacing(20);
 

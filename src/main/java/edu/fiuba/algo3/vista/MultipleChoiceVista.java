@@ -22,7 +22,7 @@ public class MultipleChoiceVista extends Application {
     }
 
     @Override
-    public void start(Stage stage) { //prueba para ver la vista de una pregunta VyF
+    public void start(Stage stage) { //prueba para ver la vista de una pregunta MultipleChoice
 
         stage.setTitle("Kahoot Algos 3");
 
