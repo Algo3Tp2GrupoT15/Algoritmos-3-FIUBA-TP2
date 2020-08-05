@@ -8,6 +8,12 @@ public class Jugador {
         puntaje = 0;
     }
 
+    public Jugador(String nombre) {
+
+        this.nombre = nombre;
+        puntaje = 0;
+    }
+
     public void agregarPuntaje(int unPuntaje) {
 
         puntaje += unPuntaje;

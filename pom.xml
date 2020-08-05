@@ -12,18 +12,6 @@
         <mockito-mockito-core-version>3.3.0</mockito-mockito-core-version>
         <maven-surefire-version>3.0.0-M3</maven-surefire-version>
     </properties>
-    <repositories>
-        <repository>
-            <id>com.springsource.repository.bundles.release</id>
-            <name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>
-            <url>http://repository.springsource.com/maven/bundles/release</url>
-        </repository>
-        <repository>
-            <id>com.springsource.repository.bundles.external</id>
-            <name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
-            <url>http://repository.springsource.com/maven/bundles/external</url>
-        </repository>
-    </repositories>
     <dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
@@ -41,18 +29,6 @@
             <artifactId>mockito-core</artifactId>
             <version>${mockito-mockito-core-version}</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
     <build>
