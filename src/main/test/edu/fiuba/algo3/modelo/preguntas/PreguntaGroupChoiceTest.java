@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.preguntas;
 
 import edu.fiuba.algo3.modelo.Jugador;
-import edu.fiuba.algo3.modelo.Opcion;
+import edu.fiuba.algo3.modelo.OpcionGroup;
 import edu.fiuba.algo3.modelo.Respuesta;
 import org.junit.jupiter.api.Test;
 
@@ -15,12 +15,12 @@ public class PreguntaGroupChoiceTest {
     @Test
     public void testUnaPreguntaGroupChoicePuedeCrearseIndicandoleCualEsLaRespuestaCorrecta() {
 
-        Opcion opcion1 = new Opcion("1-impar", true);
-        Opcion opcion2 = new Opcion("2-par", true);
-        Opcion opcion3 = new Opcion("3-impar", true);
-        Opcion opcion4 = new Opcion("4-par", true);
+        OpcionGroup opcion1 = new OpcionGroup("1", "impar", true);
+        OpcionGroup opcion2 = new OpcionGroup("2", "par", true);
+        OpcionGroup opcion3 = new OpcionGroup("3", "impar", true);
+        OpcionGroup opcion4 = new OpcionGroup("4", "par", true);
 
-        ArrayList<Opcion> opcionesEnGrupos = new ArrayList<Opcion>(Arrays.asList(opcion1, opcion2, opcion3, opcion4));
+        ArrayList<OpcionGroup> opcionesEnGrupos = new ArrayList<OpcionGroup>(Arrays.asList(opcion1, opcion2, opcion3, opcion4));
 
         TipoClásico tipoClásico = new TipoClásico();
 
@@ -38,14 +38,14 @@ public class PreguntaGroupChoiceTest {
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador();
 
-        Opcion opcion1 = new Opcion("1-impar", true);
-        Opcion opcion2 = new Opcion("2-par", true);
-        Opcion opcion3 = new Opcion("3-impar", true);
-        Opcion opcion4 = new Opcion("4-par", true);
-        Opcion opcion5 = new Opcion("1-par", false);
-        Opcion opcion6 = new Opcion("4-impar", false);
+        OpcionGroup opcion1 = new OpcionGroup("1", "impar", true);
+        OpcionGroup opcion2 = new OpcionGroup("2", "par", true);
+        OpcionGroup opcion3 = new OpcionGroup("3", "impar", true);
+        OpcionGroup opcion4 = new OpcionGroup("4", "par", true);
+        OpcionGroup opcion5 = new OpcionGroup("1", "par", false);
+        OpcionGroup opcion6 = new OpcionGroup("4", "impar", false);
 
-        ArrayList<Opcion> opcionesEnGrupos = new ArrayList<Opcion>(Arrays.asList(opcion1, opcion2, opcion3, opcion4));
+        ArrayList<OpcionGroup> opcionesEnGrupos = new ArrayList<OpcionGroup>(Arrays.asList(opcion1, opcion2, opcion3, opcion4));
 
         TipoClásico tipoClásico = new TipoClásico();
 
