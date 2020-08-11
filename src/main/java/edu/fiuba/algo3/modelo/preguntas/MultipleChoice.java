@@ -56,10 +56,5 @@ public class MultipleChoice implements Preguntas{
 
     }
 
-    public void asignarMultiplicador(int factor){
-
-        tipo.asignarMultiplicador(factor);
-
-    }
 
 }

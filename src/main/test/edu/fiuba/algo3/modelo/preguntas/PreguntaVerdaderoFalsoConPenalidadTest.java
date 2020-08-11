@@ -78,10 +78,10 @@ public class PreguntaVerdaderoFalsoConPenalidadTest {
         respuestaJugador2.agregarOpcion(opcionIncorrecta);
 
 
-        verdaderoYFalsoConPenalidad.asignarMultiplicador(3);
+        jugador1.asignarMultiplicador(3);
         verdaderoYFalsoConPenalidad.asignarPuntaje(respuestaJugador1);
 
-        verdaderoYFalsoConPenalidad.asignarMultiplicador(2);
+        jugador2.asignarMultiplicador(2);
         verdaderoYFalsoConPenalidad.asignarPuntaje(respuestaJugador2);
 
         assertEquals(3,jugador1.puntaje());

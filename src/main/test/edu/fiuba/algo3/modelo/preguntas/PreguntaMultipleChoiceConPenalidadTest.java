@@ -102,7 +102,7 @@ public class PreguntaMultipleChoiceConPenalidadTest {
 
         multipleChoiceConPenalidad.asignarPuntaje(respuestaJugador1);
 
-        multipleChoiceConPenalidad.asignarMultiplicador(3);
+        jugador2.asignarMultiplicador(3);
 
         multipleChoiceConPenalidad.asignarPuntaje(respuestaJugador2);
 

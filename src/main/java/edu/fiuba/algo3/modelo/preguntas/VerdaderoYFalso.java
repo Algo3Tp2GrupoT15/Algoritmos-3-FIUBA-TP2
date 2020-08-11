@@ -56,10 +56,5 @@ public class VerdaderoYFalso implements Preguntas{
 
     }
 
-    public void asignarMultiplicador(int factor){
-
-        tipo.asignarMultiplicador(factor);
-
-    }
 
 }
