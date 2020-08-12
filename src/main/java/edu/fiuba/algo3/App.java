@@ -1,5 +1,7 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.vista.BienvenidosVista;
+import edu.fiuba.algo3.vista.InicioDelJuegoVista;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -12,18 +14,20 @@ import javafx.stage.Stage;
 public class App extends Application {
 
     @Override
-    public void start(Stage stage) {
-        var javaVersion = SystemInfo.javaVersion();
-        var javafxVersion = SystemInfo.javafxVersion();
+    public void start(final Stage stage) throws Exception {
 
-        var label = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
-        var scene = new Scene(new StackPane(label), 640, 480);
-        stage.setScene(scene);
+        stage.setTitle("Kahoot Algos 3");
+
+        InicioDelJuegoVista contenedorPrincipal = new InicioDelJuegoVista(stage);
+        Scene escenaJuego = new Scene(contenedorPrincipal, 1080, 720);
+
+        BienvenidosVista contenedorBienvenidos = new BienvenidosVista(stage, escenaJuego);
+        Scene escenaBienvenidos = new Scene(contenedorBienvenidos, 1080, 720);
+
+        stage.setScene(escenaBienvenidos);
+        stage.setFullScreen(false);
+
         stage.show();
-    }
 
-    public static void main(String[] args) {
-        launch();
     }
-
 }

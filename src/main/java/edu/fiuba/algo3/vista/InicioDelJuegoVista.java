@@ -17,17 +17,17 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class InicioDelJuegoVista extends Application {
+public class InicioDelJuegoVista extends VBox {
 
 
-    public static void main(String[] args){
-        launch();
-    }
+    private Stage stage;
 
-    @Override
-    public void start(Stage stage) {
 
-        stage.setTitle("Kahoot Algos 3");
+    public  InicioDelJuegoVista(Stage stage) {
+
+        super();
+
+        this.stage = stage;
 
         Text ingreseNombreJugadro1 = new Text("Nombre Jugador 1: ");
         TextField nombreJugador1 = new TextField();
@@ -35,9 +35,10 @@ public class InicioDelJuegoVista extends Application {
         TextField nombreJugador2 = new TextField();
 
         HBox iniciarJugador1 = new HBox(ingreseNombreJugadro1,nombreJugador1);
+        iniciarJugador1.setAlignment(Pos.CENTER);
         HBox iniciarJugador2 = new HBox(ingreseNombreJugadro2,nombreJugador2);
-
-        Button aceptar = new Button("Aceptar");
+        iniciarJugador2.setAlignment(Pos.CENTER);
+        Button aceptar = new Button("Aceptar y Empezar");
         Text validacion = new Text("");
 
         aceptar.setOnAction(value ->  {
@@ -47,17 +48,9 @@ public class InicioDelJuegoVista extends Application {
 
         });
 
-
-
-        VBox vbox = new VBox(iniciarJugador1, iniciarJugador2, aceptar, validacion);
-        vbox.setAlignment(Pos.CENTER);
-        vbox.setSpacing(20);
-
-        Scene scene = new Scene(vbox, 480, 360);
-        stage.setScene(scene);
-        stage.show();
-
-
+        this.getChildren().addAll(iniciarJugador1, iniciarJugador2, aceptar, validacion);
+        this.setAlignment(Pos.CENTER);
+        this.setSpacing(20);
 
 
     }
