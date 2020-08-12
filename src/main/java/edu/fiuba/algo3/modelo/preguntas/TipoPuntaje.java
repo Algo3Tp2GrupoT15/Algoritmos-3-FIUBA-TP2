@@ -2,8 +2,8 @@ package edu.fiuba.algo3.modelo.preguntas;
 
 import edu.fiuba.algo3.modelo.Respuesta;
 
-public class TipoPuntaje {
+public interface TipoPuntaje {
 
-    public void asignarPuntaje(Respuesta respuesta, int cantidadDeCorrectas){};
+    void asignarPuntaje(Respuesta respuesta, int cantidadDeCorrectas);
 
 }

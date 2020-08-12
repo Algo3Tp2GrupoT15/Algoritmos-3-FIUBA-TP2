@@ -1,8 +1,7 @@
 package edu.fiuba.algo3.modelo.exclusividad;
 
 import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.modelo.preguntas.GroupChoice;
-import edu.fiuba.algo3.modelo.preguntas.TipoClásico;
+import edu.fiuba.algo3.modelo.preguntas.TipoClasico;
 import edu.fiuba.algo3.modelo.preguntas.VerdaderoYFalso;
 import org.junit.jupiter.api.Test;
 
@@ -25,7 +24,7 @@ public class ExclusividadTest {
         opciones.add(opcionCorrecta);
         opciones.add(opcionIncorrecta);
 
-        TipoClásico tipoClásico = new TipoClásico();
+        TipoClasico tipoClásico = new TipoClasico();
 
         VerdaderoYFalso verdaderoYFalso = new VerdaderoYFalso("El cielo es azul", opciones,tipoClásico);
 
@@ -39,7 +38,7 @@ public class ExclusividadTest {
 
         Exclusividad exclusividad = new Exclusividad();
         exclusividad.activar(2);
-        exclusividad.modificarPuntos(jugador1,jugador2);
+        exclusividad.modificarPuntos(new ArrayList<Jugador>(Arrays.asList(jugador1,jugador2)));
 
         assertEquals(2,jugador1.puntaje());
         assertEquals(0,jugador2.puntaje());
@@ -57,7 +56,7 @@ public class ExclusividadTest {
         opciones.add(opcionCorrecta);
         opciones.add(opcionIncorrecta);
 
-        TipoClásico tipoClásico = new TipoClásico();
+        TipoClasico tipoClásico = new TipoClasico();
 
         VerdaderoYFalso verdaderoYFalso = new VerdaderoYFalso("El cielo es azul", opciones,tipoClásico);
 
@@ -71,7 +70,7 @@ public class ExclusividadTest {
 
         Exclusividad exclusividad = new Exclusividad();
         exclusividad.activar(2);
-        exclusividad.modificarPuntos(jugador1,jugador2);
+        exclusividad.modificarPuntos(new ArrayList<Jugador>(Arrays.asList(jugador1,jugador2)));
 
         assertEquals(0,jugador1.puntaje());
         assertEquals(0,jugador2.puntaje());
@@ -90,7 +89,7 @@ public class ExclusividadTest {
         opciones.add(opcionCorrecta);
         opciones.add(opcionIncorrecta);
 
-        TipoClásico tipoClásico = new TipoClásico();
+        TipoClasico tipoClásico = new TipoClasico();
 
         VerdaderoYFalso verdaderoYFalso = new VerdaderoYFalso("El cielo es azul", opciones,tipoClásico);
 
@@ -104,7 +103,7 @@ public class ExclusividadTest {
 
         Exclusividad exclusividad = new Exclusividad();
         exclusividad.activar(0);
-        exclusividad.modificarPuntos(jugador1,jugador2);
+        exclusividad.modificarPuntos(new ArrayList<Jugador>(Arrays.asList(jugador1,jugador2)));
 
         assertEquals(1,jugador1.puntaje());
         assertEquals(1,jugador2.puntaje());
@@ -123,7 +122,7 @@ public class ExclusividadTest {
         opciones.add(opcionCorrecta);
         opciones.add(opcionIncorrecta);
 
-        TipoClásico tipoClásico = new TipoClásico();
+        TipoClasico tipoClásico = new TipoClasico();
 
         VerdaderoYFalso verdaderoYFalso = new VerdaderoYFalso("El cielo es azul", opciones,tipoClásico);
 
@@ -139,7 +138,7 @@ public class ExclusividadTest {
         exclusividad.activar(2);
         exclusividad.activar(2);
 
-        exclusividad.modificarPuntos(jugador1,jugador2);
+        exclusividad.modificarPuntos(new ArrayList<Jugador>(Arrays.asList(jugador1,jugador2)));
 
 
         assertEquals(4,jugador1.puntaje());

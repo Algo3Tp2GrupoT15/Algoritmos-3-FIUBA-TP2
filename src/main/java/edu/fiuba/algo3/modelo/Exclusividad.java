@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import java.util.ArrayList;
+
 public class Exclusividad {
 
 
@@ -22,10 +24,13 @@ public class Exclusividad {
         }
 
     }
-    public void modificarPuntos(Jugador jugador1, Jugador jugador2) {
+    public void modificarPuntos(ArrayList<Jugador> jugadores) {
+
+
+        Jugador jugador1 = jugadores.get(0) ;
+        Jugador jugador2 = jugadores.get(1) ;
 
         int puntosJugador1=jugador1.getUltimoPuntajeAgregado();
-
         int puntosJugador2=jugador2.getUltimoPuntajeAgregado();
 
 

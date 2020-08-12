@@ -1,7 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.preguntas.Preguntas;
-import edu.fiuba.algo3.modelo.preguntas.TipoClásico;
+import edu.fiuba.algo3.modelo.preguntas.TipoClasico;
+import edu.fiuba.algo3.modelo.preguntas.TipoPuntaje;
 import edu.fiuba.algo3.modelo.preguntas.VerdaderoYFalso;
 
 import java.util.ArrayList;
@@ -10,22 +11,27 @@ public class KahootModel {
 
     ArrayList<Jugador> jugadores;
     ArrayList<Preguntas> preguntas;
+    ArrayList<Respuesta> respuestasDelTurno;
 
-    int numeroDePregunta;
-    int numeroDeJugador;
+    Exclusividad exclusividad;
+
+    private int numeroDePregunta;
+    private int numeroDeJugador;
 
     public KahootModel(){
+
+        jugadores = new ArrayList<Jugador>();
+        preguntas = new ArrayList<Preguntas>();
+        respuestasDelTurno = new ArrayList<Respuesta>();
+
+        exclusividad = new Exclusividad();
 
         int numeroDePregunta = 0;
         int numeroDeJugador = 0;
 
+
         leerPreguntas();
 
-
-        /*cargarJugador("lean");
-
-        cargarJugador("juan");
-*/
     }
 
     public void leerPreguntas(){ //leeria preguntas de un archivo pero de momento cargo a mano una pregunta para probar
@@ -37,16 +43,16 @@ public class KahootModel {
         opciones.add(opcionCorrecta);
         opciones.add(opcionIncorrecta);
 
-        TipoClásico tipoClásico = new TipoClásico();
+        TipoPuntaje tipoClasico = new TipoClasico();
 
-        VerdaderoYFalso verdaderoYFalso = new VerdaderoYFalso("El cielo es azul", opciones, tipoClásico);
+        Preguntas verdaderoYFalso = new VerdaderoYFalso("El cielo es azul", opciones, tipoClasico);
 
         preguntas.add(verdaderoYFalso);
 
 
     }
 
-    public void cargarJugador( String nombre){
+    public void cargarJugador(String nombre){
 
         jugadores.add(new Jugador(nombre));
 
@@ -74,11 +80,37 @@ public class KahootModel {
         numeroDeJugador +=1;
 
     }
-    public void siguientePregunta(){
+    public void proximaPreguntaDeTurno(){
         numeroDePregunta +=1;
+        numeroDeJugador = 0;
+        respuestasDelTurno = new ArrayList<Respuesta>();
 
     }
 
+    public void cargarRespuestas(Respuesta respuestaDeJugador){
+
+        respuestasDelTurno.add(respuestaDeJugador);
+
+    }
+
+    public void calcularPuntosDelTurno() {
+
+        for (Respuesta respuesta : respuestasDelTurno) {
+            preguntas.get(numeroDePregunta).asignarPuntaje(respuesta);
+        }
+
+        exclusividad.modificarPuntos(jugadores);
+    }
+
+    public void activarExclusividad(int usos){
+        exclusividad.activar(usos);
+    }
+
+    public void activarMultiplicador(int factor){
+
+        jugadorDeTurno().asignarMultiplicador(factor);
+
+    }
 
 
 }

@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.preguntas;
 
 import edu.fiuba.algo3.modelo.Respuesta;
 
-public class TipoClásico extends TipoPuntaje {
+public class TipoClasico implements TipoPuntaje {
 
     public void asignarPuntaje(Respuesta respuesta, int cantidadDeCorrectas){
 

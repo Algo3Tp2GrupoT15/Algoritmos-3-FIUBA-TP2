@@ -3,8 +3,6 @@ package edu.fiuba.algo3.modelo.preguntas;
 import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Opcion;
 import edu.fiuba.algo3.modelo.Respuesta;
-import edu.fiuba.algo3.modelo.preguntas.TipoClásico;
-import edu.fiuba.algo3.modelo.preguntas.VerdaderoYFalso;
 import org.junit.jupiter.api.Test;
 
 
@@ -24,7 +22,7 @@ public class PreguntaVerdaderoFalsoTest {
         opciones.add(opcionCorrecta);
         opciones.add(opcionIncorrecta);
 
-        TipoClásico tipoClásico = new TipoClásico();
+        TipoClasico tipoClásico = new TipoClasico();
 
         VerdaderoYFalso verdaderoYFalso = new VerdaderoYFalso("El cielo es azul", opciones, tipoClásico);
 
@@ -43,7 +41,7 @@ public class PreguntaVerdaderoFalsoTest {
         opciones.add(opcionCorrecta);
         opciones.add(opcionIncorrecta);
 
-        TipoClásico tipoClásico = new TipoClásico();
+        TipoClasico tipoClásico = new TipoClasico();
 
         VerdaderoYFalso verdaderoYFalso = new VerdaderoYFalso("El cielo es azul", opciones,tipoClásico);
 
