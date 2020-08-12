@@ -22,9 +22,10 @@ public class KahootModel {
         leerPreguntas();
 
 
-        cargarJugador("lean");
-        cargarJugador("juan");
+        /*cargarJugador("lean");
 
+        cargarJugador("juan");
+*/
     }
 
     public void leerPreguntas(){ //leeria preguntas de un archivo pero de momento cargo a mano una pregunta para probar
@@ -71,6 +72,10 @@ public class KahootModel {
 
     public void siguienteJugador(){
         numeroDeJugador +=1;
+
+    }
+    public void siguientePregunta(){
+        numeroDePregunta +=1;
 
     }
 

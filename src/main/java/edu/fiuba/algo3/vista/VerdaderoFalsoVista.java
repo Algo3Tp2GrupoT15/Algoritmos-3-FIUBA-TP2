@@ -13,7 +13,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
-public class KahootVista extends Application {
+public class VerdaderoFalsoVista extends Application {
 
     public static void main(String[] args){
         launch();
