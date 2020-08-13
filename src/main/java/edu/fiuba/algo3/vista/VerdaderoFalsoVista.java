@@ -78,14 +78,14 @@ public class VerdaderoFalsoVista extends VBox {
         flowpane.setHgap(50);
         flowpane.setAlignment(Pos.CENTER);
 
-        Button responder = new Button("Responder");
-        //flowpane.getChildren().add(responder);
-        BotonResponderHandler botonResponderHandler = new BotonResponderHandler(this.pregunta,this.respuesta);
-        responder.setOnAction(botonResponderHandler);
-
         Text puntaje = new Text();
         puntaje.setFont(Font.font("Arial", FontWeight.BLACK, 20));
         puntaje.textProperty().bind(createStringBinding(() -> "Puntaje: "+ respuesta.puntajeDelJugador()));
+
+        Button responder = new Button("Responder");
+        //flowpane.getChildren().add(responder);
+        BotonResponderHandler botonResponderHandler = new BotonResponderHandler(this.pregunta,this.respuesta,puntaje);
+        responder.setOnAction(botonResponderHandler);
 
         this.getChildren().addAll(tipoDePregunta,pregunta, flowpane, responder);
         this.setAlignment(Pos.CENTER);

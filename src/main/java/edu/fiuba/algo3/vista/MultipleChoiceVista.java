@@ -57,7 +57,7 @@ public class MultipleChoiceVista extends Application {
         FlowPane flowpane = new FlowPane();
         flowpane.setHgap(50);
         flowpane.setAlignment(Pos.CENTER);
-        ToggleGroup opciones = new ToggleGroup(); //esto es para que solo se pueda seleccionar una opcion
+        ToggleGroup opcionesGroup = new ToggleGroup(); //esto es para que solo se pueda seleccionar una opcion
 
 
     /*for (Opcion unaOpcion : kahoot.mostrarOpcionesDeTurno()) {
@@ -70,37 +70,33 @@ public class MultipleChoiceVista extends Application {
 
         RadioButton opcion1 = new RadioButton(this.opciones.get(0).contenido());
         flowpane.getChildren().add(opcion1);
-        opcion1.setToggleGroup(opciones);
+        opcion1.setToggleGroup(opcionesGroup);
         BotonRadioHandler botonRadioHandler1 = new BotonRadioHandler(respuesta,this.opciones.get(0));
         opcion1.setOnAction(botonRadioHandler1);
         RadioButton opcion2 = new RadioButton(this.opciones.get(1).contenido());
         flowpane.getChildren().add(opcion2);
-        opcion2.setToggleGroup(opciones);
+        opcion2.setToggleGroup(opcionesGroup);
         BotonRadioHandler botonRadioHandler2 = new BotonRadioHandler(respuesta,this.opciones.get(1));
         opcion2.setOnAction(botonRadioHandler2);
         RadioButton opcion3 = new RadioButton(this.opciones.get(2).contenido());
         flowpane.getChildren().add(opcion3);
-        opcion3.setToggleGroup(opciones);
+        opcion3.setToggleGroup(opcionesGroup);
         BotonRadioHandler botonRadioHandler3 = new BotonRadioHandler(respuesta,this.opciones.get(2));
         opcion3.setOnAction(botonRadioHandler3);
         RadioButton opcion4 = new RadioButton(this.opciones.get(3).contenido());
         flowpane.getChildren().add(opcion4);
-        opcion4.setToggleGroup(opciones);
+        opcion4.setToggleGroup(opcionesGroup);
         BotonRadioHandler botonRadioHandler4 = new BotonRadioHandler(respuesta,this.opciones.get(3));
         opcion4.setOnAction(botonRadioHandler4);
 
+        Text puntaje1 = new Text("Puntaje1: "+ respuesta.puntajeDelJugador());
+        puntaje1.setFont(Font.font("Arial", FontWeight.BLACK, 20));
+
         Button responder = new Button("Responder");
-        BotonResponderHandler botonResponderHandler = new BotonResponderHandler(this.pregunta,this.respuesta);
+        BotonResponderHandler botonResponderHandler = new BotonResponderHandler(this.pregunta,this.respuesta,puntaje1);
         responder.setOnAction(botonResponderHandler);
 
-        Text puntaje = new Text();
-        puntaje.setFont(Font.font("Arial", FontWeight.BLACK, 20));
-        puntaje.textProperty().bind(createStringBinding(() -> "Puntaje1: "+ respuesta.puntajeDelJugador()));
-
-        Text puntaje2 = new Text("Puntaje2: "+ respuesta.puntajeDelJugador());
-        puntaje2.setFont(Font.font("Arial", FontWeight.BLACK, 20));
-
-        VBox vbox = new VBox(tipoDePregunta,pregunta,puntaje,puntaje2, flowpane, responder);
+        VBox vbox = new VBox(tipoDePregunta,pregunta,puntaje1,flowpane,responder);
         vbox.setAlignment(Pos.CENTER);
         vbox.setSpacing(20);
 
