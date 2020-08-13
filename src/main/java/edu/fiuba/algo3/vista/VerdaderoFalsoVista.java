@@ -81,6 +81,9 @@ public class VerdaderoFalsoVista extends VBox {
         Text puntaje1 = new Text("Puntaje1: "+ respuesta.puntajeDelJugador());
         puntaje1.setFont(Font.font("Arial", FontWeight.BLACK, 20));
 
+        Text puntaje1 = new Text("Puntaje1: "+ respuesta.puntajeDelJugador());
+        puntaje1.setFont(Font.font("Arial", FontWeight.BLACK, 20));
+
         Button responder = new Button("Responder");
         //flowpane.getChildren().add(responder);
         BotonResponderHandler botonResponderHandler = new BotonResponderHandler(this.pregunta,this.respuesta,puntaje1);
