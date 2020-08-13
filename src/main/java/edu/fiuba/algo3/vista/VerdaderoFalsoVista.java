@@ -21,7 +21,6 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-
 import java.util.ArrayList;
 
 public class VerdaderoFalsoVista extends VBox {
@@ -31,6 +30,7 @@ public class VerdaderoFalsoVista extends VBox {
     private Respuesta respuesta;
     Opcion opcioCorrecta;
     Opcion opcioIncorrecta;
+    private KahootModel kahoot;
 
     public VerdaderoFalsoVista(Stage stage, KahootModel kahoot) { //prueba para ver la vista de una pregunta VyF
 
@@ -38,9 +38,9 @@ public class VerdaderoFalsoVista extends VBox {
 
         this.stage = stage;
 
-        stage.setTitle("Kahoot Algos 3");
+        this.crearModelo();
 
-        this.crearPregunta();
+        stage.setTitle("Kahoot Algos 3");
 
         Text turnoDelJugador = new Text(kahoot.jugadorDeTurno().nombre());
 
@@ -76,8 +76,10 @@ public class VerdaderoFalsoVista extends VBox {
 
     }
 
-    public void crearPregunta(){
+    public void crearModelo(){
 
+        KahootModel kahoot= new KahootModel();
+        
         Jugador jugador1 = new Jugador();
 
         Opcion opcionCorrecta = new Opcion("verdadero",true);

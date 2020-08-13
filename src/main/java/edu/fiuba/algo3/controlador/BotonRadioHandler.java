@@ -13,6 +13,7 @@ public class BotonRadioHandler implements EventHandler<ActionEvent> {
 
     public BotonRadioHandler(Respuesta respuesta, Opcion opcion) {
         this.respuesta = respuesta;
+        this.opcion = opcion;
     }
 
     @Override

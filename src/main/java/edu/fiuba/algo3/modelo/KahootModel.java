@@ -94,6 +94,12 @@ public class KahootModel {
 
     }
 
+    public void cargarPreguntas(Preguntas pregunta){
+
+        preguntas.add(pregunta);
+
+    }
+
     public void calcularPuntosDelTurno() {
 
         for (Respuesta respuesta : respuestasDelTurno) {
