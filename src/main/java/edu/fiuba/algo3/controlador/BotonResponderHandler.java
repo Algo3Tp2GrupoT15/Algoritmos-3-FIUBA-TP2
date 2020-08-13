@@ -8,8 +8,8 @@ import javafx.event.EventHandler;
 
 public class BotonResponderHandler implements EventHandler<ActionEvent> {
 
-    private Preguntas pregunta;
-    private Respuesta respuesta;
+    private final Preguntas pregunta;
+    private final Respuesta respuesta;
 
     public BotonResponderHandler(Preguntas pregunta, Respuesta respuesta) {
         this.pregunta = pregunta;

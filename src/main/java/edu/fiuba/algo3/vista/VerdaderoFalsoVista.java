@@ -23,13 +23,15 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import java.util.ArrayList;
 
+import static javafx.beans.binding.Bindings.createStringBinding;
+
 public class VerdaderoFalsoVista extends VBox {
 
     private Stage stage;
     private VerdaderoYFalso pregunta;
     private Respuesta respuesta;
-    Opcion opcioCorrecta;
-    Opcion opcioIncorrecta;
+    Opcion opcionCorrecta;
+    Opcion opcionIncorrecta;
     private KahootModel kahoot;
 
     public VerdaderoFalsoVista(Stage stage, KahootModel kahoot) { //prueba para ver la vista de una pregunta VyF
@@ -54,13 +56,24 @@ public class VerdaderoFalsoVista extends VBox {
         FlowPane flowpane = new FlowPane();
         ToggleGroup opciones = new ToggleGroup(); //esto es para que solo se pueda seleccionar una opcion
 
-        for (Opcion unaOpcion : kahoot.mostrarOpcionesDeTurno()) {
+       /* for (Opcion unaOpcion : kahoot.mostrarOpcionesDeTurno()) {
             RadioButton opcion = new RadioButton(unaOpcion.contenido());
             flowpane.getChildren().add(opcion);
             opcion.setToggleGroup(opciones);
             BotonRadioHandler botonRadioHandler = new BotonRadioHandler(respuesta,unaOpcion);
             opcion.setOnAction(botonRadioHandler);
-        }
+        }*/
+
+        RadioButton opcion1 = new RadioButton(this.opcionCorrecta.contenido());
+        flowpane.getChildren().add(opcion1);
+        opcion1.setToggleGroup(opciones);
+        BotonRadioHandler botonRadioHandler1 = new BotonRadioHandler(respuesta,this.opcionCorrecta);
+        opcion1.setOnAction(botonRadioHandler1);
+        RadioButton opcion2 = new RadioButton(this.opcionIncorrecta.contenido());
+        flowpane.getChildren().add(opcion2);
+        opcion2.setToggleGroup(opciones);
+        BotonRadioHandler botonRadioHandler2 = new BotonRadioHandler(respuesta,this.opcionIncorrecta);
+        opcion2.setOnAction(botonRadioHandler2);
 
         flowpane.setHgap(50);
         flowpane.setAlignment(Pos.CENTER);
@@ -69,6 +82,10 @@ public class VerdaderoFalsoVista extends VBox {
         //flowpane.getChildren().add(responder);
         BotonResponderHandler botonResponderHandler = new BotonResponderHandler(this.pregunta,this.respuesta);
         responder.setOnAction(botonResponderHandler);
+
+        Text puntaje = new Text();
+        puntaje.setFont(Font.font("Arial", FontWeight.BLACK, 20));
+        puntaje.textProperty().bind(createStringBinding(() -> "Puntaje: "+ respuesta.puntajeDelJugador()));
 
         this.getChildren().addAll(tipoDePregunta,pregunta, flowpane, responder);
         this.setAlignment(Pos.CENTER);
@@ -79,7 +96,7 @@ public class VerdaderoFalsoVista extends VBox {
     public void crearModelo(){
 
         KahootModel kahoot= new KahootModel();
-        
+
         Jugador jugador1 = new Jugador();
 
         Opcion opcionCorrecta = new Opcion("verdadero",true);
@@ -96,8 +113,8 @@ public class VerdaderoFalsoVista extends VBox {
 
         this.pregunta = verdaderoYFalso;
         this.respuesta = respuestaJugador1;
-        this.opcioCorrecta = opcionCorrecta;
-        this.opcioIncorrecta = opcionIncorrecta;
+        this.opcionCorrecta = opcionCorrecta;
+        this.opcionIncorrecta = opcionIncorrecta;
 
     }
 

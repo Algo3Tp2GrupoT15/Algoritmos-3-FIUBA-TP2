@@ -9,6 +9,8 @@ import edu.fiuba.algo3.modelo.preguntas.TipoClasico;
 import edu.fiuba.algo3.modelo.preguntas.MultipleChoice;
 import edu.fiuba.algo3.modelo.preguntas.VerdaderoYFalso;
 import javafx.application.Application;
+import javafx.beans.Observable;
+import javafx.beans.binding.Bindings;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -23,6 +25,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import edu.fiuba.algo3.modelo.KahootModel;
 import java.util.ArrayList;
+
+import static javafx.beans.binding.Bindings.createStringBinding;
 
 public class MultipleChoiceVista extends Application {
 
@@ -50,18 +54,7 @@ public class MultipleChoiceVista extends Application {
         pregunta.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
         pregunta.setFill(Color.BLUE);
 
-
-       /* RadioButton opcionCorrecta = new RadioButton("4");
-        RadioButton opcionCorrecta2 = new RadioButton("2^2");
-        RadioButton opcionIncorrecta = new RadioButton("8");
-        RadioButton opcionIncorrecta2 = new RadioButton("Pez");*/
-
-
         FlowPane flowpane = new FlowPane();
-        /*flowpane.getChildren().add(opcionCorrecta);
-        flowpane.getChildren().add(opcionCorrecta2);
-        flowpane.getChildren().add(opcionIncorrecta);
-        flowpane.getChildren().add(opcionIncorrecta2);*/
         flowpane.setHgap(50);
         flowpane.setAlignment(Pos.CENTER);
         ToggleGroup opciones = new ToggleGroup(); //esto es para que solo se pueda seleccionar una opcion
@@ -84,7 +77,7 @@ public class MultipleChoiceVista extends Application {
         flowpane.getChildren().add(opcion2);
         opcion2.setToggleGroup(opciones);
         BotonRadioHandler botonRadioHandler2 = new BotonRadioHandler(respuesta,this.opciones.get(1));
-        opcion2.setOnAction(botonRadioHandler1);
+        opcion2.setOnAction(botonRadioHandler2);
         RadioButton opcion3 = new RadioButton(this.opciones.get(2).contenido());
         flowpane.getChildren().add(opcion3);
         opcion3.setToggleGroup(opciones);
@@ -100,7 +93,14 @@ public class MultipleChoiceVista extends Application {
         BotonResponderHandler botonResponderHandler = new BotonResponderHandler(this.pregunta,this.respuesta);
         responder.setOnAction(botonResponderHandler);
 
-        VBox vbox = new VBox(tipoDePregunta,pregunta, flowpane, responder);
+        Text puntaje = new Text();
+        puntaje.setFont(Font.font("Arial", FontWeight.BLACK, 20));
+        puntaje.textProperty().bind(createStringBinding(() -> "Puntaje1: "+ respuesta.puntajeDelJugador()));
+
+        Text puntaje2 = new Text("Puntaje2: "+ respuesta.puntajeDelJugador());
+        puntaje2.setFont(Font.font("Arial", FontWeight.BLACK, 20));
+
+        VBox vbox = new VBox(tipoDePregunta,pregunta,puntaje,puntaje2, flowpane, responder);
         vbox.setAlignment(Pos.CENTER);
         vbox.setSpacing(20);
 

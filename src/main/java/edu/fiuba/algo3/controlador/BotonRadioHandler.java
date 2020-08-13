@@ -8,8 +8,8 @@ import javafx.event.EventHandler;
 
 public class BotonRadioHandler implements EventHandler<ActionEvent> {
 
-    private Respuesta respuesta;
-    private Opcion opcion;
+    private final Respuesta respuesta;
+    private final Opcion opcion;
 
     public BotonRadioHandler(Respuesta respuesta, Opcion opcion) {
         this.respuesta = respuesta;
