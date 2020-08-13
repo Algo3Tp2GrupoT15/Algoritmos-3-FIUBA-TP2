@@ -87,7 +87,7 @@ public class VerdaderoFalsoVista extends VBox {
         BotonResponderHandler botonResponderHandler = new BotonResponderHandler(this.pregunta,this.respuesta,puntaje);
         responder.setOnAction(botonResponderHandler);
 
-        this.getChildren().addAll(tipoDePregunta,pregunta, flowpane, responder);
+        this.getChildren().addAll(turnoDelJugador,tipoDePregunta,pregunta, flowpane, responder);
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
 
