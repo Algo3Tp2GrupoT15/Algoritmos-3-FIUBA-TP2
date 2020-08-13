@@ -32,6 +32,8 @@ public class MultipleChoiceVista extends Application {
 
     private MultipleChoice pregunta;
     private Respuesta respuesta;
+    private Opcion opcioCorrecta;
+    private Opcion opcioIncorrecta;
     private ArrayList<Opcion> opciones;
     private KahootModel kahoot;
 
@@ -66,26 +68,26 @@ public class MultipleChoiceVista extends Application {
             opcion.setOnAction(botonRadioHandler);
         }*/
 
-        RadioButton opcion1RB = new RadioButton(this.opciones.get(0).contenido());
-        flowpane.getChildren().add(opcion1RB);
-        opcion1RB.setToggleGroup(opcionesGroup);
+        RadioButton opcion1 = new RadioButton(this.opciones.get(0).contenido());
+        flowpane.getChildren().add(opcion1);
+        opcion1.setToggleGroup(opcionesGroup);
         BotonRadioHandler botonRadioHandler1 = new BotonRadioHandler(respuesta,this.opciones.get(0));
-        opcion1RB.setOnAction(botonRadioHandler1);
-        RadioButton opcion2RB = new RadioButton(this.opciones.get(1).contenido());
-        flowpane.getChildren().add(opcion2RB);
-        opcion2RB.setToggleGroup(opcionesGroup);
+        opcion1.setOnAction(botonRadioHandler1);
+        RadioButton opcion2 = new RadioButton(this.opciones.get(1).contenido());
+        flowpane.getChildren().add(opcion2);
+        opcion2.setToggleGroup(opcionesGroup);
         BotonRadioHandler botonRadioHandler2 = new BotonRadioHandler(respuesta,this.opciones.get(1));
-        opcion2RB.setOnAction(botonRadioHandler2);
-        RadioButton opcion3RB = new RadioButton(this.opciones.get(2).contenido());
-        flowpane.getChildren().add(opcion3RB);
-        opcion3RB.setToggleGroup(opcionesGroup);
+        opcion2.setOnAction(botonRadioHandler2);
+        RadioButton opcion3 = new RadioButton(this.opciones.get(2).contenido());
+        flowpane.getChildren().add(opcion3);
+        opcion3.setToggleGroup(opcionesGroup);
         BotonRadioHandler botonRadioHandler3 = new BotonRadioHandler(respuesta,this.opciones.get(2));
-        opcion3RB.setOnAction(botonRadioHandler3);
-        RadioButton opcion4RB = new RadioButton(this.opciones.get(3).contenido());
-        flowpane.getChildren().add(opcion4RB);
-        opcion4RB.setToggleGroup(opcionesGroup);
+        opcion3.setOnAction(botonRadioHandler3);
+        RadioButton opcion4 = new RadioButton(this.opciones.get(3).contenido());
+        flowpane.getChildren().add(opcion4);
+        opcion4.setToggleGroup(opcionesGroup);
         BotonRadioHandler botonRadioHandler4 = new BotonRadioHandler(respuesta,this.opciones.get(3));
-        opcion4RB.setOnAction(botonRadioHandler4);
+        opcion4.setOnAction(botonRadioHandler4);
 
         Text puntaje1 = new Text("Puntaje1: "+ respuesta.puntajeDelJugador());
         puntaje1.setFont(Font.font("Arial", FontWeight.BLACK, 20));
@@ -133,6 +135,8 @@ public class MultipleChoiceVista extends Application {
 
         this.pregunta = multipleChoice;
         this.respuesta = respuestaJugador1;
+        this.opcioCorrecta = opcionCorrecta;
+        this.opcioIncorrecta = opcionIncorrecta;
         this.opciones = opciones;
     }
 
