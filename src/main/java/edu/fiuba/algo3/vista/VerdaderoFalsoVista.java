@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.modelo.KahootModel;
+import edu.fiuba.algo3.modelo.Opcion;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -13,46 +15,43 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
-public class VerdaderoFalsoVista extends Application {
+public class VerdaderoFalsoVista extends VBox {
 
-    public static void main(String[] args){
-        launch();
-    }
+    private Stage stage;
 
-    @Override
-    public void start(Stage stage) { //prueba para ver la vista de una pregunta VyF
+    public VerdaderoFalsoVista(Stage stage, KahootModel kahoot) { //prueba para ver la vista de una pregunta VyF
+
+        super();
+
+        this.stage = stage;
 
         stage.setTitle("Kahoot Algos 3");
 
+        Text turnoDelJugador = new Text(kahoot.jugadorDeTurno().nombre());
+
         Text tipoDePregunta = new Text("VervaderoFalso Clasico");
         tipoDePregunta.setFont(Font.font("Arial", FontWeight.BLACK, 36));
-        Text pregunta = new Text("¿El cielo es azul?");
+        Text pregunta = new Text(kahoot.mostrarPreguntaDeTurno());
         pregunta.setFont(Font.font("Verdana", FontWeight.BOLD, 36));
         pregunta.setFill(Color.BLUE);
-        //pregunta.setTextAlignment(TextAlignment.CENTER);
-
-        RadioButton opcionCorrecta = new RadioButton("Verdadero");
-        RadioButton opcionIncorrecta = new RadioButton("Falso");
-        ToggleGroup opciones = new ToggleGroup(); //esto es para que solo se pueda seleccionar una opcion
-        opcionCorrecta.setToggleGroup(opciones);
-        opcionIncorrecta.setToggleGroup(opciones);
 
         FlowPane flowpane = new FlowPane();
-        flowpane.getChildren().add(opcionCorrecta);
-        flowpane.getChildren().add(opcionIncorrecta);
+        ToggleGroup opciones = new ToggleGroup(); //esto es para que solo se pueda seleccionar una opcion
+
+        for (Opcion unaOpcion : kahoot.mostrarOpcionesDeTurno()) {
+            RadioButton opcion = new RadioButton(unaOpcion.contenido());
+            flowpane.getChildren().add(opcion);
+            opcion.setToggleGroup(opciones);
+        }
+
         flowpane.setHgap(50);
         flowpane.setAlignment(Pos.CENTER);
 
         Button responder = new Button("Responder");
-        //flowpane.getChildren().add(responder);
 
-        VBox vbox = new VBox(tipoDePregunta,pregunta, flowpane, responder);
-        vbox.setAlignment(Pos.CENTER);
-        vbox.setSpacing(20);
-
-        Scene scene = new Scene(vbox, 480, 360);
-        stage.setScene(scene);
-        stage.show();
+        this.getChildren().addAll(tipoDePregunta,pregunta, flowpane, responder);
+        this.setAlignment(Pos.CENTER);
+        this.setSpacing(20);
 
 
 

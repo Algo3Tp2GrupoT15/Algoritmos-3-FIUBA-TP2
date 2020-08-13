@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.Jugador;
+import edu.fiuba.algo3.modelo.KahootModel;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -17,13 +18,15 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.nio.BufferUnderflowException;
+
 public class InicioDelJuegoVista extends VBox {
 
 
     private Stage stage;
 
 
-    public  InicioDelJuegoVista(Stage stage) {
+    public  InicioDelJuegoVista(Stage stage, KahootModel kahoot) {
 
         super();
 
@@ -42,13 +45,28 @@ public class InicioDelJuegoVista extends VBox {
         Text validacion = new Text("");
 
         aceptar.setOnAction(value ->  {
-            Jugador jugador1 = new Jugador(nombreJugador1.getText());
-            Jugador jugador2 = new Jugador(nombreJugador2.getText());
-            validacion.setText("Se crearon los jugadores: \n"+  "1 - " + jugador1.nombre() +"\n2 - "+ jugador2.nombre());
+
+            kahoot.cargarJugador(nombreJugador1.getText());
+            kahoot.cargarJugador(nombreJugador2.getText());
+            validacion.setText("Se crearon los jugadores: \n"+  "1 - " + nombreJugador1.getText() +"\n2 - "+ nombreJugador2.getText());
+
 
         });
 
-        this.getChildren().addAll(iniciarJugador1, iniciarJugador2, aceptar, validacion);
+        VerdaderoFalsoVista proximaPregunta = new VerdaderoFalsoVista(stage, kahoot);
+        Scene proximaEscena = new Scene(proximaPregunta, 1080, 720);
+
+        Button continuar = new Button("continuar");
+
+        continuar.setOnAction(value ->  {
+
+            stage.setScene(proximaEscena);
+
+        });
+
+
+
+        this.getChildren().addAll(iniciarJugador1, iniciarJugador2, aceptar, validacion, continuar);
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
 

@@ -1,5 +1,6 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.modelo.KahootModel;
 import edu.fiuba.algo3.vista.BienvenidosVista;
 import edu.fiuba.algo3.vista.InicioDelJuegoVista;
 import javafx.application.Application;
@@ -18,7 +19,9 @@ public class App extends Application {
 
         stage.setTitle("Kahoot Algos 3");
 
-        InicioDelJuegoVista contenedorPrincipal = new InicioDelJuegoVista(stage);
+        KahootModel kahoot = new KahootModel();
+
+        InicioDelJuegoVista contenedorPrincipal = new InicioDelJuegoVista(stage, kahoot);
         Scene escenaJuego = new Scene(contenedorPrincipal, 1080, 720);
 
         BienvenidosVista contenedorBienvenidos = new BienvenidosVista(stage, escenaJuego);

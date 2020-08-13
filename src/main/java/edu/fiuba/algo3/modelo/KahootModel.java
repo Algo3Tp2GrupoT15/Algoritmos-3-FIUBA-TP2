@@ -50,6 +50,7 @@ public class KahootModel {
         preguntas.add(verdaderoYFalso);
 
 
+
     }
 
     public void cargarJugador(String nombre){

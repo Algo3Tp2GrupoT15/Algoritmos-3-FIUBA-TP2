@@ -10,6 +10,7 @@ public class Jugador {
     public Jugador() {
         puntaje = 0;
         multiplicador = 1;
+        nombre = "SinNombre";
     }
 
     public Jugador(String nombre) {
