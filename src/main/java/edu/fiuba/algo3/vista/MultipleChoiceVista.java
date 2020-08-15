@@ -86,7 +86,7 @@ public class MultipleChoiceVista extends Application {
         puntaje1.setFont(Font.font("Arial", FontWeight.BLACK, 20));
 
         Button responder = new Button("Responder");
-        BotonResponderHandler botonResponderHandler = new BotonResponderHandler(this.pregunta,this.respuesta,puntaje1);
+        BotonResponderHandler botonResponderHandler = new BotonResponderHandler(this.pregunta,this.respuesta,puntaje1,responder);
         responder.setOnAction(botonResponderHandler);
 
         Button continuar = new Button("Siguiente");
