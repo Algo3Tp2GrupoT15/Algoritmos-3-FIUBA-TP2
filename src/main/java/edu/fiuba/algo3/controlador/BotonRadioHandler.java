@@ -19,6 +19,7 @@ public class BotonRadioHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
 
+        this.respuesta.eliminarOpciones();
         this.respuesta.agregarOpcion(opcion);
 
     }

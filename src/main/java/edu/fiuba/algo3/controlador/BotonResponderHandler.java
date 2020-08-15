@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.controlador;
 
-import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.preguntas.Preguntas;
 import edu.fiuba.algo3.modelo.Respuesta;
 import javafx.event.ActionEvent;

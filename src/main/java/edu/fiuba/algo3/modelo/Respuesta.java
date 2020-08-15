@@ -56,4 +56,10 @@ public class Respuesta {
 
     }
 
+    public void eliminarOpciones(){
+
+        opciones = new ArrayList<Opcion>();
+
+    }
+
 }
