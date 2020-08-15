@@ -53,8 +53,6 @@ public class MultipleChoiceVista extends Application {
         FlowPane flowpane = new FlowPane();
         flowpane.setHgap(50);
         flowpane.setAlignment(Pos.CENTER);
-        ToggleGroup opcionesGroup = new ToggleGroup(); //esto es para que solo se pueda seleccionar una opcion
-
 
     /*for (Opcion unaOpcion : kahoot.mostrarOpcionesDeTurno()) {
             RadioButton opcion = new RadioButton(unaOpcion.contenido());
@@ -66,26 +64,25 @@ public class MultipleChoiceVista extends Application {
 
         RadioButton opcion1RB = new RadioButton(this.opciones.get(0).contenido());
         flowpane.getChildren().add(opcion1RB);
-        opcion1RB.setToggleGroup(opcionesGroup);
         BotonRadioHandler botonRadioHandler1 = new BotonRadioHandler(respuesta,this.opciones.get(0));
         opcion1RB.setOnAction(botonRadioHandler1);
+
         RadioButton opcion2RB = new RadioButton(this.opciones.get(1).contenido());
         flowpane.getChildren().add(opcion2RB);
-        opcion2RB.setToggleGroup(opcionesGroup);
         BotonRadioHandler botonRadioHandler2 = new BotonRadioHandler(respuesta,this.opciones.get(1));
         opcion2RB.setOnAction(botonRadioHandler2);
+
         RadioButton opcion3RB = new RadioButton(this.opciones.get(2).contenido());
         flowpane.getChildren().add(opcion3RB);
-        opcion3RB.setToggleGroup(opcionesGroup);
         BotonRadioHandler botonRadioHandler3 = new BotonRadioHandler(respuesta,this.opciones.get(2));
         opcion3RB.setOnAction(botonRadioHandler3);
+
         RadioButton opcion4RB = new RadioButton(this.opciones.get(3).contenido());
         flowpane.getChildren().add(opcion4RB);
-        opcion4RB.setToggleGroup(opcionesGroup);
         BotonRadioHandler botonRadioHandler4 = new BotonRadioHandler(respuesta,this.opciones.get(3));
         opcion4RB.setOnAction(botonRadioHandler4);
 
-        Text puntaje1 = new Text("Puntaje1: "+ respuesta.puntajeDelJugador());
+        Text puntaje1 = new Text("Puntaje: "+ respuesta.puntajeDelJugador());
         puntaje1.setFont(Font.font("Arial", FontWeight.BLACK, 20));
 
         Button responder = new Button("Responder");

@@ -72,7 +72,7 @@ public class VerdaderoFalsoVista extends VBox {
         flowpane.setHgap(50);
         flowpane.setAlignment(Pos.CENTER);
 
-        Text puntaje1 = new Text("Puntaje1: "+ respuesta.puntajeDelJugador());
+        Text puntaje1 = new Text("Puntaje: "+ respuesta.puntajeDelJugador());
         puntaje1.setFont(Font.font("Arial", FontWeight.BLACK, 20));
 
         Button responder = new Button("Responder");
@@ -94,7 +94,8 @@ public class VerdaderoFalsoVista extends VBox {
 
         KahootModel kahoot= new KahootModel();
 
-        Jugador jugador1 = new Jugador();
+        /*Jugador jugador = kahoot.jugadorDeTurno();*/
+        Jugador jugador = new Jugador();
 
         Opcion opcionCorrecta = new Opcion("verdadero",true);
         Opcion opcionIncorrecta = new Opcion("falso",false);
@@ -106,7 +107,7 @@ public class VerdaderoFalsoVista extends VBox {
 
         VerdaderoYFalso verdaderoYFalso = new VerdaderoYFalso("El cielo es azul", opciones,tipoClásico);
 
-        Respuesta respuestaJugador1 = new Respuesta(jugador1);
+        Respuesta respuestaJugador1 = new Respuesta(jugador);
 
         this.pregunta = verdaderoYFalso;
         this.respuesta = respuestaJugador1;
