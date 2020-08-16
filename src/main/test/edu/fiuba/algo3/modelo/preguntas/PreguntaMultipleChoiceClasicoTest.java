@@ -3,8 +3,6 @@ package edu.fiuba.algo3.modelo.preguntas;
 import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Opcion;
 import edu.fiuba.algo3.modelo.Respuesta;
-import edu.fiuba.algo3.modelo.preguntas.MultipleChoice;
-import edu.fiuba.algo3.modelo.preguntas.TipoClásico;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -25,7 +23,7 @@ public class PreguntaMultipleChoiceClasicoTest {
 
         ArrayList<Opcion> opciones = new ArrayList<Opcion>(Arrays.asList(opcionCorrecta,opcionCorrecta2,opcionIncorrecta,opcionIncorrecta2));
 
-        TipoClásico tipoClásico = new TipoClásico();
+        TipoClasico tipoClásico = new TipoClasico();
 
         MultipleChoice multipleChoice = new MultipleChoice(" 2+2=..? ", opciones, tipoClásico);
 
@@ -48,7 +46,7 @@ public class PreguntaMultipleChoiceClasicoTest {
 
         ArrayList<Opcion> opciones = new ArrayList<Opcion>(Arrays.asList(opcionCorrecta,opcionCorrecta2,opcionIncorrecta,opcionIncorrecta2));
 
-        TipoClásico tipoClásico = new TipoClásico();
+        TipoClasico tipoClásico = new TipoClasico();
 
         MultipleChoice multipleChoice = new MultipleChoice(" 2+2=..? ", opciones,tipoClásico);
 

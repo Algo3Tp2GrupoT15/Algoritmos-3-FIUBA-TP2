@@ -49,4 +49,17 @@ public class Respuesta {
     public ArrayList<Opcion> opciones() {
         return opciones;
     }
+
+    public int puntajeDelJugador(){
+
+        return this.jugador.puntaje();
+
+    }
+
+    public void eliminarOpciones(){
+
+        opciones = new ArrayList<Opcion>();
+
+    }
+
 }

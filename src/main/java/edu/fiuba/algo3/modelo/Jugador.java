@@ -5,10 +5,12 @@ public class Jugador {
     private int puntaje;
     private String nombre;
     private int multiplicador;
+    private int ultimoPuntajeAgregado;
 
     public Jugador() {
         puntaje = 0;
         multiplicador = 1;
+        nombre = "SinNombre";
     }
 
     public Jugador(String nombre) {
@@ -21,12 +23,18 @@ public class Jugador {
     public void agregarPuntaje(int unPuntaje) {
 
         puntaje += (unPuntaje * multiplicador);
+        ultimoPuntajeAgregado = unPuntaje;
+        multiplicador = 1;
 
     }
 
     public void agregarNombre(String nombre){
 
         this.nombre = nombre;
+    }
+    public String  nombre(){
+
+        return this.nombre;
     }
 
     public int puntaje() {
@@ -38,7 +46,9 @@ public class Jugador {
     public void asignarMultiplicador(int factor){
 
         multiplicador = factor;
-
     }
 
+    public int getUltimoPuntajeAgregado(){
+        return ultimoPuntajeAgregado;
+    }
 }

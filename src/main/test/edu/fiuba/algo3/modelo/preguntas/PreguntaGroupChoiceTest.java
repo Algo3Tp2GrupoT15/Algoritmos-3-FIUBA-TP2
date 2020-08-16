@@ -22,7 +22,7 @@ public class PreguntaGroupChoiceTest {
 
         ArrayList<OpcionGroup> opcionesEnGrupos = new ArrayList<OpcionGroup>(Arrays.asList(opcion1, opcion2, opcion3, opcion4));
 
-        TipoClásico tipoClásico = new TipoClásico();
+        TipoClasico tipoClásico = new TipoClasico();
 
         GroupChoice groupChoice = new GroupChoice(" Clasifique los numeros en pares e impares ", opcionesEnGrupos, tipoClásico);
 
@@ -47,7 +47,7 @@ public class PreguntaGroupChoiceTest {
 
         ArrayList<OpcionGroup> opcionesEnGrupos = new ArrayList<OpcionGroup>(Arrays.asList(opcion1, opcion2, opcion3, opcion4));
 
-        TipoClásico tipoClásico = new TipoClásico();
+        TipoClasico tipoClásico = new TipoClasico();
 
         GroupChoice groupChoice = new GroupChoice(" Clasifique los numeros en pares e impares ", opcionesEnGrupos, tipoClásico);
 

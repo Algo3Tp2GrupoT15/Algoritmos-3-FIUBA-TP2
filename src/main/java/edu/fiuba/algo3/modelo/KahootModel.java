@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.preguntas.Preguntas;
-import edu.fiuba.algo3.modelo.preguntas.TipoClásico;
-import edu.fiuba.algo3.modelo.preguntas.VerdaderoYFalso;
+import edu.fiuba.algo3.modelo.preguntas.*;
 
 import java.util.ArrayList;
 
@@ -10,20 +8,26 @@ public class KahootModel {
 
     ArrayList<Jugador> jugadores;
     ArrayList<Preguntas> preguntas;
+    ArrayList<Respuesta> respuestasDelTurno;
 
-    int numeroDePregunta;
-    int numeroDeJugador;
+    Exclusividad exclusividad;
+
+    private int numeroDePregunta;
+    private int numeroDeJugador;
 
     public KahootModel(){
+
+        jugadores = new ArrayList<Jugador>();
+        preguntas = new ArrayList<Preguntas>();
+        respuestasDelTurno = new ArrayList<Respuesta>();
+
+        exclusividad = new Exclusividad();
 
         int numeroDePregunta = 0;
         int numeroDeJugador = 0;
 
+
         leerPreguntas();
-
-
-        cargarJugador("lean");
-        cargarJugador("juan");
 
     }
 
@@ -32,20 +36,37 @@ public class KahootModel {
         Opcion opcionCorrecta = new Opcion("verdadero",true);
         Opcion opcionIncorrecta = new Opcion("falso",false);
 
-        ArrayList<Opcion> opciones = new ArrayList<Opcion>();
-        opciones.add(opcionCorrecta);
-        opciones.add(opcionIncorrecta);
+        ArrayList<Opcion> opcionesVF = new ArrayList<Opcion>();
+        opcionesVF.add(opcionCorrecta);
+        opcionesVF.add(opcionIncorrecta);
 
-        TipoClásico tipoClásico = new TipoClásico();
+        TipoPuntaje tipoClasico = new TipoClasico();
 
-        VerdaderoYFalso verdaderoYFalso = new VerdaderoYFalso("El cielo es azul", opciones, tipoClásico);
+        Preguntas verdaderoYFalso = new VerdaderoYFalso("El cielo es azul", opcionesVF, tipoClasico);
 
         preguntas.add(verdaderoYFalso);
 
 
+        Opcion opcionCorrecta1 = new Opcion("4",true);
+        Opcion opcionCorrecta2 = new Opcion("2^2",true);
+        Opcion opcionIncorrecta1 = new Opcion("8",false);
+        Opcion opcionIncorrecta2 = new Opcion("Pez",false);
+
+        ArrayList<Opcion> opciones = new ArrayList<Opcion>();
+        opciones.add(opcionCorrecta1);
+        opciones.add(opcionCorrecta2);
+        opciones.add(opcionIncorrecta1);
+        opciones.add(opcionIncorrecta2);
+        TipoClasico tipoClásico = new TipoClasico();
+
+        MultipleChoice multipleChoice = new MultipleChoice(" 2+2=..? ", opciones, tipoClásico);
+
+        preguntas.add(multipleChoice);
+
+
     }
 
-    public void cargarJugador( String nombre){
+    public void cargarJugador(String nombre){
 
         jugadores.add(new Jugador(nombre));
 
@@ -55,6 +76,12 @@ public class KahootModel {
     public String mostrarPreguntaDeTurno(){
 
         return preguntas.get(numeroDePregunta).contenido();
+
+    }
+
+    public Preguntas preguntaDeTurno(){
+
+        return preguntas.get(numeroDePregunta);
 
     }
 
@@ -73,7 +100,43 @@ public class KahootModel {
         numeroDeJugador +=1;
 
     }
+    public void proximaPreguntaDeTurno(){
+        numeroDePregunta +=1;
+        numeroDeJugador = 0;
+        respuestasDelTurno = new ArrayList<Respuesta>();
 
+    }
+
+    public void cargarRespuestas(Respuesta respuestaDeJugador){
+
+        respuestasDelTurno.add(respuestaDeJugador);
+
+    }
+
+    public void cargarPreguntas(Preguntas pregunta){
+
+        preguntas.add(pregunta);
+
+    }
+
+    public void calcularPuntosDelTurno() {
+
+        for (Respuesta respuesta : respuestasDelTurno) {
+            preguntas.get(numeroDePregunta).asignarPuntaje(respuesta);
+        }
+
+        exclusividad.modificarPuntos(jugadores);
+    }
+
+    public void activarExclusividad(int usos){
+        exclusividad.activar(usos);
+    }
+
+    public void activarMultiplicador(int factor){
+
+        jugadorDeTurno().asignarMultiplicador(factor);
+
+    }
 
 
 }
