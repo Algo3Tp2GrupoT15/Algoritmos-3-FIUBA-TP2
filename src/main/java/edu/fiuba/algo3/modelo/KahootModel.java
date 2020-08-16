@@ -23,8 +23,8 @@ public class KahootModel {
 
         exclusividad = new Exclusividad();
 
-        int numeroDePregunta = 0;
-        int numeroDeJugador = 0;
+        this.numeroDePregunta = 1;
+        this.numeroDeJugador = 0;
 
 
         leerPreguntas();

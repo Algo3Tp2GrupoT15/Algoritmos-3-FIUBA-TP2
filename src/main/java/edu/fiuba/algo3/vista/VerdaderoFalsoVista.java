@@ -3,11 +3,7 @@ package edu.fiuba.algo3.vista;
 import edu.fiuba.algo3.controlador.BotonSiguienteHandler;
 import edu.fiuba.algo3.controlador.BotonRadioHandler;
 import edu.fiuba.algo3.controlador.BotonResponderHandler;
-import edu.fiuba.algo3.modelo.Jugador;
-import edu.fiuba.algo3.modelo.Opcion;
 import edu.fiuba.algo3.modelo.Respuesta;
-import edu.fiuba.algo3.modelo.preguntas.TipoClasico;
-import edu.fiuba.algo3.modelo.preguntas.VerdaderoYFalso;
 import edu.fiuba.algo3.modelo.KahootModel;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
@@ -17,15 +13,11 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import java.util.ArrayList;
 
 public class VerdaderoFalsoVista extends VBox {
 
     private Stage stage;
-    private VerdaderoYFalso pregunta;
     private Respuesta respuesta;
-    Opcion opcionCorrecta;
-    Opcion opcionIncorrecta;
     private KahootModel kahoot;
 
     public VerdaderoFalsoVista(Stage stage, KahootModel kahoot) { //prueba para ver la vista de una pregunta VyF
@@ -51,24 +43,19 @@ public class VerdaderoFalsoVista extends VBox {
         FlowPane flowpane = new FlowPane();
         ToggleGroup opciones = new ToggleGroup(); //esto es para que solo se pueda seleccionar una opcion
 
-       /* for (Opcion unaOpcion : kahoot.mostrarOpcionesDeTurno()) {
-            RadioButton opcion = new RadioButton(unaOpcion.contenido());
-            flowpane.getChildren().add(opcion);
-            opcion.setToggleGroup(opciones);
-            BotonRadioHandler botonRadioHandler = new BotonRadioHandler(respuesta,unaOpcion);
-            opcion.setOnAction(botonRadioHandler);
-        }*/
+        for (int i=0; i<kahoot.mostrarOpcionesDeTurno().size();i++) {
+            RadioButton opcionRB = new RadioButton(kahoot.mostrarOpcionesDeTurno().get(i).contenido());
+            flowpane.getChildren().add(opcionRB);
+            opcionRB.setToggleGroup(opciones);
+            BotonRadioHandler botonRadioHandler = new BotonRadioHandler(respuesta,kahoot.mostrarOpcionesDeTurno().get(i));
+            opcionRB.setOnAction(botonRadioHandler);
 
-        RadioButton opcion1RB = new RadioButton(this.opcionCorrecta.contenido());
-        flowpane.getChildren().add(opcion1RB);
-        opcion1RB.setToggleGroup(opciones);
-        BotonRadioHandler botonRadioHandler1 = new BotonRadioHandler(respuesta,this.opcionCorrecta);
-        opcion1RB.setOnAction(botonRadioHandler1);
+        }
 
-        RadioButton opcion2RB = new RadioButton(this.opcionIncorrecta.contenido());
+        RadioButton opcion2RB = new RadioButton(kahoot.mostrarOpcionesDeTurno().get(1).contenido());
         flowpane.getChildren().add(opcion2RB);
         opcion2RB.setToggleGroup(opciones);
-        BotonRadioHandler botonRadioHandler2 = new BotonRadioHandler(respuesta,this.opcionIncorrecta);
+        BotonRadioHandler botonRadioHandler2 = new BotonRadioHandler(respuesta,kahoot.mostrarOpcionesDeTurno().get(1));
         opcion2RB.setOnAction(botonRadioHandler2);
 
         flowpane.setHgap(50);
@@ -93,15 +80,10 @@ public class VerdaderoFalsoVista extends VBox {
 
     public void crearModelo(){
 
-        Opcion opcionCorrecta = new Opcion("verdadero",true);
-        Opcion opcionIncorrecta = new Opcion("falso",false);
-
         Respuesta respuestaJugador1 = new Respuesta(kahoot.jugadorDeTurno());
         kahoot.cargarRespuestas(respuestaJugador1);
 
         this.respuesta = respuestaJugador1;
-        this.opcionCorrecta = opcionCorrecta;
-        this.opcionIncorrecta = opcionIncorrecta;
 
     }
 
