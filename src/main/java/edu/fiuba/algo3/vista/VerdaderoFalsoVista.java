@@ -33,6 +33,7 @@ public class VerdaderoFalsoVista extends VBox {
         super();
 
         this.stage = stage;
+        this.kahoot = kahoot;
 
         this.crearModelo();
 
@@ -63,6 +64,7 @@ public class VerdaderoFalsoVista extends VBox {
         opcion1RB.setToggleGroup(opciones);
         BotonRadioHandler botonRadioHandler1 = new BotonRadioHandler(respuesta,this.opcionCorrecta);
         opcion1RB.setOnAction(botonRadioHandler1);
+
         RadioButton opcion2RB = new RadioButton(this.opcionIncorrecta.contenido());
         flowpane.getChildren().add(opcion2RB);
         opcion2RB.setToggleGroup(opciones);
@@ -76,11 +78,11 @@ public class VerdaderoFalsoVista extends VBox {
         puntaje1.setFont(Font.font("Arial", FontWeight.BLACK, 20));
 
         Button responder = new Button("Responder");
-        BotonResponderHandler botonResponderHandler = new BotonResponderHandler(this.pregunta,this.respuesta,puntaje1,responder);
+        BotonResponderHandler botonResponderHandler = new BotonResponderHandler(kahoot,puntaje1,responder);
         responder.setOnAction(botonResponderHandler);
 
         Button continuar = new Button("Siguiente");
-        BotonSiguienteHandler botonSiguienteHandler = new BotonSiguienteHandler(stage);
+        BotonSiguienteHandler botonSiguienteHandler = new BotonSiguienteHandler(stage,kahoot);
         continuar.setOnAction(botonSiguienteHandler);
 
         this.getChildren().addAll(turnoDelJugador,tipoDePregunta,pregunta,puntaje1,flowpane,responder,continuar);
@@ -91,24 +93,12 @@ public class VerdaderoFalsoVista extends VBox {
 
     public void crearModelo(){
 
-        KahootModel kahoot= new KahootModel();
-
-        /*Jugador jugador = kahoot.jugadorDeTurno();*/
-        Jugador jugador = new Jugador();
-
         Opcion opcionCorrecta = new Opcion("verdadero",true);
         Opcion opcionIncorrecta = new Opcion("falso",false);
 
-        ArrayList<Opcion> opciones = new ArrayList<Opcion>();
-        opciones.add(opcionCorrecta);
-        opciones.add(opcionIncorrecta);
-        TipoClasico tipoClásico = new TipoClasico();
+        Respuesta respuestaJugador1 = new Respuesta(kahoot.jugadorDeTurno());
+        kahoot.cargarRespuestas(respuestaJugador1);
 
-        VerdaderoYFalso verdaderoYFalso = new VerdaderoYFalso("El cielo es azul", opciones,tipoClásico);
-
-        Respuesta respuestaJugador1 = new Respuesta(jugador);
-
-        this.pregunta = verdaderoYFalso;
         this.respuesta = respuestaJugador1;
         this.opcionCorrecta = opcionCorrecta;
         this.opcionIncorrecta = opcionIncorrecta;

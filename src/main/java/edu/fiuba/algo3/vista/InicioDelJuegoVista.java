@@ -32,14 +32,14 @@ public class InicioDelJuegoVista extends VBox {
 
         this.stage = stage;
 
-        Text ingreseNombreJugadro1 = new Text("Nombre Jugador 1: ");
+        Text ingreseNombreJugador1 = new Text("Nombre Jugador 1: ");
         TextField nombreJugador1 = new TextField();
-        Text ingreseNombreJugadro2 = new Text("Nombre Jugador 2: ");
+        Text ingreseNombreJugador2 = new Text("Nombre Jugador 2: ");
         TextField nombreJugador2 = new TextField();
 
-        HBox iniciarJugador1 = new HBox(ingreseNombreJugadro1,nombreJugador1);
+        HBox iniciarJugador1 = new HBox(ingreseNombreJugador1,nombreJugador1);
         iniciarJugador1.setAlignment(Pos.CENTER);
-        HBox iniciarJugador2 = new HBox(ingreseNombreJugadro2,nombreJugador2);
+        HBox iniciarJugador2 = new HBox(ingreseNombreJugador2,nombreJugador2);
         iniciarJugador2.setAlignment(Pos.CENTER);
         Button aceptar = new Button("Aceptar y Empezar");
         Text validacion = new Text("");
@@ -59,6 +59,7 @@ public class InicioDelJuegoVista extends VBox {
 
         continuar.setOnAction(value ->  {
             VerdaderoFalsoVista proximaPregunta = new VerdaderoFalsoVista(stage, kahoot);
+            //MultipleChoiceVista proximaPregunta = new MultipleChoiceVista(stage, kahoot);
             Scene proximaEscena = new Scene(proximaPregunta, 1080, 720);
             stage.setScene(proximaEscena);
 
@@ -73,10 +74,4 @@ public class InicioDelJuegoVista extends VBox {
 
     }
 }
-
-
-
-
-
-
 

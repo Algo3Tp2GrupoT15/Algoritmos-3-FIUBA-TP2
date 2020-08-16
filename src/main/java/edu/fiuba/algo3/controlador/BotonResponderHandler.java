@@ -1,31 +1,30 @@
 package edu.fiuba.algo3.controlador;
 
-import edu.fiuba.algo3.modelo.preguntas.Preguntas;
-import edu.fiuba.algo3.modelo.Respuesta;
+import edu.fiuba.algo3.modelo.KahootModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.text.Text;
 import javafx.scene.control.*;
+import edu.fiuba.algo3.modelo.KahootModel;
 
 public class BotonResponderHandler implements EventHandler<ActionEvent> {
 
-    private final Preguntas pregunta;
-    private final Respuesta respuesta;
     private final Text texto;
     private final Button boton;
+    private final KahootModel kahoot;
 
-    public BotonResponderHandler(Preguntas pregunta, Respuesta respuesta, Text texto, Button responder) {
-        this.pregunta = pregunta;
-        this.respuesta = respuesta;
+    public BotonResponderHandler(KahootModel kahoot, Text texto, Button responder) {
+
         this.texto = texto;
         this.boton = responder;
+        this.kahoot = kahoot;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
 
-        this.pregunta.asignarPuntaje(respuesta);
-        this.texto.setText("Puntaje: "+ this.respuesta.puntajeDelJugador());
+        this.kahoot.calcularPuntosDelTurno();
+        this.texto.setText("Puntaje: "+ this.kahoot.jugadorDeTurno().puntaje());
         this.boton.setDisable(true);
 
     }

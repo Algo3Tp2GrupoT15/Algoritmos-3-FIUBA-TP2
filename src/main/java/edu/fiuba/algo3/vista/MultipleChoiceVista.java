@@ -24,25 +24,25 @@ import javafx.stage.Stage;
 import edu.fiuba.algo3.modelo.KahootModel;
 import java.util.ArrayList;
 
-public class MultipleChoiceVista extends Application {
+public class MultipleChoiceVista extends VBox {
 
-    private MultipleChoice pregunta;
+    private Stage stage;
+    //private MultipleChoice pregunta;
     private Respuesta respuesta;
-    private Opcion opcioCorrecta;
-    private Opcion opcioIncorrecta;
     private ArrayList<Opcion> opciones;
     private KahootModel kahoot;
 
-    public static void main(String[] args){
-        launch();
-    }
+    public MultipleChoiceVista(Stage stage, KahootModel kahoot) { //prueba para ver la vista de una pregunta MultipleChoice
 
-    @Override
-    public void start(Stage stage) { //prueba para ver la vista de una pregunta MultipleChoice
+        this.stage = stage;
+
+        this.kahoot = kahoot;
 
         this.crearModelo();
 
         stage.setTitle("Kahoot Algos 3");
+
+        Text turnoDelJugador = new Text(kahoot.jugadorDeTurno().nombre());
 
         Text tipoDePregunta = new Text("MultipleChoice Clasico");
         tipoDePregunta.setFont(Font.font("Arial", FontWeight.BLACK, 36));
@@ -86,31 +86,21 @@ public class MultipleChoiceVista extends Application {
         puntaje1.setFont(Font.font("Arial", FontWeight.BLACK, 20));
 
         Button responder = new Button("Responder");
-        BotonResponderHandler botonResponderHandler = new BotonResponderHandler(this.pregunta,this.respuesta,puntaje1,responder);
+        BotonResponderHandler botonResponderHandler = new BotonResponderHandler(kahoot,puntaje1,responder);
         responder.setOnAction(botonResponderHandler);
 
         Button continuar = new Button("Siguiente");
-        BotonSiguienteHandler botonSiguienteHandler = new BotonSiguienteHandler(stage);
+        BotonSiguienteHandler botonSiguienteHandler = new BotonSiguienteHandler(stage,kahoot);
         continuar.setOnAction(botonSiguienteHandler);
 
-        VBox vbox = new VBox(tipoDePregunta,pregunta,puntaje1,flowpane,responder,continuar);
-        vbox.setAlignment(Pos.CENTER);
-        vbox.setSpacing(20);
-
-        Scene scene = new Scene(vbox, 480, 360);
-        stage.setScene(scene);
-        stage.show();
+        this.getChildren().addAll(turnoDelJugador,tipoDePregunta,pregunta,puntaje1,flowpane,responder,continuar);
+        this.setAlignment(Pos.CENTER);
+        this.setSpacing(20);
 
     }
 
 
     public void crearModelo(){
-
-        KahootModel kahoot= new KahootModel();
-
-        Jugador jugador1 = new Jugador();
-
-        kahoot.cargarJugador("Julio");
 
         Opcion opcionCorrecta = new Opcion("4",true);
         Opcion opcionCorrecta2 = new Opcion("2^2",true);
@@ -122,18 +112,12 @@ public class MultipleChoiceVista extends Application {
         opciones.add(opcionCorrecta2);
         opciones.add(opcionIncorrecta);
         opciones.add(opcionIncorrecta2);
-        TipoClasico tipoClásico = new TipoClasico();
 
-        MultipleChoice multipleChoice = new MultipleChoice(" 2+2=..? ", opciones, tipoClásico);
-
-        Respuesta respuestaJugador1 = new Respuesta(jugador1);
-
+        Respuesta respuestaJugador1 = new Respuesta(kahoot.jugadorDeTurno());
         kahoot.cargarRespuestas(respuestaJugador1);
 
-        this.pregunta = multipleChoice;
+        //this.pregunta = multipleChoice;
         this.respuesta = respuestaJugador1;
-        this.opcioCorrecta = opcionCorrecta;
-        this.opcioIncorrecta = opcionIncorrecta;
         this.opciones = opciones;
     }
 

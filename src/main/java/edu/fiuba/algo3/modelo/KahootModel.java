@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.preguntas.Preguntas;
-import edu.fiuba.algo3.modelo.preguntas.TipoClasico;
-import edu.fiuba.algo3.modelo.preguntas.TipoPuntaje;
-import edu.fiuba.algo3.modelo.preguntas.VerdaderoYFalso;
+import edu.fiuba.algo3.modelo.preguntas.*;
 
 import java.util.ArrayList;
 
@@ -39,16 +36,32 @@ public class KahootModel {
         Opcion opcionCorrecta = new Opcion("verdadero",true);
         Opcion opcionIncorrecta = new Opcion("falso",false);
 
-        ArrayList<Opcion> opciones = new ArrayList<Opcion>();
-        opciones.add(opcionCorrecta);
-        opciones.add(opcionIncorrecta);
+        ArrayList<Opcion> opcionesVF = new ArrayList<Opcion>();
+        opcionesVF.add(opcionCorrecta);
+        opcionesVF.add(opcionIncorrecta);
 
         TipoPuntaje tipoClasico = new TipoClasico();
 
-        Preguntas verdaderoYFalso = new VerdaderoYFalso("El cielo es azul", opciones, tipoClasico);
+        Preguntas verdaderoYFalso = new VerdaderoYFalso("El cielo es azul", opcionesVF, tipoClasico);
 
         preguntas.add(verdaderoYFalso);
 
+
+        Opcion opcionCorrecta1 = new Opcion("4",true);
+        Opcion opcionCorrecta2 = new Opcion("2^2",true);
+        Opcion opcionIncorrecta1 = new Opcion("8",false);
+        Opcion opcionIncorrecta2 = new Opcion("Pez",false);
+
+        ArrayList<Opcion> opciones = new ArrayList<Opcion>();
+        opciones.add(opcionCorrecta1);
+        opciones.add(opcionCorrecta2);
+        opciones.add(opcionIncorrecta1);
+        opciones.add(opcionIncorrecta2);
+        TipoClasico tipoClásico = new TipoClasico();
+
+        MultipleChoice multipleChoice = new MultipleChoice(" 2+2=..? ", opciones, tipoClásico);
+
+        preguntas.add(multipleChoice);
 
 
     }
@@ -63,6 +76,12 @@ public class KahootModel {
     public String mostrarPreguntaDeTurno(){
 
         return preguntas.get(numeroDePregunta).contenido();
+
+    }
+
+    public Preguntas preguntaDeTurno(){
+
+        return preguntas.get(numeroDePregunta);
 
     }
 
