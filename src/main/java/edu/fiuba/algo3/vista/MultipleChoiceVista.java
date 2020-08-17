@@ -27,7 +27,7 @@ public class MultipleChoiceVista extends VBox {
         this.stage = stage;
         this.kahoot = kahoot;
 
-        this.crearModelo();
+        this.crearRespuesta();
 
         stage.setTitle("Kahoot Algos 3");
 
@@ -69,7 +69,7 @@ public class MultipleChoiceVista extends VBox {
     }
 
 
-    public void crearModelo(){
+    public void crearRespuesta(){
 
         Respuesta respuestaJugador1 = new Respuesta(kahoot.jugadorDeTurno());
         kahoot.cargarRespuestas(respuestaJugador1);

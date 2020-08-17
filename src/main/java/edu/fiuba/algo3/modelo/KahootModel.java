@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.preguntas.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class KahootModel {
 
@@ -36,9 +37,9 @@ public class KahootModel {
         opcionesVF.add(opcionCorrecta);
         opcionesVF.add(opcionIncorrecta);
 
-        TipoPuntaje tipoClasico = new TipoClasico();
+        TipoPuntaje tipoClasicoVF = new TipoClasico();
 
-        Preguntas verdaderoYFalso = new VerdaderoYFalso("El cielo es azul", opcionesVF, tipoClasico);
+        Preguntas verdaderoYFalso = new VerdaderoYFalso("El cielo es azul", opcionesVF, tipoClasicoVF);
 
         preguntas.add(verdaderoYFalso);
 
@@ -48,17 +49,50 @@ public class KahootModel {
         Opcion opcionIncorrecta1 = new Opcion("8",false);
         Opcion opcionIncorrecta2 = new Opcion("Pez",false);
 
-        ArrayList<Opcion> opciones = new ArrayList<Opcion>();
-        opciones.add(opcionCorrecta1);
-        opciones.add(opcionCorrecta2);
-        opciones.add(opcionIncorrecta1);
-        opciones.add(opcionIncorrecta2);
-        TipoClasico tipoClásico = new TipoClasico();
+        ArrayList<Opcion> opcionesMC = new ArrayList<Opcion>();
+        opcionesMC.add(opcionCorrecta1);
+        opcionesMC.add(opcionCorrecta2);
+        opcionesMC.add(opcionIncorrecta1);
+        opcionesMC.add(opcionIncorrecta2);
 
-        MultipleChoice multipleChoice = new MultipleChoice(" 2+2=..? ", opciones, tipoClásico);
+        TipoClasico tipoClasicoMC = new TipoClasico();
+
+        MultipleChoice multipleChoice = new MultipleChoice(" 2+2=..? ", opcionesMC, tipoClasicoMC);
 
         preguntas.add(multipleChoice);
 
+
+        Opcion opcionOC1 = new Opcion("2",true);
+        Opcion opcionOC2 = new Opcion("4",true);
+        Opcion opcionOC3 = new Opcion("6",true);
+        Opcion opcionOC4 = new Opcion("8",true);
+
+        ArrayList<Opcion> opcionesEnOrden = new ArrayList<Opcion>(Arrays.asList());
+        opcionesEnOrden.add(opcionOC1);
+        opcionesEnOrden.add(opcionOC2);
+        opcionesEnOrden.add(opcionOC3);
+        opcionesEnOrden.add(opcionOC4);
+
+        OrderedChoice orderedChoice = new OrderedChoice(" Ordene los numeros de forma ascendente ", opcionesEnOrden);
+
+        preguntas.add(orderedChoice);
+
+
+        OpcionGroup opcionGC1 = new OpcionGroup("1", "impar", true);
+        OpcionGroup opcionGC2 = new OpcionGroup("2", "par", true);
+        OpcionGroup opcionGC3 = new OpcionGroup("3", "impar", true);
+        OpcionGroup opcionGC4 = new OpcionGroup("4", "par", true);
+
+        ArrayList<Opcion> opcionesEnGrupos = new ArrayList<>(Arrays.asList());
+        opcionesEnGrupos.add(opcionGC1);
+        opcionesEnGrupos.add(opcionGC2);
+        opcionesEnGrupos.add(opcionGC3);
+        opcionesEnGrupos.add(opcionGC4);
+        TipoClasico tipoClasicoGC = new TipoClasico();
+
+        GroupChoice groupChoice = new GroupChoice(" Clasifique los numeros en pares e impares ", opcionesEnGrupos, tipoClasicoGC);
+
+        preguntas.add(groupChoice);
 
     }
 
@@ -96,6 +130,7 @@ public class KahootModel {
         turno.siguiente();
 
     }
+
     public void proximaPreguntaDeTurno(){
         ronda.siguiente();
         turno.resetearTurno();
