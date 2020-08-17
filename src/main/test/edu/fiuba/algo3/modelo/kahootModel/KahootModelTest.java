@@ -81,6 +81,7 @@ public class KahootModelTest {
         kahoot.cargarJugador("jugador1");
         kahoot.cargarJugador("jugador2");
         kahoot.leerPreguntas();
+        kahoot.proximaPreguntaDeTurno();
 
         Respuesta respuestaJugador1 = new Respuesta(kahoot.jugadorDeTurno());
         respuestaJugador1.agregarOpcion(kahoot.mostrarOpcionesDeTurno().get(2));
