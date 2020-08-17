@@ -4,7 +4,7 @@ public class Ronda {
     private int numeroDePregunta;
 
     public Ronda() {
-        numeroDePregunta = 1;
+        numeroDePregunta = 0;
     }
 
     public int numeroRonda() {
