@@ -58,8 +58,8 @@ public class InicioDelJuegoVista extends VBox {
         Button continuar = new Button("continuar");
 
         continuar.setOnAction(value ->  {
-            //VerdaderoFalsoVista proximaPregunta = new VerdaderoFalsoVista(stage, kahoot);
-            MultipleChoiceVista proximaPregunta = new MultipleChoiceVista(stage, kahoot);
+            VerdaderoFalsoVista proximaPregunta = new VerdaderoFalsoVista(stage, kahoot);
+            //MultipleChoiceVista proximaPregunta = new MultipleChoiceVista(stage, kahoot);
             Scene proximaEscena = new Scene(proximaPregunta, 1080, 720);
             stage.setScene(proximaEscena);
 

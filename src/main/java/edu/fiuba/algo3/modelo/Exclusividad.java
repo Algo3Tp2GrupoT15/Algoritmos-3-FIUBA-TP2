@@ -37,7 +37,7 @@ public class Exclusividad {
         if (activado){
             if (puntosJugador1!= 0 & puntosJugador2!= 0) {
 
-                jugador1.agregarPuntaje(-(puntosJugador2));
+                jugador1.agregarPuntaje(-(puntosJugador1));
                 jugador2.agregarPuntaje(-(puntosJugador2));
                 puntosJugador1 = 0;
                 puntosJugador2 = 0;
