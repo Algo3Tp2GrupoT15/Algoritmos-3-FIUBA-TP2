@@ -52,11 +52,11 @@ public class VerdaderoFalsoVista extends VBox {
 
         }
 
-        RadioButton opcion2RB = new RadioButton(kahoot.mostrarOpcionesDeTurno().get(1).contenido());
+        /*RadioButton opcion2RB = new RadioButton(kahoot.mostrarOpcionesDeTurno().get(1).contenido());
         flowpane.getChildren().add(opcion2RB);
         opcion2RB.setToggleGroup(opciones);
         BotonRadioHandler botonRadioHandler2 = new BotonRadioHandler(respuesta,kahoot.mostrarOpcionesDeTurno().get(1));
-        opcion2RB.setOnAction(botonRadioHandler2);
+        opcion2RB.setOnAction(botonRadioHandler2);*/
 
         flowpane.setHgap(50);
         flowpane.setAlignment(Pos.CENTER);

@@ -14,7 +14,7 @@
 },
   {
     "tipoDePregunta": "MultipleChoiceClasico",
-    "contenido": "2+2=..? ",
+    "contenido": "2+2=..?",
     "opciones": [
       {
         "texto": "4",

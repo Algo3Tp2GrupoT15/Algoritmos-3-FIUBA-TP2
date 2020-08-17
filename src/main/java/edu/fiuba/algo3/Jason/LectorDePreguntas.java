@@ -30,8 +30,6 @@ public class LectorDePreguntas {
 
         try {
             String preguntasPath = "src/main/java/recursos/Preguntas.json";
-            //PreguntaACrearInfo preguntaLeida = mapper.readValue(new File(preguntasPath), PreguntaACrearInfo.class);
-            //preguntasLeidas.add(preguntaLeida);
 
             PreguntaACrearInfo[] preguntasJSon = mapper.readValue(new File(preguntasPath), PreguntaACrearInfo[].class);
 
