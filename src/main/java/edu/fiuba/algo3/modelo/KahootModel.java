@@ -6,25 +6,23 @@ import java.util.ArrayList;
 
 public class KahootModel {
 
-    ArrayList<Jugador> jugadores;
     ArrayList<Preguntas> preguntas;
     ArrayList<Respuesta> respuestasDelTurno;
 
     Exclusividad exclusividad;
 
     private int numeroDePregunta;
-    private int numeroDeJugador;
+    private final Turno turno;
 
     public KahootModel(){
 
-        jugadores = new ArrayList<Jugador>();
+        turno = new Turno();
         preguntas = new ArrayList<Preguntas>();
         respuestasDelTurno = new ArrayList<Respuesta>();
 
         exclusividad = new Exclusividad();
 
         this.numeroDePregunta = 1;
-        this.numeroDeJugador = 0;
 
 
         leerPreguntas();
@@ -68,7 +66,7 @@ public class KahootModel {
 
     public void cargarJugador(String nombre){
 
-        jugadores.add(new Jugador(nombre));
+        turno.agregarJugador(nombre);
 
     }
 
@@ -92,17 +90,17 @@ public class KahootModel {
 
     public Jugador jugadorDeTurno(){
 
-        return jugadores.get(numeroDeJugador);
+        return turno.jugador();
 
     }
 
     public void siguienteJugador(){
-        numeroDeJugador +=1;
+        turno.siguiente();
 
     }
     public void proximaPreguntaDeTurno(){
         numeroDePregunta +=1;
-        numeroDeJugador = 0;
+        turno.resetearTurno();
         respuestasDelTurno = new ArrayList<Respuesta>();
 
     }
@@ -125,7 +123,7 @@ public class KahootModel {
             preguntas.get(numeroDePregunta).asignarPuntaje(respuesta);
         }
 
-        exclusividad.modificarPuntos(jugadores);
+        exclusividad.modificarPuntos(turno.jugadores());
     }
 
     public void activarExclusividad(int usos){
