@@ -30,21 +30,21 @@ public class Exclusividad {
         Jugador jugador1 = jugadores.get(0) ;
         Jugador jugador2 = jugadores.get(1) ;
 
-        int puntosJugador1=jugador1.getUltimoPuntajeAgregado();
-        int puntosJugador2=jugador2.getUltimoPuntajeAgregado();
+        int puntosganasdosEstaRondaJugador1=jugador1.getUltimoPuntajeAgregado();
+        int puntosganasdosEstaRondaJugador2=jugador2.getUltimoPuntajeAgregado();
 
 
         if (activado){
-            if (puntosJugador1!= 0 & puntosJugador2!= 0) {
+            if (puntosganasdosEstaRondaJugador1!= 0 & puntosganasdosEstaRondaJugador2!= 0) {
 
-                jugador1.agregarPuntaje(-(puntosJugador1));
-                jugador2.agregarPuntaje(-(puntosJugador2));
-                puntosJugador1 = 0;
-                puntosJugador2 = 0;
+                jugador1.agregarPuntaje(-(puntosganasdosEstaRondaJugador1));
+                jugador2.agregarPuntaje(-(puntosganasdosEstaRondaJugador2));
+                puntosganasdosEstaRondaJugador1 = 0;
+                puntosganasdosEstaRondaJugador2 = 0;
             }
 
-            jugador1.agregarPuntaje((puntosJugador1*multiplicador)-puntosJugador1);
-            jugador2.agregarPuntaje((puntosJugador2*multiplicador)-puntosJugador2);
+            jugador1.agregarPuntaje((puntosganasdosEstaRondaJugador1*multiplicador)-puntosganasdosEstaRondaJugador1);
+            jugador2.agregarPuntaje((puntosganasdosEstaRondaJugador2*multiplicador)-puntosganasdosEstaRondaJugador2);
 
             activado = false;
             multiplicador = 1;
