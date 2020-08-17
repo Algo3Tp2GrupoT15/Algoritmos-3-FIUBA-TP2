@@ -8,26 +8,22 @@ import java.util.ArrayList;
 
 public class KahootModel {
 
-    ArrayList<Jugador> jugadores;
+    private final Ronda ronda;
     ArrayList<Preguntas> preguntas;
     ArrayList<Respuesta> respuestasDelTurno;
 
     Exclusividad exclusividad;
 
-    private int numeroDePregunta;
-    private int numeroDeJugador;
+    private final Turno turno;
 
     public KahootModel(){
 
-        jugadores = new ArrayList<Jugador>();
+        turno = new Turno();
         preguntas = new ArrayList<Preguntas>();
         respuestasDelTurno = new ArrayList<Respuesta>();
+        ronda = new Ronda();
 
         exclusividad = new Exclusividad();
-
-        this.numeroDePregunta = 0;
-        this.numeroDeJugador = 0;
-
 
         leerPreguntas();
 
@@ -76,41 +72,41 @@ public class KahootModel {
 
     public void cargarJugador(String nombre){
 
-        jugadores.add(new Jugador(nombre));
+        turno.agregarJugador(nombre);
 
     }
 
 
     public String mostrarPreguntaDeTurno(){
 
-        return preguntas.get(numeroDePregunta).contenido();
+        return preguntas.get(ronda.numeroRonda()).contenido();
 
     }
 
     public Preguntas preguntaDeTurno(){
 
-        return preguntas.get(numeroDePregunta);
+        return preguntas.get(ronda.numeroRonda());
 
     }
 
     public ArrayList<Opcion> mostrarOpcionesDeTurno(){
 
-        return preguntas.get(numeroDePregunta).opciones();
+        return preguntas.get(ronda.numeroRonda()).opciones();
     }
 
     public Jugador jugadorDeTurno(){
 
-        return jugadores.get(numeroDeJugador);
+        return turno.jugador();
 
     }
 
     public void siguienteJugador(){
-        numeroDeJugador +=1;
+        turno.siguiente();
 
     }
     public void proximaPreguntaDeTurno(){
-        numeroDePregunta +=1;
-        numeroDeJugador = 0;
+        ronda.siguiente();
+        turno.resetearTurno();
         respuestasDelTurno = new ArrayList<Respuesta>();
 
     }
@@ -130,10 +126,10 @@ public class KahootModel {
     public void calcularPuntosDelTurno() {
 
         for (Respuesta respuesta : respuestasDelTurno) {
-            preguntas.get(numeroDePregunta).asignarPuntaje(respuesta);
+            preguntas.get(ronda.numeroRonda()).asignarPuntaje(respuesta);
         }
 
-        exclusividad.modificarPuntos(jugadores);
+        exclusividad.modificarPuntos(turno.jugadores());
     }
 
     public void activarExclusividad(int usos){
