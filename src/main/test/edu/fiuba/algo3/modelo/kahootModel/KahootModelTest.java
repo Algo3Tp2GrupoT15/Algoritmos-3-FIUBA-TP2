@@ -44,8 +44,7 @@ public class KahootModelTest {
     public void mostrarContenidoDeTurnoTest() {
         KahootModel kahoot = new KahootModel();
         kahoot.leerPreguntas();
-        kahoot.proximaPreguntaDeTurno();
-        assertEquals(" 2+2=..? ",kahoot.mostrarPreguntaDeTurno());
+        assertEquals("El cielo es azul",kahoot.mostrarPreguntaDeTurno());
     }
 
     @Test
@@ -53,15 +52,15 @@ public class KahootModelTest {
         KahootModel kahoot = new KahootModel();
         kahoot.leerPreguntas();
         kahoot.proximaPreguntaDeTurno();
-        assertEquals(" 2+2=..? ",kahoot.mostrarPreguntaDeTurno());
+        assertEquals("2+2=..?",kahoot.mostrarPreguntaDeTurno());
     }
 
     @Test
     public void mostrarOpcionesDeTurnoTest() {
         KahootModel kahoot = new KahootModel();
         kahoot.leerPreguntas();
-        assertEquals("verdadero",kahoot.mostrarOpcionesDeTurno().get(0).contenido());
-        assertEquals("falso",kahoot.mostrarOpcionesDeTurno().get(1).contenido());
+        assertEquals("Verdadero",kahoot.mostrarOpcionesDeTurno().get(0).contenido());
+        assertEquals("Falso",kahoot.mostrarOpcionesDeTurno().get(1).contenido());
     }
 
     @Test
@@ -69,6 +68,7 @@ public class KahootModelTest {
         KahootModel kahoot = new KahootModel();
         kahoot.leerPreguntas();
         kahoot.proximaPreguntaDeTurno();
+
         assertEquals("4",kahoot.mostrarOpcionesDeTurno().get(0).contenido());
         assertEquals("2^2",kahoot.mostrarOpcionesDeTurno().get(1).contenido());
         assertEquals("8",kahoot.mostrarOpcionesDeTurno().get(2).contenido());
@@ -81,7 +81,6 @@ public class KahootModelTest {
         kahoot.cargarJugador("jugador1");
         kahoot.cargarJugador("jugador2");
         kahoot.leerPreguntas();
-        kahoot.proximaPreguntaDeTurno();
 
         Respuesta respuestaJugador1 = new Respuesta(kahoot.jugadorDeTurno());
         respuestaJugador1.agregarOpcion(kahoot.mostrarOpcionesDeTurno().get(2));

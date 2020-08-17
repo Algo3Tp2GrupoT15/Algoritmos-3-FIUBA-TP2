@@ -1,6 +1,13 @@
 package edu.fiuba.algo3;
 
+import com.google.gson.*;
+
 import edu.fiuba.algo3.modelo.KahootModel;
+import edu.fiuba.algo3.modelo.Opcion;
+import edu.fiuba.algo3.modelo.preguntas.Preguntas;
+import edu.fiuba.algo3.modelo.preguntas.TipoClasico;
+import edu.fiuba.algo3.modelo.preguntas.TipoPuntaje;
+import edu.fiuba.algo3.modelo.preguntas.VerdaderoYFalso;
 import edu.fiuba.algo3.vista.BienvenidosVista;
 import edu.fiuba.algo3.vista.InicioDelJuegoVista;
 import javafx.application.Application;
@@ -8,6 +15,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 /**
  * JavaFX App

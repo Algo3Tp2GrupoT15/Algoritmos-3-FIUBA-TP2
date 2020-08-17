@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.Jason.CreadorDePreguntas;
+import edu.fiuba.algo3.Jason.LectorDePreguntas;
 import edu.fiuba.algo3.modelo.preguntas.*;
 
 import java.util.ArrayList;
@@ -30,7 +32,7 @@ public class KahootModel {
 
     public void leerPreguntas(){ //leeria preguntas de un archivo pero de momento cargo a mano una pregunta para probar
 
-        Opcion opcionCorrecta = new Opcion("verdadero",true);
+       /* Opcion opcionCorrecta = new Opcion("verdadero",true);
         Opcion opcionIncorrecta = new Opcion("falso",false);
 
         ArrayList<Opcion> opcionesVF = new ArrayList<Opcion>();
@@ -59,7 +61,13 @@ public class KahootModel {
 
         MultipleChoice multipleChoice = new MultipleChoice(" 2+2=..? ", opcionesMC, tipoClasicoMC);
 
-        preguntas.add(multipleChoice);
+        preguntas.add(multipleChoice);*/
+
+
+        LectorDePreguntas lector = new LectorDePreguntas();
+
+        CreadorDePreguntas creadorDePreguntas = new CreadorDePreguntas(lector.getPreguntasLeidas());
+        preguntas = creadorDePreguntas.getPreguntas();
 
 
         Opcion opcionOC1 = new Opcion("2",true);

@@ -1,0 +1,42 @@
+[{
+  "tipoDePregunta": "VerdaderoFalsoClasico",
+  "contenido": "El cielo es azul",
+  "opciones": [
+      {
+        "texto": "Verdadero",
+        "esCorrecta": false
+      },
+      {
+        "texto": "Falso",
+        "esCorrecta": true
+      }
+    ]
+},
+  {
+    "tipoDePregunta": "MultipleChoiceClasico",
+    "contenido": "2+2=..?",
+    "opciones": [
+      {
+        "texto": "4",
+        "esCorrecta": true
+      },
+      {
+        "texto": "2^2",
+        "esCorrecta": true
+      },
+      {
+        "texto": "8",
+        "esCorrecta": false
+      },
+      {
+        "texto": "Pez",
+        "esCorrecta": false
+      }
+    ]
+
+  }
+]
+
+
+
+
