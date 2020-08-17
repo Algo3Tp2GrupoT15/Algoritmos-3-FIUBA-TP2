@@ -75,7 +75,7 @@ public class KahootModelTest {
     }
 
     @Test
-    void cargarRespuestasDelTurnoTest() {
+    public void cargarRespuestasDelTurnoTest() {
         KahootModel kahoot = new KahootModel();
         kahoot.cargarJugador("jugador1");
         kahoot.cargarJugador("jugador2");
