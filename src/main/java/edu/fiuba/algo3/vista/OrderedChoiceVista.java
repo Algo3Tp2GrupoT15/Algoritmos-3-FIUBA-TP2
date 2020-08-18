@@ -1,28 +1,32 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.controlador.BotonSiguienteHandler;
 import edu.fiuba.algo3.controlador.BotonRadioHandler;
 import edu.fiuba.algo3.controlador.BotonResponderHandler;
-import edu.fiuba.algo3.modelo.Respuesta;
+import edu.fiuba.algo3.controlador.BotonSiguienteHandler;
 import edu.fiuba.algo3.modelo.KahootModel;
+import edu.fiuba.algo3.modelo.Respuesta;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 
-public class VerdaderoFalsoVista extends VBox {
+public class OrderedChoiceVista extends VBox {
 
     private Stage stage;
     private Respuesta respuesta;
     private KahootModel kahoot;
 
-    public VerdaderoFalsoVista(Stage stage, KahootModel kahoot) { //prueba para ver la vista de una pregunta VyF
-
-        super();
+    public OrderedChoiceVista(Stage stage, KahootModel kahoot) { //prueba para ver la vista de una pregunta MultipleChoice
 
         this.stage = stage;
         this.kahoot = kahoot;
@@ -33,33 +37,36 @@ public class VerdaderoFalsoVista extends VBox {
 
         Text turnoDelJugador = new Text(kahoot.jugadorDeTurno().nombre());
 
-        Text tipoDePregunta = new Text("VervaderoFalso Clasico");
+        Text tipoDePregunta = new Text("Ordered Choice");
         tipoDePregunta.setFont(Font.font("Arial", FontWeight.BLACK, 36));
-        Text pregunta = new Text(kahoot.mostrarPreguntaDeTurno());
-        pregunta.setFont(Font.font("Verdana", FontWeight.BOLD, 36));
+        Text pregunta = new Text(" 2+2=..? ");
+        pregunta.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
         pregunta.setFill(Color.BLUE);
-        //pregunta.setTextAlignment(TextAlignment.CENTER);
 
-        FlowPane flowpane = new FlowPane();
-        ToggleGroup opciones = new ToggleGroup(); //esto es para que solo se pueda seleccionar una opcion
+        ObservableList<String> opcionesMenu = FXCollections.observableArrayList();
+
+        for (int i=0; i<kahoot.mostrarOpcionesDeTurno().size();i++){
+
+            opcionesMenu.add(kahoot.mostrarOpcionesDeTurno().get(i).contenido());
+
+        }
+
+        ComboBox menuOrden = new ComboBox (opcionesMenu);
+
+        GridPane gridpane = new GridPane();
+        gridpane.add(menuOrden,1,3);
+
+      /*  FlowPane flowpane = new FlowPane();
+        flowpane.setHgap(50);
+        flowpane.setAlignment(Pos.CENTER);
 
         for (int i=0; i<kahoot.mostrarOpcionesDeTurno().size();i++) {
             RadioButton opcionRB = new RadioButton(kahoot.mostrarOpcionesDeTurno().get(i).contenido());
             flowpane.getChildren().add(opcionRB);
-            opcionRB.setToggleGroup(opciones);
             BotonRadioHandler botonRadioHandler = new BotonRadioHandler(respuesta,kahoot.mostrarOpcionesDeTurno().get(i));
             opcionRB.setOnAction(botonRadioHandler);
 
-        }
-
-        /*RadioButton opcion2RB = new RadioButton(kahoot.mostrarOpcionesDeTurno().get(1).contenido());
-        flowpane.getChildren().add(opcion2RB);
-        opcion2RB.setToggleGroup(opciones);
-        BotonRadioHandler botonRadioHandler2 = new BotonRadioHandler(respuesta,kahoot.mostrarOpcionesDeTurno().get(1));
-        opcion2RB.setOnAction(botonRadioHandler2);*/
-
-        flowpane.setHgap(50);
-        flowpane.setAlignment(Pos.CENTER);
+        }*/
 
         Text puntaje1 = new Text("Puntaje: "+ respuesta.puntajeDelJugador());
         puntaje1.setFont(Font.font("Arial", FontWeight.BLACK, 20));
@@ -72,11 +79,12 @@ public class VerdaderoFalsoVista extends VBox {
         BotonSiguienteHandler botonSiguienteHandler = new BotonSiguienteHandler(stage,kahoot);
         continuar.setOnAction(botonSiguienteHandler);
 
-        this.getChildren().addAll(turnoDelJugador,tipoDePregunta,pregunta,puntaje1,flowpane,responder,continuar);
+        this.getChildren().addAll(turnoDelJugador,tipoDePregunta,pregunta,puntaje1,gridpane,responder,continuar);
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
 
     }
+
 
     public void crearRespuesta(){
 
@@ -88,3 +96,5 @@ public class VerdaderoFalsoVista extends VBox {
     }
 
 }
+
+

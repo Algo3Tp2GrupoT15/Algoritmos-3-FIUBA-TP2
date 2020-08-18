@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.preguntas;
 
 import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.OpcionGroup;
+import edu.fiuba.algo3.modelo.Opcion;
 import edu.fiuba.algo3.modelo.Respuesta;
 import org.junit.jupiter.api.Test;
 
@@ -20,7 +21,7 @@ public class PreguntaGroupChoiceTest {
         OpcionGroup opcion3 = new OpcionGroup("3", "impar", true);
         OpcionGroup opcion4 = new OpcionGroup("4", "par", true);
 
-        ArrayList<OpcionGroup> opcionesEnGrupos = new ArrayList<OpcionGroup>(Arrays.asList(opcion1, opcion2, opcion3, opcion4));
+        ArrayList<Opcion> opcionesEnGrupos = new ArrayList<>(Arrays.asList(opcion1, opcion2, opcion3, opcion4));
 
         TipoClasico tipoClásico = new TipoClasico();
 
@@ -45,7 +46,7 @@ public class PreguntaGroupChoiceTest {
         OpcionGroup opcion5 = new OpcionGroup("1", "par", false);
         OpcionGroup opcion6 = new OpcionGroup("4", "impar", false);
 
-        ArrayList<OpcionGroup> opcionesEnGrupos = new ArrayList<OpcionGroup>(Arrays.asList(opcion1, opcion2, opcion3, opcion4));
+        ArrayList<Opcion> opcionesEnGrupos = new ArrayList<>(Arrays.asList(opcion1, opcion2, opcion3, opcion4));
 
         TipoClasico tipoClásico = new TipoClasico();
 

@@ -5,6 +5,11 @@ public class Opcion {
     protected String texto;
     protected boolean esCorrecta;
 
+
+    public Opcion(){
+
+    }
+
     public Opcion(String unaOpcion, boolean correcta) {
 
         texto = unaOpcion;
@@ -12,14 +17,24 @@ public class Opcion {
 
     }
 
-    public boolean esCorrecta() {
-        return esCorrecta;
-    }
-
 
     public String contenido(){
         return texto;
     }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
+
+    public boolean esCorrecta() {
+        return esCorrecta;
+    }
+
+    public void setEsCorrecta(boolean esCorrecta) {
+        this.esCorrecta = esCorrecta;
+    }
+
 
 }
 
