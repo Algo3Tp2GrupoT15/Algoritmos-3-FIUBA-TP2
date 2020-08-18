@@ -12,12 +12,14 @@ public class GroupChoice implements Preguntas{
     private final String texto;
     private ArrayList<Opcion> opciones;
     protected TipoPuntaje tipo;
+    private String tipoDePregunta;
 
     public GroupChoice(String enunciado,ArrayList<Opcion> opciones,TipoPuntaje unTipo) {
 
         this.texto = enunciado;
         this.opciones = opciones;
         this.tipo = unTipo;
+        tipoDePregunta = "GroupChoice";
 
     }
 
@@ -48,5 +50,10 @@ public class GroupChoice implements Preguntas{
 
         return correctas;
 
+    }
+
+    @Override
+    public String tipoDePregunta() {
+        return tipoDePregunta;
     }
 }

@@ -11,11 +11,13 @@ public class OrderedChoice implements Preguntas {
 
     private final String texto;
     private ArrayList<Opcion> opciones;
+    private String tipoDePregunta;
 
     public OrderedChoice(String enunciado,ArrayList<Opcion> opciones) {
 
         this.texto = enunciado;
         this.opciones = opciones;
+        tipoDePregunta = "OrderedChoice";
 
     }
 
@@ -47,6 +49,11 @@ public class OrderedChoice implements Preguntas {
     @Override
     public ArrayList<Opcion> opcionesCorrectas() {
         return opciones;
+    }
+
+    @Override
+    public String tipoDePregunta() {
+        return tipoDePregunta;
     }
 
 

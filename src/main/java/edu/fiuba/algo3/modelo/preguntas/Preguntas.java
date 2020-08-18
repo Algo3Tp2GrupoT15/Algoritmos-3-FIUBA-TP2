@@ -15,4 +15,6 @@ public interface Preguntas {
 
     ArrayList<Opcion> opcionesCorrectas();
 
+    String tipoDePregunta();
+
 }

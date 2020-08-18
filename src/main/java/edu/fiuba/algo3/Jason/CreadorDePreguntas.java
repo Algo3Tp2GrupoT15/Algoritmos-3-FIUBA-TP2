@@ -50,10 +50,10 @@ public class CreadorDePreguntas {
                 OrderedChoice orderedChoice = new OrderedChoice(preguntaDatos.getContenido(), preguntaDatos.getOpciones());
                 preguntas.add(orderedChoice);
                 break;
-            /*case "GroupChoice" :
+             case "GroupChoice" :
                 GroupChoice groupChoice = new GroupChoice(preguntaDatos.getContenido(), preguntaDatos.getOpciones(),new TipoClasico());
                 preguntas.add(groupChoice);
-                break;*/
+                break;
         }
 
 

@@ -6,17 +6,19 @@ import edu.fiuba.algo3.modelo.Respuesta;
 import java.util.ArrayList;
 import static java.util.stream.Collectors.toCollection;
 
-public class VerdaderoYFalso implements Preguntas{
+    public class VerdaderoYFalso implements Preguntas{
 
     private final String texto;
     private ArrayList<Opcion> opciones;
     protected TipoPuntaje tipo;
+    private String tipoDePregunta;
 
     public VerdaderoYFalso(String enunciado,ArrayList<Opcion> opciones,TipoPuntaje unTipo) {
 
         this.texto = enunciado;
         this.opciones = opciones;
         this.tipo = unTipo;
+        tipoDePregunta = "VerdaderoYFalso";
 
     }
 
@@ -56,5 +58,10 @@ public class VerdaderoYFalso implements Preguntas{
 
     }
 
+        @Override
+        public String tipoDePregunta() {
+            return tipoDePregunta;
+        }
 
-}
+
+    }

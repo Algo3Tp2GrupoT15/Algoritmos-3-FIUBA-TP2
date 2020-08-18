@@ -11,12 +11,14 @@ public class MultipleChoice implements Preguntas{
     private final String texto;
     private ArrayList<Opcion> opciones;
     protected TipoPuntaje tipo;
+    private String tipoDePregunta;
 
     public MultipleChoice(String pregunta, ArrayList<Opcion> opciones,TipoPuntaje unTipo){
 
         this.opciones = opciones;
         this.texto = pregunta;
         this.tipo = unTipo;
+        tipoDePregunta = "MultipleChoice";
 
     }
 
@@ -54,6 +56,11 @@ public class MultipleChoice implements Preguntas{
 
         return correctas;
 
+    }
+
+    @Override
+    public String tipoDePregunta() {
+        return tipoDePregunta;
     }
 
 
