@@ -6,11 +6,13 @@ public class Jugador {
     private String nombre;
     private int multiplicador;
     private int ultimoPuntajeAgregado;
+    private int usosExclusividad;
 
     public Jugador() {
         puntaje = 0;
         multiplicador = 1;
         nombre = "SinNombre";
+        usosExclusividad = 2;
     }
 
     public Jugador(String nombre) {
@@ -18,6 +20,7 @@ public class Jugador {
         this.nombre = nombre;
         puntaje = 0;
         multiplicador = 1;
+        usosExclusividad = 2;
     }
 
     public void agregarPuntaje(int unPuntaje) {
@@ -50,5 +53,12 @@ public class Jugador {
 
     public int getUltimoPuntajeAgregado(){
         return ultimoPuntajeAgregado;
+    }
+
+    public int getUsosExclusividad(){
+        return usosExclusividad;
+    }
+    public void disminuirUsosExclusividad(){
+        usosExclusividad -= 1;
     }
 }

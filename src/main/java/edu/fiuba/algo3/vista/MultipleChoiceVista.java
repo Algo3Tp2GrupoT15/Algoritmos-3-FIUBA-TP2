@@ -2,7 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.BotonRadioHandler;
 import edu.fiuba.algo3.controlador.BotonResponderHandler;
-import edu.fiuba.algo3.controlador.BotonSiguienteHandler;
+import edu.fiuba.algo3.controlador.BotonSiguienteVistaHandler;
 import edu.fiuba.algo3.modelo.Respuesta;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -68,7 +68,7 @@ public class MultipleChoiceVista extends VBox {
         responder.setOnAction(botonResponderHandler);
 
         Button continuar = new Button("Siguiente");
-        BotonSiguienteHandler botonSiguienteHandler = new BotonSiguienteHandler(stage,kahoot);
+        BotonSiguienteVistaHandler botonSiguienteHandler = new BotonSiguienteVistaHandler(stage,kahoot);
         continuar.setOnAction(botonSiguienteHandler);
 
         this.getChildren().addAll(turnoDelJugador,tipoDePregunta,pregunta,puntaje1,flowpane,responder,continuar);

@@ -1,8 +1,7 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.controlador.BotonRadioHandler;
 import edu.fiuba.algo3.controlador.BotonResponderHandler;
-import edu.fiuba.algo3.controlador.BotonSiguienteHandler;
+import edu.fiuba.algo3.controlador.BotonSiguienteVistaHandler;
 import edu.fiuba.algo3.modelo.KahootModel;
 import edu.fiuba.algo3.modelo.OpcionGroup;
 import edu.fiuba.algo3.modelo.Respuesta;
@@ -45,7 +44,6 @@ public class GroupChoiceVista extends VBox {
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
 
-        stage.setTitle("Kahoot Algos 3");
 
         Text turnoDelJugador = new Text(kahoot.jugadorDeTurno().nombre());
 
@@ -103,10 +101,11 @@ public class GroupChoiceVista extends VBox {
         responder.setOnAction(botonResponderHandler);
 
         Button continuar = new Button("Siguiente");
-        BotonSiguienteHandler botonSiguienteHandler = new BotonSiguienteHandler(stage,kahoot);
+        BotonSiguienteVistaHandler botonSiguienteHandler = new BotonSiguienteVistaHandler(stage,kahoot);
         continuar.setOnAction(botonSiguienteHandler);
 
         this.getChildren().addAll(turnoDelJugador,tipoDePregunta,pregunta,puntaje1,stackpane,responder,continuar);
+        this.getChildren().addAll(turnoDelJugador,tipoDePregunta,pregunta,gridpane,responder,continuar);
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
 

@@ -5,10 +5,7 @@ import edu.fiuba.algo3.modelo.preguntas.GroupChoice;
 import edu.fiuba.algo3.modelo.preguntas.MultipleChoice;
 import edu.fiuba.algo3.modelo.preguntas.OrderedChoice;
 import edu.fiuba.algo3.modelo.preguntas.VerdaderoYFalso;
-import edu.fiuba.algo3.vista.GroupChoiceVista;
-import edu.fiuba.algo3.vista.MultipleChoiceVista;
-import edu.fiuba.algo3.vista.OrderedChoiceVista;
-import edu.fiuba.algo3.vista.VerdaderoFalsoVista;
+import edu.fiuba.algo3.vista.*;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -49,6 +46,14 @@ public class DetectorDeVista {
 
         GroupChoiceVista proximaPregunta = new GroupChoiceVista(vista, kahoot);
         Scene proximaEscena = new Scene(proximaPregunta, 1080, 720);
+        vista.setScene(proximaEscena);
+
+    }
+
+    public void siguienteVistaPregunta(PuntosVista puntosVista, Stage vista) {
+
+
+        Scene proximaEscena = new Scene(puntosVista, 1080, 720);
         vista.setScene(proximaEscena);
 
     }

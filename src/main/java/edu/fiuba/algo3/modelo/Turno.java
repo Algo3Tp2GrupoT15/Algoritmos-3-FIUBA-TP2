@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+
+
 import java.util.ArrayList;
 
 public class Turno {
@@ -10,6 +12,8 @@ public class Turno {
         jugadores = new ArrayList<Jugador>();
         this.numeroDeJugador = 0;
     }
+
+
 
     public void siguiente() {
         numeroDeJugador +=1;
@@ -30,4 +34,11 @@ public class Turno {
     public ArrayList<Jugador> jugadores() {
         return jugadores;
     }
+
+    public boolean esUltimoTurno(){
+
+        return ((jugadores.size() -1) == numeroDeJugador);
+
+    }
+
 }

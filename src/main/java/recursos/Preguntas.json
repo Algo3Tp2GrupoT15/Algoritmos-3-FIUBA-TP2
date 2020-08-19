@@ -11,6 +11,18 @@
       "esCorrecta": true
     }
   ]
+  "tipoDePregunta": "VerdaderoFalsoClasico",
+  "contenido": "El cielo es azul",
+  "opciones": [
+      {
+        "texto": "Verdadero",
+        "esCorrecta": true
+      },
+      {
+        "texto": "Falso",
+        "esCorrecta": false
+      }
+    ]
 },
   {
     "tipoDePregunta": "MultipleChoiceClasico",
