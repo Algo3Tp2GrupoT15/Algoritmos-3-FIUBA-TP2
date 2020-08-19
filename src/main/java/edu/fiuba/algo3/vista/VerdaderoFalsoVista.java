@@ -1,8 +1,9 @@
 package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.controlador.BotonExclusividadHandler;
 import edu.fiuba.algo3.controlador.BotonRadioHandler;
 import edu.fiuba.algo3.controlador.BotonResponderHandler;
-import edu.fiuba.algo3.controlador.BotonSiguienteHandler;
+import edu.fiuba.algo3.controlador.BotonSiguienteVistaHandler;
 import edu.fiuba.algo3.modelo.KahootModel;
 import edu.fiuba.algo3.modelo.Respuesta;
 import javafx.geometry.Pos;
@@ -37,6 +38,7 @@ public class VerdaderoFalsoVista extends VBox {
 
         this.crearRespuesta();
 
+
         File path = new File("src/main/java/recursos/kahoot-lobby-music.mp3");
         Media media = new Media(path.toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
@@ -50,6 +52,14 @@ public class VerdaderoFalsoVista extends VBox {
         pregunta.setFont(Font.font("Verdana", FontWeight.BOLD, 36));
         pregunta.setFill(Color.BLUE);
 
+
+        Button activarExclusividad = new Button("Exclusividad");
+        BotonExclusividadHandler exclusividadHandler = new BotonExclusividadHandler(activarExclusividad, kahoot);
+        activarExclusividad.setOnAction(exclusividadHandler);
+        VBox exclusividad = new VBox(activarExclusividad);
+        exclusividad.setAlignment(Pos.TOP_RIGHT);
+
+
         FlowPane flowpane = new FlowPane();
         ToggleGroup opciones = new ToggleGroup(); //esto es para que solo se pueda seleccionar una opcion
         crearOpciones(flowpane,opciones);
@@ -62,17 +72,19 @@ public class VerdaderoFalsoVista extends VBox {
         Text puntaje1 = new Text("Puntaje: "+ respuesta.puntajeDelJugador());
         puntaje1.setFont(Font.font("Arial", FontWeight.BLACK, 20));
 
-        Button responder = new Button("Responder");
+        /*Button responder = new Button("Responder");
         BotonResponderHandler botonResponderHandler = new BotonResponderHandler(kahoot,puntaje1,responder);
-        responder.setOnAction(botonResponderHandler);
+        responder.setOnAction(botonResponderHandler);*/
 
         Button continuar = new Button("Siguiente");
-        BotonSiguienteHandler botonSiguienteHandler = new BotonSiguienteHandler(stage,kahoot);
+        BotonSiguienteVistaHandler botonSiguienteHandler = new BotonSiguienteVistaHandler(stage,kahoot);
         continuar.setOnAction(botonSiguienteHandler);
 
-        this.getChildren().addAll(turnoDelJugador,tipoDePregunta,pregunta,puntaje1,flowpane,responder,continuar);
+        this.getChildren().addAll(exclusividad,turnoDelJugador,tipoDePregunta,pregunta,puntaje1,flowpane,continuar);
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
+
+
 
     }
 

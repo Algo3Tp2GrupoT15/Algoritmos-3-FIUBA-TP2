@@ -23,7 +23,7 @@ public class BotonResponderHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
 
-        this.kahoot.calcularPuntosDelTurno();
+       // this.kahoot.calcularPuntosDelTurno();
         this.texto.setText("Puntaje: "+ this.kahoot.jugadorDeTurno().puntaje());
         this.boton.setDisable(true);
 

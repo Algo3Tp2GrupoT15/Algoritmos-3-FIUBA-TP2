@@ -136,6 +136,12 @@ public class KahootModel {
 
     }
 
+    public ArrayList<Jugador> jugadores(){
+
+        return turno.jugadores();
+
+    }
+
     public void siguienteJugador(){
         turno.siguiente();
 
@@ -172,6 +178,7 @@ public class KahootModel {
     public void activarExclusividad(int usos){
 
         exclusividad.activar(usos);
+
     }
 
     public void activarMultiplicador(int factor){
