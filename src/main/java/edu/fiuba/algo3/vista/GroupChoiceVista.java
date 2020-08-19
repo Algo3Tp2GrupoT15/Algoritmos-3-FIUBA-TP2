@@ -2,7 +2,9 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.BotonResponderHandler;
 import edu.fiuba.algo3.controlador.BotonSiguienteVistaHandler;
+import edu.fiuba.algo3.controlador.ComboBoxHandler;
 import edu.fiuba.algo3.modelo.KahootModel;
+import edu.fiuba.algo3.modelo.Opcion;
 import edu.fiuba.algo3.modelo.OpcionGroup;
 import edu.fiuba.algo3.modelo.Respuesta;
 import javafx.collections.FXCollections;
@@ -25,6 +27,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class GroupChoiceVista extends VBox {
 
@@ -76,6 +79,10 @@ public class GroupChoiceVista extends VBox {
             gridpane.add(menuOrden,2,(i+1));
             Label label = new Label(kahoot.mostrarOpcionesDeTurno().get(i).contenido());
             gridpane.add(label, 1, (i+1));
+            Object item = menuOrden.getSelectionModel().getSelectedItem();
+            OpcionGroup opcion = this.buscarOpcion((String)item);
+            ComboBoxHandler comboBoxHandler = new ComboBoxHandler(respuesta,opcion);
+            menuOrden.setOnAction(comboBoxHandler);
         }
 
         gridpane.setAlignment(Pos.CENTER);
@@ -119,6 +126,16 @@ public class GroupChoiceVista extends VBox {
 
         this.respuesta = respuestaJugador1;
 
+    }
+
+    OpcionGroup buscarOpcion(String item) {
+        for(int i=0;i<kahoot.mostrarOpcionesDeTurno().size();i++) {
+            OpcionGroup opcion = (OpcionGroup)kahoot.mostrarOpcionesDeTurno().get(i);
+            if(opcion.grupo().equals(item)) {
+                return opcion;
+            }
+        }
+        return null;
     }
 
 }

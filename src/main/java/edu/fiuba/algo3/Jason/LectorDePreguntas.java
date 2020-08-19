@@ -11,9 +11,6 @@ import java.util.Arrays;
 
 public class LectorDePreguntas {
 
-
-
-
     private ArrayList<PreguntaACrearInfo> preguntasLeidas;
 
     public LectorDePreguntas(){

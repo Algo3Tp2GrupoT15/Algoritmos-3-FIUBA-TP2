@@ -2,7 +2,9 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.BotonResponderHandler;
 import edu.fiuba.algo3.controlador.BotonSiguienteVistaHandler;
+import edu.fiuba.algo3.controlador.ComboBoxHandler;
 import edu.fiuba.algo3.modelo.KahootModel;
+import edu.fiuba.algo3.modelo.Opcion;
 import edu.fiuba.algo3.modelo.Respuesta;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -57,12 +59,6 @@ public class OrderedChoiceVista extends VBox {
         StackPane stackpane = new StackPane();
         GridPane gridpane = new GridPane();
 
-        for (int i=0; i<kahoot.mostrarOpcionesDeTurno().size();i++){
-
-            opcionesMenu.add(kahoot.mostrarOpcionesDeTurno().get(i).contenido());
-
-        }
-
         Label label1 = new Label("Orden ");
         gridpane.add(label1, 1,0);
         Label label2 = new Label(" Opción");
@@ -70,14 +66,26 @@ public class OrderedChoiceVista extends VBox {
 
         for (int i=0; i<kahoot.mostrarOpcionesDeTurno().size();i++){
 
+            opcionesMenu.add(kahoot.mostrarOpcionesDeTurno().get(i).contenido());
+
+        }
+
+        for (int i=0; i<kahoot.mostrarOpcionesDeTurno().size();i++){
+
             ComboBox menuOrden = new ComboBox (opcionesMenu);
             gridpane.add(menuOrden,2,(i+1));
             Label label = new Label(String.valueOf(i+1));
             gridpane.add(label, 1, (i+1));
+            Object item = menuOrden.getSelectionModel().getSelectedItem();
+            Opcion opcion = this.buscarOpcion((String)item);
+            ComboBoxHandler comboBoxHandler = new ComboBoxHandler(respuesta,opcion);
+            menuOrden.setOnAction(comboBoxHandler);
         }
 
         gridpane.setAlignment(Pos.CENTER);
         stackpane.getChildren().add(gridpane);
+
+
 
       /*  FlowPane flowpane = new FlowPane();
         flowpane.setHgap(50);
@@ -116,6 +124,16 @@ public class OrderedChoiceVista extends VBox {
 
         this.respuesta = respuestaJugador1;
 
+    }
+
+
+    Opcion buscarOpcion(String item) {
+        for(Opcion opcion : kahoot.mostrarOpcionesDeTurno()) {
+            if(opcion.contenido().equals(item)) {
+                return opcion;
+            }
+        }
+        return null;
     }
 
 }
