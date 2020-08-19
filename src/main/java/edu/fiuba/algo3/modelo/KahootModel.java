@@ -99,7 +99,7 @@ public class KahootModel {
         preguntas.add(groupChoice);
 
 
-   /*     LectorDePreguntas lector = new LectorDePreguntas();
+       /*LectorDePreguntas lector = new LectorDePreguntas();
 
         CreadorDePreguntas creadorDePreguntas = new CreadorDePreguntas(lector.getPreguntasLeidas());
         preguntas = creadorDePreguntas.getPreguntas();*/

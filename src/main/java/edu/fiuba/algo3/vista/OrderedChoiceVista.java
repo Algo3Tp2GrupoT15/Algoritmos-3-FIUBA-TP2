@@ -51,7 +51,7 @@ public class OrderedChoiceVista extends VBox {
 
         Text tipoDePregunta = new Text("Ordered Choice");
         tipoDePregunta.setFont(Font.font("Arial", FontWeight.BLACK, 36));
-        Text pregunta = new Text(" 2+2=..? ");
+        Text pregunta = new Text(kahoot.preguntaDeTurno().contenido());
         pregunta.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
         pregunta.setFill(Color.BLUE);
 
@@ -99,7 +99,7 @@ public class OrderedChoiceVista extends VBox {
 
         }*/
 
-        Text puntaje1 = new Text("Puntaje: "+ respuesta.puntajeDelJugador());
+        Text puntaje1 = new Text("Puntaje de "+kahoot.jugadorDeTurno().nombre()+" : "+respuesta.puntajeDelJugador());
         puntaje1.setFont(Font.font("Arial", FontWeight.BLACK, 20));
 
         Button responder = new Button("Responder");

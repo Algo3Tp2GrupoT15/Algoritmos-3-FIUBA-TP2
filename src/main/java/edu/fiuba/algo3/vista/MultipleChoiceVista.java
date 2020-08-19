@@ -55,7 +55,7 @@ public class MultipleChoiceVista extends VBox {
         flowpane.setAlignment(Pos.CENTER);
 
 
-        Text puntaje1 = new Text("Puntaje: "+ respuesta.puntajeDelJugador());
+        Text puntaje1 = new Text("Puntaje de "+ kahoot.jugadorDeTurno().nombre()+" : "+ respuesta.puntajeDelJugador());
         puntaje1.setFont(Font.font("Arial", FontWeight.BLACK, 20));
 
        /*Button responder = new Button("Responder");

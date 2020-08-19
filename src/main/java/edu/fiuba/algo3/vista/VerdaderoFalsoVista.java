@@ -38,7 +38,6 @@ public class VerdaderoFalsoVista extends VBox {
 
         this.crearRespuesta();
 
-
         File path = new File("src/main/java/recursos/kahoot-lobby-music.mp3");
         Media media = new Media(path.toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
@@ -48,7 +47,7 @@ public class VerdaderoFalsoVista extends VBox {
 
         Text tipoDePregunta = new Text("VervaderoFalso Clasico");
         tipoDePregunta.setFont(Font.font("Arial", FontWeight.BLACK, 36));
-        Text pregunta = new Text(kahoot.mostrarPreguntaDeTurno());
+        Text pregunta = new Text(kahoot.preguntaDeTurno().contenido());
         pregunta.setFont(Font.font("Verdana", FontWeight.BOLD, 36));
         pregunta.setFill(Color.BLUE);
 
@@ -65,16 +64,15 @@ public class VerdaderoFalsoVista extends VBox {
         crearOpciones(flowpane,opciones);
 
 
-
         flowpane.setHgap(50);
         flowpane.setAlignment(Pos.CENTER);
 
-        Text puntaje1 = new Text("Puntaje: "+ respuesta.puntajeDelJugador());
+        Text puntaje1 = new Text("Puntaje de "+ kahoot.jugadorDeTurno().nombre()+" : "+respuesta.puntajeDelJugador());
         puntaje1.setFont(Font.font("Arial", FontWeight.BLACK, 20));
 
-        /*Button responder = new Button("Responder");
+        Button responder = new Button("Responder");
         BotonResponderHandler botonResponderHandler = new BotonResponderHandler(kahoot,puntaje1,responder);
-        responder.setOnAction(botonResponderHandler);*/
+        responder.setOnAction(botonResponderHandler);
 
         Button continuar = new Button("Siguiente");
         BotonSiguienteVistaHandler botonSiguienteHandler = new BotonSiguienteVistaHandler(stage,kahoot);
