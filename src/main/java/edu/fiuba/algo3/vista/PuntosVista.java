@@ -35,7 +35,7 @@ public class PuntosVista extends VBox {
 
         for (Jugador jugador : kahoot.jugadores()){
 
-            Text puntaje = new Text(i + "Puesto con puntaje de " + jugador.nombre() + " : "+ jugador.puntaje());
+            Text puntaje = new Text(i + " - Puesto con puntaje de " + jugador.nombre() + " : "+ jugador.puntaje());
             puntaje.setFont(Font.font("Arial", FontWeight.BLACK, 20));
             this.getChildren().add(puntaje);
 

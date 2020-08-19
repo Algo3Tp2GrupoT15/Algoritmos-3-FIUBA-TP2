@@ -32,8 +32,9 @@ public class BienvenidosVista extends VBox {
         this.setSpacing(20);
         this.setPadding(new Insets(25));
 
-        Image imagen = new Image("file:src/main/java/edu/fiuba/algo3/vista/imagenes/textura.png");
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+
+        Image imagen = new Image("file:src/main/java/recursos/imagen.png");
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, new BackgroundSize(1.0, 1.0, true, true, false, false));
         this.setBackground(new Background(imagenDeFondo));
 
         File path = new File("src/main/java/recursos/kahoot-lobby-music.mp3");
@@ -48,7 +49,9 @@ public class BienvenidosVista extends VBox {
         etiqueta.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
 
         etiqueta.setText("Bienvenidos a TP2 KAHOOT de algoritmos y programación III. Haga click en entrar");
-        etiqueta.setTextFill(Color.RED);
+        etiqueta.setTextFill(Color.BLACK);
+        etiqueta.setMaxSize(2000    ,2000);
+        etiqueta.setAlignment(Pos.CENTER);
 
         BotonEntrarEventHandler botonEntrarHandler = new BotonEntrarEventHandler(stage, proximaEscena);
         botonEntrar.setOnAction(botonEntrarHandler);
