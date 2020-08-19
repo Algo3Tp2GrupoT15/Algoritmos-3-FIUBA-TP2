@@ -1,4 +1,16 @@
 [{
+    "tipoDePregunta": "VerdaderoFalsoClasico",
+    "contenido": "El cielo es azul",
+    "opciones": [
+    {
+      "texto": "Verdadero",
+      "esCorrecta": false
+    },
+    {
+      "texto": "Falso",
+      "esCorrecta": true
+    }
+  ]
   "tipoDePregunta": "VerdaderoFalsoClasico",
   "contenido": "El cielo es azul",
   "opciones": [
@@ -31,6 +43,57 @@
       {
         "texto": "Pez",
         "esCorrecta": false
+      }
+    ]
+
+  },
+
+  {
+    "tipoDePregunta": "OrderedChoice",
+    "contenido": " Ordene los numeros de forma ascendente ",
+    "opciones": [
+  {
+    "texto": "2",
+    "esCorrecta": true
+  },
+  {
+    "texto": "4",
+    "esCorrecta": true
+  },
+  {
+    "texto": "6",
+    "esCorrecta": true
+  },
+  {
+    "texto": "8",
+    "esCorrecta": true
+  }
+  ]
+  },
+
+  {
+    "tipoDePregunta": "GroupChoice",
+    "contenido": " Clasifique los numeros en pares e impares ",
+    "opciones": [
+      {
+        "texto": "1",
+        "esCorrecta": true,
+        "grupo": "impar"
+      },
+      {
+        "texto": "2",
+        "esCorrecta": true,
+        "grupo": "par"
+      },
+      {
+        "texto": "3",
+        "esCorrecta": true,
+        "grupo": "impar"
+      },
+      {
+        "texto": "4",
+        "esCorrecta": true,
+        "grupo": "par"
       }
     ]
 
