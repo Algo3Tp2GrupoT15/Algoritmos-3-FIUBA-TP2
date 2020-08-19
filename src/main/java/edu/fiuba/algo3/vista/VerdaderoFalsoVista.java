@@ -42,9 +42,6 @@ public class VerdaderoFalsoVista extends VBox {
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
 
-
-        stage.setTitle("Kahoot Algos 3");
-
         Text turnoDelJugador = new Text(kahoot.jugadorDeTurno().nombre());
 
         Text tipoDePregunta = new Text("VervaderoFalso Clasico");
@@ -52,25 +49,12 @@ public class VerdaderoFalsoVista extends VBox {
         Text pregunta = new Text(kahoot.mostrarPreguntaDeTurno());
         pregunta.setFont(Font.font("Verdana", FontWeight.BOLD, 36));
         pregunta.setFill(Color.BLUE);
-        //pregunta.setTextAlignment(TextAlignment.CENTER);
 
         FlowPane flowpane = new FlowPane();
         ToggleGroup opciones = new ToggleGroup(); //esto es para que solo se pueda seleccionar una opcion
+        crearOpciones(flowpane,opciones);
 
-        for (int i=0; i<kahoot.mostrarOpcionesDeTurno().size();i++) {
-            RadioButton opcionRB = new RadioButton(kahoot.mostrarOpcionesDeTurno().get(i).contenido());
-            flowpane.getChildren().add(opcionRB);
-            opcionRB.setToggleGroup(opciones);
-            BotonRadioHandler botonRadioHandler = new BotonRadioHandler(respuesta,kahoot.mostrarOpcionesDeTurno().get(i));
-            opcionRB.setOnAction(botonRadioHandler);
 
-        }
-
-        /*RadioButton opcion2RB = new RadioButton(kahoot.mostrarOpcionesDeTurno().get(1).contenido());
-        flowpane.getChildren().add(opcion2RB);
-        opcion2RB.setToggleGroup(opciones);
-        BotonRadioHandler botonRadioHandler2 = new BotonRadioHandler(respuesta,kahoot.mostrarOpcionesDeTurno().get(1));
-        opcion2RB.setOnAction(botonRadioHandler2);*/
 
         flowpane.setHgap(50);
         flowpane.setAlignment(Pos.CENTER);
@@ -90,6 +74,18 @@ public class VerdaderoFalsoVista extends VBox {
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
 
+    }
+
+    private void crearOpciones(FlowPane flowpane, ToggleGroup opciones) {
+
+        for (int i=0; i<kahoot.mostrarOpcionesDeTurno().size();i++) {
+            RadioButton opcionRB = new RadioButton(kahoot.mostrarOpcionesDeTurno().get(i).contenido());
+            flowpane.getChildren().add(opcionRB);
+            opcionRB.setToggleGroup(opciones);
+            BotonRadioHandler botonRadioHandler = new BotonRadioHandler(respuesta,kahoot.mostrarOpcionesDeTurno().get(i));
+            opcionRB.setOnAction(botonRadioHandler);
+
+        }
     }
 
     public void crearRespuesta(){

@@ -6,16 +6,18 @@ import edu.fiuba.algo3.modelo.preguntas.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 
 public class KahootModel {
 
     private final Ronda ronda;
-    ArrayList<Preguntas> preguntas;
-    ArrayList<Respuesta> respuestasDelTurno;
+    private ArrayList<Preguntas> preguntas;
+    private ArrayList<Respuesta> respuestasDelTurno;
 
-    Exclusividad exclusividad;
+    private Exclusividad exclusividad;
+    private Boolean ultimoTurno;
 
-    private final Turno turno;
+    private Turno turno;
 
     public KahootModel(){
 
@@ -168,6 +170,7 @@ public class KahootModel {
     }
 
     public void activarExclusividad(int usos){
+
         exclusividad.activar(usos);
     }
 
@@ -178,4 +181,7 @@ public class KahootModel {
     }
 
 
+    public boolean ultimoJugador() {
+        return turno.esUltimoTurno();
+    }
 }

@@ -4,11 +4,11 @@
   "opciones": [
       {
         "texto": "Verdadero",
-        "esCorrecta": false
+        "esCorrecta": true
       },
       {
         "texto": "Falso",
-        "esCorrecta": true
+        "esCorrecta": false
       }
     ]
 },

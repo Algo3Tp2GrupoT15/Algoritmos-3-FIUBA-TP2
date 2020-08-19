@@ -33,7 +33,9 @@ public class BotonSiguienteHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
 
         // Acá kahoot debe activar la siguiente ventana.
-        kahoot.proximaPreguntaDeTurno();
+
+        siguienteJugadorOPregunta();
+
 
         switch (kahoot.preguntaDeTurno().tipoDePregunta()){
 
@@ -57,6 +59,13 @@ public class BotonSiguienteHandler implements EventHandler<ActionEvent> {
 
     }
 
+    private void siguienteJugadorOPregunta() {
+        if (kahoot.ultimoJugador()){
+            kahoot.proximaPreguntaDeTurno();
+        }else {
+            kahoot.siguienteJugador();
+        }
+    }
 
 
 }
