@@ -1,22 +1,17 @@
 package edu.fiuba.algo3;
 
-
-
 import edu.fiuba.algo3.modelo.KahootModel;
-import edu.fiuba.algo3.modelo.Opcion;
-import edu.fiuba.algo3.modelo.preguntas.Preguntas;
-import edu.fiuba.algo3.modelo.preguntas.TipoClasico;
-import edu.fiuba.algo3.modelo.preguntas.TipoPuntaje;
-import edu.fiuba.algo3.modelo.preguntas.VerdaderoYFalso;
 import edu.fiuba.algo3.vista.BienvenidosVista;
 import edu.fiuba.algo3.vista.InicioDelJuegoVista;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
+import javafx.scene.media.Media;
 
-import java.util.ArrayList;
+import java.io.File;
+
 
 /**
  * JavaFX App
@@ -35,6 +30,8 @@ public class App extends Application {
 
         BienvenidosVista contenedorBienvenidos = new BienvenidosVista(stage, escenaJuego);
         Scene escenaBienvenidos = new Scene(contenedorBienvenidos, 1080, 720);
+
+
 
         stage.setScene(escenaBienvenidos);
         stage.setFullScreen(false);

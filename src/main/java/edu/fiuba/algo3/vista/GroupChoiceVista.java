@@ -14,11 +14,15 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import java.io.File;
 
 public class GroupChoiceVista extends VBox {
 
@@ -32,6 +36,11 @@ public class GroupChoiceVista extends VBox {
         this.kahoot = kahoot;
 
         this.crearRespuesta();
+
+        File path = new File("src/main/java/recursos/kahoot-lobby-music.mp3");
+        Media media = new Media(path.toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setAutoPlay(true);
 
         stage.setTitle("Kahoot Algos 3");
 

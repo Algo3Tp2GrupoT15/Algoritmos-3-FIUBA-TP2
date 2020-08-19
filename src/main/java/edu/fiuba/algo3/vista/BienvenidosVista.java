@@ -8,10 +8,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+
+import java.io.File;
 
 public class BienvenidosVista extends VBox {
 
@@ -31,6 +35,11 @@ public class BienvenidosVista extends VBox {
         Image imagen = new Image("file:src/main/java/edu/fiuba/algo3/vista/imagenes/textura.png");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         this.setBackground(new Background(imagenDeFondo));
+
+        File path = new File("src/main/java/recursos/kahoot-lobby-music.mp3");
+        Media media = new Media(path.toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setAutoPlay(true);
 
         Button botonEntrar = new Button();
         botonEntrar.setText("Entrar");

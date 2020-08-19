@@ -12,12 +12,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.nio.BufferUnderflowException;
 
 public class InicioDelJuegoVista extends VBox {
@@ -31,6 +34,11 @@ public class InicioDelJuegoVista extends VBox {
         super();
 
         this.stage = stage;
+
+        File path = new File("src/main/java/recursos/kahoot-lobby-music.mp3");
+        Media media = new Media(path.toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setAutoPlay(true);
 
         Text ingreseNombreJugador1 = new Text("Nombre Jugador 1: ");
         TextField nombreJugador1 = new TextField();
