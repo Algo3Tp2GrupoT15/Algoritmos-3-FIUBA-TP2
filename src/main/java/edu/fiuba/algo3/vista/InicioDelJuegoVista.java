@@ -61,6 +61,8 @@ public class InicioDelJuegoVista extends VBox {
         iniciarJugador2.setAlignment(Pos.CENTER);
         Button aceptar = new Button("Aceptar y Empezar");
         Text validacion = new Text("");
+        validacion.setFill(Color.WHITE);
+        validacion.setFont(Font.font("Courier 10 Pitch",FontWeight.BOLD, FontPosture.REGULAR,26));
 
         aceptar.setOnAction(value ->  {
 
