@@ -9,9 +9,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -53,6 +55,8 @@ public class OrderedChoiceVista extends VBox {
         pregunta.setFill(Color.BLUE);
 
         ObservableList<String> opcionesMenu = FXCollections.observableArrayList();
+        StackPane stackpane = new StackPane();
+        GridPane gridpane = new GridPane();
 
         for (int i=0; i<kahoot.mostrarOpcionesDeTurno().size();i++){
 
@@ -60,10 +64,21 @@ public class OrderedChoiceVista extends VBox {
 
         }
 
-        ComboBox menuOrden = new ComboBox (opcionesMenu);
+        Label label1 = new Label("Orden ");
+        gridpane.add(label1, 1,0);
+        Label label2 = new Label(" Opción");
+        gridpane.add(label2, 2,0 );
 
-        GridPane gridpane = new GridPane();
-        gridpane.add(menuOrden,1,3);
+        for (int i=0; i<kahoot.mostrarOpcionesDeTurno().size();i++){
+
+            ComboBox menuOrden = new ComboBox (opcionesMenu);
+            gridpane.add(menuOrden,2,(i+1));
+            Label label = new Label(String.valueOf(i+1));
+            gridpane.add(label, 1, (i+1));
+        }
+
+        gridpane.setAlignment(Pos.CENTER);
+        stackpane.getChildren().add(gridpane);
 
       /*  FlowPane flowpane = new FlowPane();
         flowpane.setHgap(50);
@@ -88,7 +103,7 @@ public class OrderedChoiceVista extends VBox {
         BotonSiguienteHandler botonSiguienteHandler = new BotonSiguienteHandler(stage,kahoot);
         continuar.setOnAction(botonSiguienteHandler);
 
-        this.getChildren().addAll(turnoDelJugador,tipoDePregunta,pregunta,puntaje1,gridpane,responder,continuar);
+        this.getChildren().addAll(turnoDelJugador,tipoDePregunta,pregunta,puntaje1,stackpane,responder,continuar);
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
 

@@ -32,7 +32,7 @@ public class KahootModel {
 
     public void leerPreguntas(){ //leeria preguntas de un archivo pero de momento cargo a mano una pregunta para probar
 
-       /* Opcion opcionCorrecta = new Opcion("verdadero",true);
+        Opcion opcionCorrecta = new Opcion("verdadero",true);
         Opcion opcionIncorrecta = new Opcion("falso",false);
 
         ArrayList<Opcion> opcionesVF = new ArrayList<Opcion>();
@@ -61,13 +61,7 @@ public class KahootModel {
 
         MultipleChoice multipleChoice = new MultipleChoice(" 2+2=..? ", opcionesMC, tipoClasicoMC);
 
-        preguntas.add(multipleChoice);*/
-
-
-        LectorDePreguntas lector = new LectorDePreguntas();
-
-        CreadorDePreguntas creadorDePreguntas = new CreadorDePreguntas(lector.getPreguntasLeidas());
-        preguntas = creadorDePreguntas.getPreguntas();
+        preguntas.add(multipleChoice);
 
 
         Opcion opcionOC1 = new Opcion("2",true);
@@ -101,6 +95,13 @@ public class KahootModel {
         GroupChoice groupChoice = new GroupChoice(" Clasifique los numeros en pares e impares ", opcionesEnGrupos, tipoClasicoGC);
 
         preguntas.add(groupChoice);
+
+
+   /*     LectorDePreguntas lector = new LectorDePreguntas();
+
+        CreadorDePreguntas creadorDePreguntas = new CreadorDePreguntas(lector.getPreguntasLeidas());
+        preguntas = creadorDePreguntas.getPreguntas();*/
+
 
     }
 
