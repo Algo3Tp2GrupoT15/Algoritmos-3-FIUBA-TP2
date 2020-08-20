@@ -2,7 +2,8 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.BotonResponderHandler;
 import edu.fiuba.algo3.controlador.BotonSiguienteVistaHandler;
-import edu.fiuba.algo3.controlador.ComboBoxHandler;
+import edu.fiuba.algo3.controlador.ComboBoxHandlerGroupChoice;
+import edu.fiuba.algo3.controlador.ComboBoxHandlerOrderedChoice;
 import edu.fiuba.algo3.modelo.KahootModel;
 import edu.fiuba.algo3.modelo.Opcion;
 import edu.fiuba.algo3.modelo.Respuesta;
@@ -11,8 +12,6 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -48,7 +47,7 @@ public class OrderedChoiceVista extends VBox {
         stage.setTitle("Kahoot Algos 3");
 
         Text turnoDelJugador = new Text(kahoot.jugadorDeTurno().nombre());
-
+        turnoDelJugador.setFont(Font.font("Arial", FontWeight.THIN, 30));
         Text tipoDePregunta = new Text("Ordered Choice");
         tipoDePregunta.setFont(Font.font("Arial", FontWeight.BLACK, 36));
         Text pregunta = new Text(kahoot.preguntaDeTurno().contenido());
@@ -76,30 +75,14 @@ public class OrderedChoiceVista extends VBox {
             gridpane.add(menuOrden,2,(i+1));
             Label label = new Label(String.valueOf(i+1));
             gridpane.add(label, 1, (i+1));
-            Object item = menuOrden.getSelectionModel().getSelectedItem();
-            Opcion opcion = this.buscarOpcion((String)item);
-            ComboBoxHandler comboBoxHandler = new ComboBoxHandler(respuesta,opcion);
-            menuOrden.setOnAction(comboBoxHandler);
+            ComboBoxHandlerOrderedChoice comboBoxHandlerOrderedChoice = new ComboBoxHandlerOrderedChoice(kahoot,menuOrden,respuesta);
+            menuOrden.setOnAction(comboBoxHandlerOrderedChoice);
         }
 
         gridpane.setAlignment(Pos.CENTER);
         stackpane.getChildren().add(gridpane);
 
-
-
-      /*  FlowPane flowpane = new FlowPane();
-        flowpane.setHgap(50);
-        flowpane.setAlignment(Pos.CENTER);
-
-        for (int i=0; i<kahoot.mostrarOpcionesDeTurno().size();i++) {
-            RadioButton opcionRB = new RadioButton(kahoot.mostrarOpcionesDeTurno().get(i).contenido());
-            flowpane.getChildren().add(opcionRB);
-            BotonRadioHandler botonRadioHandler = new BotonRadioHandler(respuesta,kahoot.mostrarOpcionesDeTurno().get(i));
-            opcionRB.setOnAction(botonRadioHandler);
-
-        }*/
-
-        Text puntaje1 = new Text("Puntaje de "+kahoot.jugadorDeTurno().nombre()+" : "+respuesta.puntajeDelJugador());
+        Text puntaje1 = new Text("Puntaje de "+ kahoot.jugadorDeTurno().nombre()+" : "+kahoot.jugadorDeTurno().puntaje());
         puntaje1.setFont(Font.font("Arial", FontWeight.BLACK, 20));
 
         Button responder = new Button("Responder");
