@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.preguntas;
 
 import edu.fiuba.algo3.modelo.Opcion;
+import edu.fiuba.algo3.modelo.OpcionGroup;
 import edu.fiuba.algo3.modelo.Respuesta;
 
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class GroupChoice implements Preguntas{
         tipoDePregunta = "GroupChoice";
 
     }
+
 
     public ArrayList<Opcion> opciones() {
 

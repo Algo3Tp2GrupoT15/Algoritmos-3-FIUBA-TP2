@@ -66,7 +66,7 @@ public class GroupChoiceVista extends VBox {
         String stringOpciones = "Grupos a asignar:";
         for (int i=0; i<kahoot.mostrarOpcionesDeTurno().size();i++){
             OpcionGroup opcion = (OpcionGroup) kahoot.mostrarOpcionesDeTurno().get(i);
-            stringOpciones=stringOpciones.concat(" "+opcion.grupo()+",");
+            stringOpciones=stringOpciones.concat(" "+opcion.getGrupo()+",");
         }
         Text muestraOpciones = new Text(stringOpciones);
         muestraOpciones.setFont(Font.font("Verdana", FontWeight.BOLD, 25));
@@ -85,7 +85,7 @@ public class GroupChoiceVista extends VBox {
         for (int i=0; i<kahoot.mostrarOpcionesDeTurno().size();i++){
 
             OpcionGroup opcion= (OpcionGroup) kahoot.mostrarOpcionesDeTurno().get(i);
-            opcionesMenu.add(opcion.grupo());
+            opcionesMenu.add(opcion.getGrupo());
 
         }
 
@@ -134,7 +134,7 @@ public class GroupChoiceVista extends VBox {
     OpcionGroup buscarOpcion(String item) {
         for(int i=0;i<kahoot.mostrarOpcionesDeTurno().size();i++) {
             OpcionGroup opcion = (OpcionGroup)kahoot.mostrarOpcionesDeTurno().get(i);
-            if(opcion.grupo().equals(item)) {
+            if(opcion.getGrupo().equals(item)) {
                 return opcion;
             }
         }

@@ -35,7 +35,7 @@ public class KahootModel {
 
     public void leerPreguntas(){ //leeria preguntas de un archivo pero de momento cargo a mano una pregunta para probar
 
-        Opcion opcionCorrecta1 = new Opcion("verdadero",true);
+        /*Opcion opcionCorrecta1 = new Opcion("verdadero",true);
         Opcion opcionIncorrecta1 = new Opcion("falso",false);
 
         ArrayList<Opcion> opcionesVF1 = new ArrayList<Opcion>();
@@ -129,13 +129,13 @@ public class KahootModel {
 
         OrderedChoice orderedChoice2 = new OrderedChoice(" Ordene los numeros de forma descendente ", opcionesEnOrden2);
 
-        preguntas.add(orderedChoice2);
+        preguntas.add(orderedChoice2);*/
 
 
-       /*LectorDePreguntas lector = new LectorDePreguntas();
+        LectorDePreguntas lector = new LectorDePreguntas();
 
         CreadorDePreguntas creadorDePreguntas = new CreadorDePreguntas(lector.getPreguntasLeidas());
-        preguntas = creadorDePreguntas.getPreguntas();*/
+        preguntas = creadorDePreguntas.getPreguntas();
 
 
     }

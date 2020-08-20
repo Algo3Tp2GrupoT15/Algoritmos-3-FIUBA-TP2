@@ -62,26 +62,31 @@
   {
     "tipoDePregunta": "GroupChoice",
     "contenido": " Clasifique los numeros en pares e impares ",
-    "opciones": [
+    "opciones" : [],
+    "opcionesGrupo": [
       {
         "texto": "1",
-        "esCorrecta": true,
-        "grupo": "impar"
+        "grupo": "impar",
+        "esCorrecta": true
+
       },
       {
         "texto": "2",
-        "esCorrecta": true,
-        "grupo": "par"
+        "grupo": "par",
+        "esCorrecta": true
+
       },
       {
         "texto": "3",
-        "esCorrecta": true,
-        "grupo": "impar"
+        "grupo": "impar",
+        "esCorrecta": true
+
       },
       {
         "texto": "4",
-        "esCorrecta": true,
-        "grupo": "par"
+        "grupo": "par",
+        "esCorrecta": true
+
       }
     ]
 

@@ -1,27 +1,35 @@
 package edu.fiuba.algo3.modelo;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import edu.fiuba.algo3.modelo.Opcion;
 public class OpcionGroup extends Opcion {
 
-    private String grupo;
+    protected String grupo;
 
-    public OpcionGroup(String unaOpcion, String unGrupo, boolean correcta) {
-
-        super(unaOpcion, correcta);
-
-        grupo = unGrupo;
+    public OpcionGroup(){
 
     }
 
-    public String grupo(){
+    public OpcionGroup(String unaOpcion, String grupo, boolean correcta) {
+
+       // super(unaOpcion, correcta);
+        this.texto = unaOpcion;
+
+        this.esCorrecta = correcta;
+
+        this.grupo = grupo;
+
+    }
+
+    public String getGrupo(){
 
         return grupo;
 
     }
 
-    public void asignarGrupo(String unGrupo){
+    public void asignarGrupo(String grupo){
 
-        grupo = unGrupo;
+        this.grupo = grupo;
 
     }
 

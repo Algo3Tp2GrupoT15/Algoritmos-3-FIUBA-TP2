@@ -4,7 +4,6 @@ import edu.fiuba.algo3.modelo.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import edu.fiuba.algo3.modelo.Respuesta;
-import edu.fiuba.algo3.modelo.Opcion;
 import javafx.scene.control.ComboBox;
 
 public class ComboBoxHandlerGroupChoice implements EventHandler<ActionEvent> {
@@ -34,7 +33,7 @@ public class ComboBoxHandlerGroupChoice implements EventHandler<ActionEvent> {
     OpcionGroup buscarOpcion(String item) {
         for(int i=0;i<kahoot.mostrarOpcionesDeTurno().size();i++) {
             OpcionGroup opcion = (OpcionGroup)kahoot.mostrarOpcionesDeTurno().get(i);
-            if(opcion.grupo().equals(item)) {
+            if(opcion.getGrupo().equals(item)) {
                 return opcion;
             }
         }
