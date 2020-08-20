@@ -65,20 +65,25 @@ public class InicioDelJuegoVista extends VBox {
         validacion.setFill(Color.WHITE);
         validacion.setFont(Font.font("Courier 10 Pitch",FontWeight.BOLD, FontPosture.REGULAR,26));
 
+
+        Button continuar = new Button("Continuar");
+        continuar.setDisable(true);
+        BotonSiguienteHandler siguienteVista = new BotonSiguienteHandler(stage, kahoot);
+        continuar.setOnAction(siguienteVista);
+
         aceptar.setOnAction(value ->  {
 
             kahoot.cargarJugador(nombreJugador1.getText());
             kahoot.cargarJugador(nombreJugador2.getText());
             validacion.setText("Se crearon los jugadores: \n"+  "1 - " + nombreJugador1.getText() +"\n2 - "+ nombreJugador2.getText());
+            continuar.setDisable(false);
 
 
         });
 
 
 
-        Button continuar = new Button("continuar");
-        BotonSiguienteHandler siguienteVista = new BotonSiguienteHandler(stage, kahoot);
-        continuar.setOnAction(siguienteVista);
+
 
 
         this.getChildren().addAll(iniciarJugador1, iniciarJugador2, aceptar, validacion, continuar);
