@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.Jason.CreadorArchivoJson;
 import edu.fiuba.algo3.Jason.CreadorDePreguntas;
 import edu.fiuba.algo3.Jason.LectorDePreguntas;
 import edu.fiuba.algo3.modelo.preguntas.*;
@@ -97,6 +98,8 @@ public class KahootModel {
         GroupChoice groupChoice = new GroupChoice(" Clasifique los numeros en pares e impares ", opcionesEnGrupos, tipoClasicoGC);
 
         preguntas.add(groupChoice);
+
+        CreadorArchivoJson json = new CreadorArchivoJson(preguntas);
 
 
        /*LectorDePreguntas lector = new LectorDePreguntas();
