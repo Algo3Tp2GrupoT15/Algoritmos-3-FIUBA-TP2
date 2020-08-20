@@ -96,8 +96,6 @@ public class KahootModel {
 
         preguntas.add(groupChoice);
 
-        CreadorArchivoJson json = new CreadorArchivoJson(preguntas);
-
 
         Opcion opcionCorrecta2 = new Opcion("falso",true);
         Opcion opcionIncorrecta2 = new Opcion("verdadero",false);
