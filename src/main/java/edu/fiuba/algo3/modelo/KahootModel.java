@@ -1,13 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.Jason.CreadorArchivoJson;
 import edu.fiuba.algo3.Jason.CreadorDePreguntas;
 import edu.fiuba.algo3.Jason.LectorDePreguntas;
 import edu.fiuba.algo3.modelo.preguntas.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.concurrent.TimeUnit;
 
 public class KahootModel {
 
