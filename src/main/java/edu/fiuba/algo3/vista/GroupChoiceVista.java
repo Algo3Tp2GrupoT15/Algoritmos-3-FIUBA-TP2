@@ -2,9 +2,8 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.BotonResponderHandler;
 import edu.fiuba.algo3.controlador.BotonSiguienteVistaHandler;
-import edu.fiuba.algo3.controlador.ComboBoxHandler;
+import edu.fiuba.algo3.controlador.ComboBoxHandlerGroupChoice;
 import edu.fiuba.algo3.modelo.KahootModel;
-import edu.fiuba.algo3.modelo.Opcion;
 import edu.fiuba.algo3.modelo.OpcionGroup;
 import edu.fiuba.algo3.modelo.Respuesta;
 import javafx.collections.FXCollections;
@@ -13,8 +12,6 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -27,7 +24,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.util.ArrayList;
 
 public class GroupChoiceVista extends VBox {
 
@@ -49,7 +45,7 @@ public class GroupChoiceVista extends VBox {
 
 
         Text turnoDelJugador = new Text(kahoot.jugadorDeTurno().nombre());
-
+        turnoDelJugador.setFont(Font.font("Arial", FontWeight.THIN, 30));
         Text tipoDePregunta = new Text("Group Choice");
         tipoDePregunta.setFont(Font.font("Arial", FontWeight.BLACK, 36));
         Text pregunta = new Text(kahoot.preguntaDeTurno().contenido());
@@ -79,10 +75,8 @@ public class GroupChoiceVista extends VBox {
             gridpane.add(menuOrden,2,(i+1));
             Label label = new Label(kahoot.mostrarOpcionesDeTurno().get(i).contenido());
             gridpane.add(label, 1, (i+1));
-            Object item = menuOrden.getSelectionModel().getSelectedItem();
-            OpcionGroup opcion = this.buscarOpcion((String)item);
-            ComboBoxHandler comboBoxHandler = new ComboBoxHandler(respuesta,opcion);
-            menuOrden.setOnAction(comboBoxHandler);
+            ComboBoxHandlerGroupChoice comboBoxHandlerGroupChoice = new ComboBoxHandlerGroupChoice(kahoot,menuOrden,respuesta);
+            menuOrden.setOnAction(comboBoxHandlerGroupChoice);
         }
 
         gridpane.setAlignment(Pos.CENTER);
@@ -100,7 +94,7 @@ public class GroupChoiceVista extends VBox {
 
         } */
 
-        Text puntaje1 = new Text("Puntaje de "+ kahoot.jugadorDeTurno().nombre()+" : "+ respuesta.puntajeDelJugador());
+        Text puntaje1 = new Text("Puntaje de "+ kahoot.jugadorDeTurno().nombre()+" : "+kahoot.jugadorDeTurno().puntaje());
         puntaje1.setFont(Font.font("Arial", FontWeight.BLACK, 20));
 
         Button responder = new Button("Responder");
@@ -112,7 +106,6 @@ public class GroupChoiceVista extends VBox {
         continuar.setOnAction(botonSiguienteHandler);
 
         this.getChildren().addAll(turnoDelJugador,tipoDePregunta,pregunta,puntaje1,stackpane,responder,continuar);
-        this.getChildren().addAll(turnoDelJugador,tipoDePregunta,pregunta,gridpane,responder,continuar);
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
 

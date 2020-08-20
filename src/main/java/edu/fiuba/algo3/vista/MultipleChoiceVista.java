@@ -39,10 +39,8 @@ public class MultipleChoiceVista extends VBox {
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
 
-
-
         Text turnoDelJugador = new Text(kahoot.jugadorDeTurno().nombre());
-
+        turnoDelJugador.setFont(Font.font("Arial", FontWeight.THIN, 30));
         Text tipoDePregunta = new Text("MultipleChoice Clasico");
         tipoDePregunta.setFont(Font.font("Arial", FontWeight.BLACK, 36));
         Text pregunta = new Text(kahoot.preguntaDeTurno().contenido());
@@ -55,7 +53,7 @@ public class MultipleChoiceVista extends VBox {
         flowpane.setAlignment(Pos.CENTER);
 
 
-        Text puntaje1 = new Text("Puntaje de "+ kahoot.jugadorDeTurno().nombre()+" : "+ respuesta.puntajeDelJugador());
+        Text puntaje1 = new Text("Puntaje de "+ kahoot.jugadorDeTurno().nombre()+" : "+kahoot.jugadorDeTurno().puntaje());
         puntaje1.setFont(Font.font("Arial", FontWeight.BLACK, 20));
 
        /*Button responder = new Button("Responder");

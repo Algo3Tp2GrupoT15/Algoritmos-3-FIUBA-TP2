@@ -15,7 +15,7 @@ public class BotonSiguienteHandler  extends BotonSiguienteVistaHandler {
     @Override
     public void handle(ActionEvent actionEvent) {
 
-        siguienteVista();
+        this.siguienteVista();
 
     }
 

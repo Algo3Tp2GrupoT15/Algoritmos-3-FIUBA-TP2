@@ -6,12 +6,12 @@ public class Respuesta {
 
     private ArrayList<Opcion> opciones;
 
-    private Jugador jugador;
+    private final Jugador jugador;
 
 
     public Respuesta(Jugador unJugador) {
 
-        opciones = new ArrayList<Opcion>();
+        opciones = new ArrayList<>();
 
         jugador = unJugador;
 
@@ -32,9 +32,10 @@ public class Respuesta {
 
     public int cantidadDeOpcionesCorrectas(){
 
-        long cantidad = opciones.stream().filter(opcion -> opcion.esCorrecta()).count();
+        long cantidad;
+        cantidad = opciones.stream().filter(Opcion::esCorrecta).count();
 
-        return (int)cantidad;
+        return (int) cantidad;
     }
 
 
@@ -58,7 +59,7 @@ public class Respuesta {
 
     public void eliminarOpciones(){
 
-        opciones = new ArrayList<Opcion>();
+        opciones = new ArrayList<>();
 
     }
 

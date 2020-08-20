@@ -44,13 +44,12 @@ public class VerdaderoFalsoVista extends VBox {
         mediaPlayer.setAutoPlay(true);
 
         Text turnoDelJugador = new Text(kahoot.jugadorDeTurno().nombre());
-
+        turnoDelJugador.setFont(Font.font("Arial", FontWeight.THIN, 30));
         Text tipoDePregunta = new Text("VervaderoFalso Clasico");
         tipoDePregunta.setFont(Font.font("Arial", FontWeight.BLACK, 36));
         Text pregunta = new Text(kahoot.preguntaDeTurno().contenido());
         pregunta.setFont(Font.font("Verdana", FontWeight.BOLD, 36));
         pregunta.setFill(Color.BLUE);
-
 
         Button activarExclusividad = new Button("Exclusividad");
         BotonExclusividadHandler exclusividadHandler = new BotonExclusividadHandler(activarExclusividad, kahoot);
@@ -58,16 +57,14 @@ public class VerdaderoFalsoVista extends VBox {
         VBox exclusividad = new VBox(activarExclusividad);
         exclusividad.setAlignment(Pos.TOP_RIGHT);
 
-
         FlowPane flowpane = new FlowPane();
         ToggleGroup opciones = new ToggleGroup(); //esto es para que solo se pueda seleccionar una opcion
         crearOpciones(flowpane,opciones);
 
-
         flowpane.setHgap(50);
         flowpane.setAlignment(Pos.CENTER);
 
-        Text puntaje1 = new Text("Puntaje de "+ kahoot.jugadorDeTurno().nombre()+" : "+respuesta.puntajeDelJugador());
+        Text puntaje1 = new Text("Puntaje de "+ kahoot.jugadorDeTurno().nombre()+" : "+kahoot.jugadorDeTurno().puntaje());
         puntaje1.setFont(Font.font("Arial", FontWeight.BLACK, 20));
 
         Button responder = new Button("Responder");
@@ -81,8 +78,6 @@ public class VerdaderoFalsoVista extends VBox {
         this.getChildren().addAll(exclusividad,turnoDelJugador,tipoDePregunta,pregunta,puntaje1,flowpane,continuar);
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
-
-
 
     }
 

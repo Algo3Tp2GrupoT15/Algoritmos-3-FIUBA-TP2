@@ -35,30 +35,30 @@ public class KahootModel {
 
     public void leerPreguntas(){ //leeria preguntas de un archivo pero de momento cargo a mano una pregunta para probar
 
-        Opcion opcionCorrecta = new Opcion("verdadero",true);
-        Opcion opcionIncorrecta = new Opcion("falso",false);
+        Opcion opcionCorrecta1 = new Opcion("verdadero",true);
+        Opcion opcionIncorrecta1 = new Opcion("falso",false);
 
-        ArrayList<Opcion> opcionesVF = new ArrayList<Opcion>();
-        opcionesVF.add(opcionCorrecta);
-        opcionesVF.add(opcionIncorrecta);
+        ArrayList<Opcion> opcionesVF1 = new ArrayList<Opcion>();
+        opcionesVF1.add(opcionCorrecta1);
+        opcionesVF1.add(opcionIncorrecta1);
 
-        TipoPuntaje tipoClasicoVF = new TipoClasico();
+        TipoPuntaje tipoClasicoVF1 = new TipoClasico();
 
-        Preguntas verdaderoYFalso = new VerdaderoYFalso("El cielo es azul", opcionesVF, tipoClasicoVF);
+        Preguntas verdaderoYFalso1 = new VerdaderoYFalso("El cielo es azul", opcionesVF1, tipoClasicoVF1);
 
-        preguntas.add(verdaderoYFalso);
+        preguntas.add(verdaderoYFalso1);
 
 
-        Opcion opcionCorrecta1 = new Opcion("4",true);
-        Opcion opcionCorrecta2 = new Opcion("2^2",true);
-        Opcion opcionIncorrecta1 = new Opcion("8",false);
-        Opcion opcionIncorrecta2 = new Opcion("Pez",false);
+        Opcion opcionCorrectaMC1 = new Opcion("4",true);
+        Opcion opcionCorrectaMC2 = new Opcion("2^2",true);
+        Opcion opcionIncorrectaMC1 = new Opcion("8",false);
+        Opcion opcionIncorrectaMC2 = new Opcion("Pez",false);
 
         ArrayList<Opcion> opcionesMC = new ArrayList<Opcion>();
-        opcionesMC.add(opcionCorrecta1);
-        opcionesMC.add(opcionCorrecta2);
-        opcionesMC.add(opcionIncorrecta1);
-        opcionesMC.add(opcionIncorrecta2);
+        opcionesMC.add(opcionCorrectaMC1);
+        opcionesMC.add(opcionCorrectaMC2);
+        opcionesMC.add(opcionIncorrectaMC1);
+        opcionesMC.add(opcionIncorrectaMC2);
 
         TipoClasico tipoClasicoMC = new TipoClasico();
 
@@ -100,6 +100,21 @@ public class KahootModel {
         preguntas.add(groupChoice);
 
         CreadorArchivoJson json = new CreadorArchivoJson(preguntas);
+
+
+        Opcion opcionCorrecta2 = new Opcion("falso",true);
+        Opcion opcionIncorrecta2 = new Opcion("verdadero",false);
+
+        ArrayList<Opcion> opcionesVF2 = new ArrayList<Opcion>();
+        opcionesVF2.add(opcionCorrecta2);
+        opcionesVF2.add(opcionIncorrecta2);
+
+        TipoPuntaje tipoClasicoVF2 = new TipoClasico();
+
+        Preguntas verdaderoYFalso2 = new VerdaderoYFalso("Argentina limita con Perú.", opcionesVF2, tipoClasicoVF2);
+
+        preguntas.add(verdaderoYFalso2);
+
 
 
        /*LectorDePreguntas lector = new LectorDePreguntas();

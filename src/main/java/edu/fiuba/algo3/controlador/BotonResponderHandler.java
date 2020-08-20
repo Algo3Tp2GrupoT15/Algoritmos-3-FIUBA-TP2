@@ -24,7 +24,7 @@ public class BotonResponderHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
 
        // this.kahoot.calcularPuntosDelTurno();
-        this.texto.setText("Puntaje: "+ this.kahoot.jugadorDeTurno().puntaje());
+        this.texto.setText("Puntaje de "+ kahoot.jugadorDeTurno().nombre()+" : "+kahoot.jugadorDeTurno().puntaje());
         this.boton.setDisable(true);
 
     }
