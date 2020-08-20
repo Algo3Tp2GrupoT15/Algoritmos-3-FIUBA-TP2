@@ -52,6 +52,15 @@ public class GroupChoiceVista extends VBox {
         pregunta.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
         pregunta.setFill(Color.BLUE);
 
+        String stringOpciones = "Grupos a asignar:";
+        for (int i=0; i<kahoot.mostrarOpcionesDeTurno().size();i++){
+            OpcionGroup opcion = (OpcionGroup) kahoot.mostrarOpcionesDeTurno().get(i);
+            stringOpciones=stringOpciones.concat(" "+opcion.grupo()+",");
+        }
+        Text muestraOpciones = new Text(stringOpciones);
+        muestraOpciones.setFont(Font.font("Verdana", FontWeight.BOLD, 25));
+        muestraOpciones.setFill(Color.BLUE);
+
         ObservableList<String> opcionesMenu = FXCollections.observableArrayList();
         StackPane stackpane = new StackPane();
         GridPane gridpane = new GridPane();
@@ -107,7 +116,7 @@ public class GroupChoiceVista extends VBox {
 
         Clock clock = new Clock(continuar);
 
-        this.getChildren().addAll(turnoDelJugador,tipoDePregunta,pregunta,puntaje1,stackpane,responder,continuar,clock);
+        this.getChildren().addAll(turnoDelJugador,tipoDePregunta,pregunta,muestraOpciones,puntaje1,stackpane,responder,continuar,clock);
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
 

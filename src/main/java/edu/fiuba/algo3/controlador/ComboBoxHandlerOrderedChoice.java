@@ -8,16 +8,18 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.ComboBox;
 
+import java.util.ArrayList;
+
 public class ComboBoxHandlerOrderedChoice implements EventHandler<ActionEvent> {
 
     private final Respuesta respuesta;
-    private final KahootModel kahoot;
     private final ComboBox comboBox;
+    private final ArrayList<Opcion> opciones;
 
-    public ComboBoxHandlerOrderedChoice(KahootModel kahoot, ComboBox comboBox, Respuesta respuesta) {
+    public ComboBoxHandlerOrderedChoice(ComboBox comboBox, Respuesta respuesta, ArrayList<Opcion> opciones) {
         this.respuesta = respuesta;
-        this.kahoot = kahoot;
         this.comboBox = comboBox;
+        this.opciones = opciones;
     }
 
     @Override
@@ -33,7 +35,7 @@ public class ComboBoxHandlerOrderedChoice implements EventHandler<ActionEvent> {
     }
 
     Opcion buscarOpcion(String item) {
-        for(Opcion opcion : kahoot.mostrarOpcionesDeTurno()) {
+        for(Opcion opcion : opciones) {
             if(opcion.contenido().equals(item)) {
                 return opcion;
             }

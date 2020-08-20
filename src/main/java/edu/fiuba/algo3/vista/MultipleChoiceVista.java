@@ -56,9 +56,9 @@ public class MultipleChoiceVista extends VBox {
         Text puntaje1 = new Text("Puntaje de "+ kahoot.jugadorDeTurno().nombre()+" : "+kahoot.jugadorDeTurno().puntaje());
         puntaje1.setFont(Font.font("Arial", FontWeight.BLACK, 20));
 
-       /*Button responder = new Button("Responder");
+       Button responder = new Button("Responder");
         BotonResponderHandler botonResponderHandler = new BotonResponderHandler(kahoot,puntaje1,responder);
-        responder.setOnAction(botonResponderHandler);*/
+        responder.setOnAction(botonResponderHandler);
 
         Button continuar = new Button("Siguiente");
         BotonSiguienteVistaHandler botonSiguienteHandler = new BotonSiguienteVistaHandler(stage,kahoot);
@@ -66,7 +66,7 @@ public class MultipleChoiceVista extends VBox {
 
         Clock clock = new Clock(continuar);
 
-        this.getChildren().addAll(turnoDelJugador,tipoDePregunta,pregunta,puntaje1,flowpane,continuar, clock);
+        this.getChildren().addAll(turnoDelJugador,tipoDePregunta,pregunta,puntaje1,flowpane,responder,continuar, clock);
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
 

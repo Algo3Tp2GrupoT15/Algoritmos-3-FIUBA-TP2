@@ -81,7 +81,6 @@ public class VerdaderoFalsoVista extends VBox {
 
         Clock clock = new Clock(continuar);
 
-
         this.getChildren().addAll(exclusividad,turnoDelJugador,tipoDePregunta,pregunta,puntaje1,flowpane,continuar, clock);
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);

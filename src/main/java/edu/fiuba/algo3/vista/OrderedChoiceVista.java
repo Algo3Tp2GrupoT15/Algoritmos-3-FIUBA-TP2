@@ -6,6 +6,7 @@ import edu.fiuba.algo3.controlador.ComboBoxHandlerGroupChoice;
 import edu.fiuba.algo3.controlador.ComboBoxHandlerOrderedChoice;
 import edu.fiuba.algo3.modelo.KahootModel;
 import edu.fiuba.algo3.modelo.Opcion;
+import edu.fiuba.algo3.modelo.OpcionGroup;
 import edu.fiuba.algo3.modelo.Respuesta;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,17 +26,20 @@ import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class OrderedChoiceVista extends VBox {
 
     private Stage stage;
     private Respuesta respuesta;
     private KahootModel kahoot;
+    private ArrayList<Opcion> opcionesList;
 
     public OrderedChoiceVista(Stage stage, KahootModel kahoot) { //prueba para ver la vista de una pregunta MultipleChoice
 
         this.stage = stage;
         this.kahoot = kahoot;
+        this.opcionesList = kahoot.mostrarOpcionesDeTurno();
 
         this.crearRespuesta();
 
@@ -54,7 +58,18 @@ public class OrderedChoiceVista extends VBox {
         pregunta.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
         pregunta.setFill(Color.BLUE);
 
-        ObservableList<String> opcionesMenu = FXCollections.observableArrayList();
+        String stringOpciones = "Opciones a ordenar:";
+        ArrayList<Opcion> opcionesList = kahoot.mostrarOpcionesDeTurno();
+        for (int i=0; i<opcionesList.size();i++){
+            Opcion opcion = opcionesList.get(i);
+            stringOpciones=stringOpciones.concat(" "+opcion.contenido()+",");
+        }
+        Text muestraOpciones = new Text(stringOpciones);
+        muestraOpciones.setFont(Font.font("Verdana", FontWeight.BOLD, 25));
+        muestraOpciones.setFill(Color.BLUE);
+
+
+       ObservableList<String> opcionesMenu = FXCollections.observableArrayList();
         StackPane stackpane = new StackPane();
         GridPane gridpane = new GridPane();
 
@@ -63,19 +78,20 @@ public class OrderedChoiceVista extends VBox {
         Label label2 = new Label(" Opción");
         gridpane.add(label2, 2,0 );
 
-        for (int i=0; i<kahoot.mostrarOpcionesDeTurno().size();i++){
+        for (int i=0; i<opcionesList.size();i++){
 
-            opcionesMenu.add(kahoot.mostrarOpcionesDeTurno().get(i).contenido());
+            Opcion opcion = opcionesList.get(i);
+            opcionesMenu.add(opcion.contenido());
 
         }
 
-        for (int i=0; i<kahoot.mostrarOpcionesDeTurno().size();i++){
+        for (int i=0; i<opcionesList.size();i++){
 
             ComboBox menuOrden = new ComboBox (opcionesMenu);
             gridpane.add(menuOrden,2,(i+1));
             Label label = new Label(String.valueOf(i+1));
             gridpane.add(label, 1, (i+1));
-            ComboBoxHandlerOrderedChoice comboBoxHandlerOrderedChoice = new ComboBoxHandlerOrderedChoice(kahoot,menuOrden,respuesta);
+            ComboBoxHandlerOrderedChoice comboBoxHandlerOrderedChoice = new ComboBoxHandlerOrderedChoice(menuOrden,respuesta,opcionesList);
             menuOrden.setOnAction(comboBoxHandlerOrderedChoice);
         }
 
@@ -93,9 +109,10 @@ public class OrderedChoiceVista extends VBox {
         BotonSiguienteVistaHandler botonSiguienteHandler = new BotonSiguienteVistaHandler(stage,kahoot);
         continuar.setOnAction(botonSiguienteHandler);
 
+
         Clock clock = new Clock(continuar);
 
-        this.getChildren().addAll(turnoDelJugador,tipoDePregunta,pregunta,puntaje1,stackpane,responder,continuar,clock);
+        this.getChildren().addAll(turnoDelJugador,tipoDePregunta,pregunta,muestraOpciones,puntaje1,stackpane,responder,continuar,clock);
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
 
@@ -112,14 +129,6 @@ public class OrderedChoiceVista extends VBox {
     }
 
 
-    Opcion buscarOpcion(String item) {
-        for(Opcion opcion : kahoot.mostrarOpcionesDeTurno()) {
-            if(opcion.contenido().equals(item)) {
-                return opcion;
-            }
-        }
-        return null;
-    }
 
 }
 
