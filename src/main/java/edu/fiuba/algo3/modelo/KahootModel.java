@@ -67,20 +67,20 @@ public class KahootModel {
         preguntas.add(multipleChoice);
 
 
-        Opcion opcionOC1 = new Opcion("2",true);
-        Opcion opcionOC2 = new Opcion("4",true);
-        Opcion opcionOC3 = new Opcion("6",true);
-        Opcion opcionOC4 = new Opcion("8",true);
+        Opcion opcionOC11 = new Opcion("2",true);
+        Opcion opcionOC12 = new Opcion("4",true);
+        Opcion opcionOC13 = new Opcion("6",true);
+        Opcion opcionOC14 = new Opcion("8",true);
 
-        ArrayList<Opcion> opcionesEnOrden = new ArrayList<Opcion>(Arrays.asList());
-        opcionesEnOrden.add(opcionOC1);
-        opcionesEnOrden.add(opcionOC2);
-        opcionesEnOrden.add(opcionOC3);
-        opcionesEnOrden.add(opcionOC4);
+        ArrayList<Opcion> opcionesEnOrden1 = new ArrayList<Opcion>(Arrays.asList());
+        opcionesEnOrden1.add(opcionOC11);
+        opcionesEnOrden1.add(opcionOC12);
+        opcionesEnOrden1.add(opcionOC13);
+        opcionesEnOrden1.add(opcionOC14);
 
-        OrderedChoice orderedChoice = new OrderedChoice(" Ordene los numeros de forma ascendente ", opcionesEnOrden);
+        OrderedChoice orderedChoice1 = new OrderedChoice(" Ordene los numeros de forma ascendente ", opcionesEnOrden1);
 
-        preguntas.add(orderedChoice);
+        preguntas.add(orderedChoice1);
 
 
         OpcionGroup opcionGC1 = new OpcionGroup("1", "impar", true);
@@ -115,6 +115,21 @@ public class KahootModel {
 
         preguntas.add(verdaderoYFalso2);
 
+
+        Opcion opcionOC21 = new Opcion("4",true);
+        Opcion opcionOC22 = new Opcion("3",true);
+        Opcion opcionOC23 = new Opcion("2",true);
+        Opcion opcionOC24 = new Opcion("1",true);
+
+        ArrayList<Opcion> opcionesEnOrden2 = new ArrayList<Opcion>(Arrays.asList());
+        opcionesEnOrden2.add(opcionOC21);
+        opcionesEnOrden2.add(opcionOC22);
+        opcionesEnOrden2.add(opcionOC23);
+        opcionesEnOrden2.add(opcionOC24);
+
+        OrderedChoice orderedChoice2 = new OrderedChoice(" Ordene los numeros de forma descendente ", opcionesEnOrden2);
+
+        preguntas.add(orderedChoice2);
 
 
        /*LectorDePreguntas lector = new LectorDePreguntas();

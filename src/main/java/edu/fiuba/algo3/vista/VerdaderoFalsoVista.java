@@ -90,6 +90,7 @@ public class VerdaderoFalsoVista extends VBox {
 
 
         this.getChildren().addAll(modificadoresDePuntos,turnoDelJugador,tipoDePregunta,pregunta,puntaje1,flowpane,continuar, clock);
+
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
 

@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.BotonExclusividadHandler;
 import edu.fiuba.algo3.controlador.BotonRadioHandler;
+import edu.fiuba.algo3.controlador.BotonResponderHandler;
 import edu.fiuba.algo3.controlador.BotonSiguienteVistaHandler;
 import edu.fiuba.algo3.controlador.multiplicadorHandler.MultiplicadorHandlerX2;
 import edu.fiuba.algo3.controlador.multiplicadorHandler.MultiplicadorHandlerX3;
@@ -71,9 +72,9 @@ public class MultipleChoiceVista extends VBox {
         Text puntaje1 = new Text("Puntaje de "+ kahoot.jugadorDeTurno().nombre()+" : "+kahoot.jugadorDeTurno().puntaje());
         puntaje1.setFont(Font.font("Arial", FontWeight.BLACK, 20));
 
-       /*Button responder = new Button("Responder");
+       Button responder = new Button("Responder");
         BotonResponderHandler botonResponderHandler = new BotonResponderHandler(kahoot,puntaje1,responder);
-        responder.setOnAction(botonResponderHandler);*/
+        responder.setOnAction(botonResponderHandler);
 
         Button continuar = new Button("Siguiente");
         Clock clock = new Clock(continuar);
@@ -82,7 +83,8 @@ public class MultipleChoiceVista extends VBox {
 
 
 
-        this.getChildren().addAll(modificadoresDePuntos,turnoDelJugador,tipoDePregunta,pregunta,puntaje1,flowpane,continuar, clock);
+        this.getChildren().addAll(modificadoresDePuntos,turnoDelJugador,tipoDePregunta,pregunta,puntaje1,flowpane,responder,continuar, clock);
+
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
 
