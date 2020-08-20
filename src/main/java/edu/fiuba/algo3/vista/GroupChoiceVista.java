@@ -13,10 +13,8 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
@@ -39,6 +37,10 @@ public class GroupChoiceVista extends VBox {
         this.kahoot = kahoot;
 
         this.crearRespuesta();
+
+        Image imagen = new Image("file:src/main/java/recursos/imagen.png");
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, new BackgroundSize(1.0, 1.0, true, true, false, false));
+        this.setBackground(new Background(imagenDeFondo));
 
         File path = new File("src/main/java/recursos/kahoot-lobby-music.mp3");
         Media media = new Media(path.toURI().toString());
@@ -100,18 +102,6 @@ public class GroupChoiceVista extends VBox {
         gridpane.setAlignment(Pos.CENTER);
         stackpane.getChildren().add(gridpane);
 
-        /*FlowPane flowpane = new FlowPane();
-        flowpane.setHgap(50);
-        flowpane.setAlignment(Pos.CENTER);
-
-        for (int i=0; i<kahoot.mostrarOpcionesDeTurno().size();i++) {
-            RadioButton opcionRB = new RadioButton(kahoot.mostrarOpcionesDeTurno().get(i).contenido());
-            flowpane.getChildren().add(opcionRB);
-            BotonRadioHandler botonRadioHandler = new BotonRadioHandler(respuesta,kahoot.mostrarOpcionesDeTurno().get(i));
-            opcionRB.setOnAction(botonRadioHandler);
-
-        } */
-
         Text puntaje1 = new Text("Puntaje de "+ kahoot.jugadorDeTurno().nombre()+" : "+kahoot.jugadorDeTurno().puntaje());
         puntaje1.setFont(Font.font("Arial", FontWeight.BLACK, 20));
 
@@ -123,8 +113,6 @@ public class GroupChoiceVista extends VBox {
         Clock clock = new Clock(continuar);
         BotonSiguienteVistaHandler botonSiguienteHandler = new BotonSiguienteVistaHandler(stage,kahoot, clock);
         continuar.setOnAction(botonSiguienteHandler);
-
-
 
         this.getChildren().addAll(modificadoresDePuntos,turnoDelJugador,tipoDePregunta,pregunta,muestraOpciones,puntaje1,stackpane,responder,continuar,clock);
 

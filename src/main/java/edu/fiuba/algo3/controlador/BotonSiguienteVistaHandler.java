@@ -2,6 +2,7 @@ package edu.fiuba.algo3.controlador;
 
 import edu.fiuba.algo3.modelo.KahootModel;
 import edu.fiuba.algo3.modelo.preguntas.*;
+import edu.fiuba.algo3.vista.FinalVista;
 import edu.fiuba.algo3.vista.Clock;
 import edu.fiuba.algo3.vista.PuntosVista;
 import javafx.event.ActionEvent;
@@ -36,6 +37,13 @@ public class BotonSiguienteVistaHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
+
+        if (kahoot.esUltimaPregunta() && kahoot.ultimoJugador()){
+
+            siguientePregunta.siguienteVistaPregunta(new FinalVista(stage, kahoot), stage);
+            return;
+
+        }
 
         this.clock.terminar();
 

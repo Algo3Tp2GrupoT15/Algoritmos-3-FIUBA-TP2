@@ -10,10 +10,8 @@ import edu.fiuba.algo3.modelo.Respuesta;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
@@ -37,6 +35,10 @@ public class MultipleChoiceVista extends VBox {
         this.kahoot = kahoot;
 
         this.crearRespuesta();
+
+        Image imagen = new Image("file:src/main/java/recursos/imagen.png");
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, new BackgroundSize(1.0, 1.0, true, true, false, false));
+        this.setBackground(new Background(imagenDeFondo));
 
         File path = new File("src/main/java/recursos/kahoot-lobby-music.mp3");
         Media media = new Media(path.toURI().toString());

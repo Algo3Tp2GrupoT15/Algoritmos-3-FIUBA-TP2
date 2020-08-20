@@ -58,4 +58,13 @@ public class DetectorDeVista {
 
     }
 
+    public void siguienteVistaPregunta(FinalVista finalVista, Stage vista) {
+
+
+        Scene proximaEscena = new Scene(finalVista, 1080, 720);
+        vista.setScene(proximaEscena);
+
+    }
+
+
 }

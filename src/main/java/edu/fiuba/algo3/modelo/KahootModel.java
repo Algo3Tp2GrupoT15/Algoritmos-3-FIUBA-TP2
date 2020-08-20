@@ -218,6 +218,16 @@ public class KahootModel {
 
 
     public boolean ultimoJugador() {
+
         return turno.esUltimoTurno();
+
     }
+
+
+    public boolean esUltimaPregunta(){
+
+        return ((this.ronda.numeroRonda() + 1) == preguntas.size());
+
+    }
+
 }

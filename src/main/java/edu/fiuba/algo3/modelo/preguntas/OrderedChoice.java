@@ -23,7 +23,6 @@ public class OrderedChoice implements Preguntas {
 
     }
 
-
     @Override
     public ArrayList<Opcion> opciones() {
 
