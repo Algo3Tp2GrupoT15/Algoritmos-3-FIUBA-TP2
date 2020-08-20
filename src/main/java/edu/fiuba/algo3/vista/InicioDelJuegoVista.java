@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.controlador.BotonSiguienteHandler;
 import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.KahootModel;
 import javafx.application.Application;
@@ -76,17 +77,8 @@ public class InicioDelJuegoVista extends VBox {
 
 
         Button continuar = new Button("continuar");
-
-       continuar.setOnAction(value ->  {
-            VerdaderoFalsoVista proximaPregunta = new VerdaderoFalsoVista(stage, kahoot);
-           // MultipleChoiceVista proximaPregunta = new MultipleChoiceVista(stage, kahoot);
-           // OrderedChoiceVista proximaPregunta = new OrderedChoiceVista(stage, kahoot);
-           // GroupChoiceVista proximaPregunta = new GroupChoiceVista(stage, kahoot);
-            Scene proximaEscena = new Scene(proximaPregunta, 1080, 720);
-            stage.setScene(proximaEscena);
-
-        });
-
+        BotonSiguienteHandler siguienteVista = new BotonSiguienteHandler(stage, kahoot);
+        continuar.setOnAction(siguienteVista);
 
 
         this.getChildren().addAll(iniciarJugador1, iniciarJugador2, aceptar, validacion, continuar);
