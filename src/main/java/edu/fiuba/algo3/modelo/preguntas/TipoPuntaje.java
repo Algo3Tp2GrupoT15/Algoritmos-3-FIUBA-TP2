@@ -6,4 +6,9 @@ public interface TipoPuntaje {
 
     void asignarPuntaje(Respuesta respuesta, int cantidadDeCorrectas);
 
+    boolean hayExclusividad();
+
+    boolean hayMultiplicadores();
+
+    String tipoDePuntaje();
 }

@@ -63,5 +63,10 @@ public class MultipleChoice implements Preguntas{
         return tipoDePregunta;
     }
 
+    @Override
+    public TipoPuntaje tipo() {
+        return tipo;
+    }
+
 
 }

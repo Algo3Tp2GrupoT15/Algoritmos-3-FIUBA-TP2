@@ -19,7 +19,7 @@ public class BotonExclusividadHandler  implements EventHandler<ActionEvent> {
     }
 
     private void desactivarBotton() {
-        if (kahootModel.jugadorDeTurno().getUsosExclusividad() <= 0){
+        if (kahootModel.jugadorDeTurno().getUsosExclusividad() <= 0 || !this.kahootModel.preguntaDeTurno().tipo().hayExclusividad()) {
             activarExclusividad.setDisable(true);
         }
 
@@ -30,6 +30,7 @@ public class BotonExclusividadHandler  implements EventHandler<ActionEvent> {
 
         kahootModel.activarExclusividad(kahootModel.jugadorDeTurno().getUsosExclusividad());
         kahootModel.jugadorDeTurno().disminuirUsosExclusividad();
+        this.activarExclusividad.setDisable(true);
 
     }
 }

@@ -200,11 +200,6 @@ public class KahootModel {
 
     }
 
-    public void activarMultiplicador(int factor){
-
-        jugadorDeTurno().asignarMultiplicador(factor);
-
-    }
 
 
     public boolean ultimoJugador() {

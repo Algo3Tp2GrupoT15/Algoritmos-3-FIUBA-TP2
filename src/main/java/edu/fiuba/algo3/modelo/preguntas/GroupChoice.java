@@ -56,4 +56,9 @@ public class GroupChoice implements Preguntas{
     public String tipoDePregunta() {
         return tipoDePregunta;
     }
+
+    @Override
+    public TipoPuntaje tipo() {
+        return tipo;
+    }
 }

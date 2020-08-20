@@ -4,13 +4,13 @@ public class Jugador {
 
     private int puntaje;
     private String nombre;
-    private int multiplicador;
+    private Multiplicador multiplicador;
     private int ultimoPuntajeAgregado;
     private int usosExclusividad;
 
     public Jugador() {
         puntaje = 0;
-        multiplicador = 1;
+        multiplicador = new Multiplicador();
         nombre = "SinNombre";
         usosExclusividad = 2;
     }
@@ -19,15 +19,15 @@ public class Jugador {
 
         this.nombre = nombre;
         puntaje = 0;
-        multiplicador = 1;
+        multiplicador = new Multiplicador();
         usosExclusividad = 2;
     }
 
     public void agregarPuntaje(int unPuntaje) {
 
-        puntaje += (unPuntaje * multiplicador);
+        puntaje += (multiplicador.modificarPuntos(unPuntaje));
         ultimoPuntajeAgregado = unPuntaje;
-        multiplicador = 1;
+
 
     }
 
@@ -46,9 +46,14 @@ public class Jugador {
 
     }
 
-    public void asignarMultiplicador(int factor){
 
-        multiplicador = factor;
+    public void multiplicadorX3(){
+        multiplicador.multiplicadorX3();
+    }
+    public void multiplicadorX2(){
+
+        multiplicador.multiplicadorX2();
+
     }
 
     public int getUltimoPuntajeAgregado(){
@@ -60,5 +65,13 @@ public class Jugador {
     }
     public void disminuirUsosExclusividad(){
         usosExclusividad -= 1;
+    }
+
+    public boolean tieneMultiplicadorX2() {
+        return multiplicador.getUsosX2()>0;
+    }
+
+    public boolean tieneMultiplicadorX3() {
+        return multiplicador.getUsosX3()>0;
     }
 }

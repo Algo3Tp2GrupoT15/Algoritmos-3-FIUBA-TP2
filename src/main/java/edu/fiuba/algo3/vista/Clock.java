@@ -54,4 +54,8 @@ public class Clock extends Pane {
         }
 
     }
+
+    public void terminar(){
+        temp = -1;
+    }
 }

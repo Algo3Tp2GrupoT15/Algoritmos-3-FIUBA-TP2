@@ -1,17 +1,17 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.*;
+import edu.fiuba.algo3.controlador.multiplicadorHandler.MultiplicadorHandlerX2;
+import edu.fiuba.algo3.controlador.multiplicadorHandler.MultiplicadorHandlerX3;
 import edu.fiuba.algo3.modelo.KahootModel;
 import edu.fiuba.algo3.modelo.Respuesta;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -20,11 +20,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.io.File;
-import java.util.Timer;
-import java.util.TimerTask;
 
 
 public class VerdaderoFalsoVista extends VBox {
@@ -49,7 +46,7 @@ public class VerdaderoFalsoVista extends VBox {
 
         Text turnoDelJugador = new Text(kahoot.jugadorDeTurno().nombre());
         turnoDelJugador.setFont(Font.font("Arial", FontWeight.THIN, 30));
-        Text tipoDePregunta = new Text("VervaderoFalso Clasico");
+        Text tipoDePregunta = new Text("VervaderoFalso "+ kahoot.preguntaDeTurno().tipo().tipoDePuntaje());
         tipoDePregunta.setFont(Font.font("Arial", FontWeight.BLACK, 36));
         Text pregunta = new Text(kahoot.preguntaDeTurno().contenido());
         pregunta.setFont(Font.font("Verdana", FontWeight.BOLD, 36));
@@ -58,8 +55,15 @@ public class VerdaderoFalsoVista extends VBox {
         Button activarExclusividad = new Button("Exclusividad");
         BotonExclusividadHandler exclusividadHandler = new BotonExclusividadHandler(activarExclusividad, kahoot);
         activarExclusividad.setOnAction(exclusividadHandler);
-        VBox exclusividad = new VBox(activarExclusividad);
-        exclusividad.setAlignment(Pos.TOP_RIGHT);
+        HBox modificadoresDePuntos = new HBox(activarExclusividad);
+
+        GridPane gridPane = new GridPane();
+        crearMultipicadores(gridPane);
+        modificadoresDePuntos.getChildren().add(gridPane);
+        modificadoresDePuntos.setSpacing(600);
+        modificadoresDePuntos.setAlignment(Pos.CENTER);
+
+
 
         FlowPane flowpane = new FlowPane();
         ToggleGroup opciones = new ToggleGroup(); //esto es para que solo se pueda seleccionar una opcion
@@ -75,16 +79,34 @@ public class VerdaderoFalsoVista extends VBox {
         BotonResponderHandler botonResponderHandler = new BotonResponderHandler(kahoot, puntaje1, responder);
         responder.setOnAction(botonResponderHandler);
 
+
+
         Button continuar = new Button("Siguiente");
-        BotonSiguienteVistaHandler botonSiguienteHandler = new BotonSiguienteVistaHandler(stage, kahoot);
+        Clock clock = new Clock(continuar);
+        BotonSiguienteVistaHandler botonSiguienteHandler = new BotonSiguienteVistaHandler(stage, kahoot, clock);
         continuar.setOnAction(botonSiguienteHandler);
 
-        Clock clock = new Clock(continuar);
 
 
-        this.getChildren().addAll(exclusividad,turnoDelJugador,tipoDePregunta,pregunta,puntaje1,flowpane,continuar, clock);
+
+        this.getChildren().addAll(modificadoresDePuntos,turnoDelJugador,tipoDePregunta,pregunta,puntaje1,flowpane,continuar, clock);
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
+
+    }
+
+    private void crearMultipicadores(GridPane gridPane) {
+        Button multiplicadorX2 = new Button("MultiplicadorX2");
+        Button multiplicadorX3 = new Button("MultiplicadorX3");
+        MultiplicadorHandlerX2 x2 = new MultiplicadorHandlerX2(multiplicadorX2,kahoot);
+        MultiplicadorHandlerX3 x3 = new MultiplicadorHandlerX3(multiplicadorX3,kahoot);
+        multiplicadorX2.setOnAction(x2);
+        multiplicadorX3.setOnAction(x3);
+
+
+        gridPane.add(multiplicadorX2, 0, 0, 1, 1);
+        gridPane.add(multiplicadorX3, 0, 1, 1, 1);
+
 
     }
 

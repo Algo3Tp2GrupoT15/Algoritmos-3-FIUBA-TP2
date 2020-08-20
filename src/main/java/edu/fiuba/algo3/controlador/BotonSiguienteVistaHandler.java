@@ -2,6 +2,7 @@ package edu.fiuba.algo3.controlador;
 
 import edu.fiuba.algo3.modelo.KahootModel;
 import edu.fiuba.algo3.modelo.preguntas.*;
+import edu.fiuba.algo3.vista.Clock;
 import edu.fiuba.algo3.vista.PuntosVista;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -9,10 +10,20 @@ import javafx.stage.Stage;
 
 public class BotonSiguienteVistaHandler implements EventHandler<ActionEvent> {
 
-    Stage stage;
-    KahootModel kahoot;
-    DetectorDeVista  siguientePregunta;
+    private Stage stage;
+    private KahootModel kahoot;
+    private DetectorDeVista  siguientePregunta;
+    private Clock clock;
 
+
+    public BotonSiguienteVistaHandler(Stage stage, KahootModel kahoot, Clock clock) {
+
+        this.stage = stage;
+        this.kahoot = kahoot;
+        siguientePregunta = new DetectorDeVista(kahoot);
+
+        this.clock = clock;
+    }
 
     public BotonSiguienteVistaHandler(Stage stage, KahootModel kahoot) {
 
@@ -22,9 +33,11 @@ public class BotonSiguienteVistaHandler implements EventHandler<ActionEvent> {
 
     }
 
+
     @Override
     public void handle(ActionEvent actionEvent) {
 
+        this.clock.terminar();
 
         if (kahoot.ultimoJugador()){
             kahoot.calcularPuntosDelTurno();

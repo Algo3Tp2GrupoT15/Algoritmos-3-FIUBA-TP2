@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.controlador.BotonResponderHandler;
-import edu.fiuba.algo3.controlador.BotonSiguienteVistaHandler;
-import edu.fiuba.algo3.controlador.ComboBoxHandlerGroupChoice;
-import edu.fiuba.algo3.controlador.ComboBoxHandlerOrderedChoice;
+import edu.fiuba.algo3.controlador.*;
 import edu.fiuba.algo3.modelo.KahootModel;
 import edu.fiuba.algo3.modelo.Opcion;
 import edu.fiuba.algo3.modelo.Respuesta;
@@ -13,6 +10,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
@@ -44,7 +42,12 @@ public class OrderedChoiceVista extends VBox {
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
 
-        stage.setTitle("Kahoot Algos 3");
+        Button activarExclusividad = new Button("Exclusividad");
+        BotonExclusividadHandler exclusividadHandler = new BotonExclusividadHandler(activarExclusividad, kahoot);
+        activarExclusividad.setOnAction(exclusividadHandler);
+        HBox modificadoresDePuntos = new HBox(activarExclusividad);
+        modificadoresDePuntos.setSpacing(600);
+        modificadoresDePuntos.setAlignment(Pos.CENTER);
 
         Text turnoDelJugador = new Text(kahoot.jugadorDeTurno().nombre());
         turnoDelJugador.setFont(Font.font("Arial", FontWeight.THIN, 30));
@@ -90,12 +93,12 @@ public class OrderedChoiceVista extends VBox {
         responder.setOnAction(botonResponderHandler);
 
         Button continuar = new Button("Siguiente");
-        BotonSiguienteVistaHandler botonSiguienteHandler = new BotonSiguienteVistaHandler(stage,kahoot);
+        Clock clock = new Clock(continuar);
+        BotonSiguienteVistaHandler botonSiguienteHandler = new BotonSiguienteVistaHandler(stage,kahoot, clock);
         continuar.setOnAction(botonSiguienteHandler);
 
-        Clock clock = new Clock(continuar);
 
-        this.getChildren().addAll(turnoDelJugador,tipoDePregunta,pregunta,puntaje1,stackpane,responder,continuar,clock);
+        this.getChildren().addAll(modificadoresDePuntos,turnoDelJugador,tipoDePregunta,pregunta,puntaje1,stackpane,responder,continuar,clock);
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
 

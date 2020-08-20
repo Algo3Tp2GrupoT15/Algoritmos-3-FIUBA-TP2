@@ -63,5 +63,10 @@ import static java.util.stream.Collectors.toCollection;
             return tipoDePregunta;
         }
 
+        @Override
+        public TipoPuntaje tipo() {
+            return tipo;
+        }
+
 
     }

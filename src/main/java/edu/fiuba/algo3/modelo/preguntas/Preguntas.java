@@ -17,4 +17,6 @@ public interface Preguntas {
 
     String tipoDePregunta();
 
+    TipoPuntaje tipo();
+
 }
