@@ -53,7 +53,7 @@ public class BienvenidosVista extends VBox {
         etiqueta.setMaxSize(2000    ,2000);
         etiqueta.setAlignment(Pos.CENTER);
 
-        BotonEntrarEventHandler botonEntrarHandler = new BotonEntrarEventHandler(stage, proximaEscena);
+        BotonEntrarEventHandler botonEntrarHandler = new BotonEntrarEventHandler(stage, proximaEscena, mediaPlayer);
         botonEntrar.setOnAction(botonEntrarHandler);
 
         this.getChildren().addAll(etiqueta, botonEntrar);

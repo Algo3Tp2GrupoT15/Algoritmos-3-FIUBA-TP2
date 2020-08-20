@@ -68,7 +68,7 @@ public class InicioDelJuegoVista extends VBox {
 
         Button continuar = new Button("Continuar");
         continuar.setDisable(true);
-        BotonSiguienteHandler siguienteVista = new BotonSiguienteHandler(stage, kahoot);
+        BotonSiguienteHandler siguienteVista = new BotonSiguienteHandler(stage, kahoot,mediaPlayer);
         continuar.setOnAction(siguienteVista);
 
         aceptar.setOnAction(value ->  {

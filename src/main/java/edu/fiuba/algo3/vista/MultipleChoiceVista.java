@@ -79,7 +79,7 @@ public class MultipleChoiceVista extends VBox {
 
         Button continuar = new Button("Siguiente");
         Clock clock = new Clock(continuar);
-        BotonSiguienteVistaHandler botonSiguienteHandler = new BotonSiguienteVistaHandler(stage,kahoot, clock);
+        BotonSiguienteVistaHandler botonSiguienteHandler = new BotonSiguienteVistaHandler(stage,kahoot, clock,mediaPlayer);
         continuar.setOnAction(botonSiguienteHandler);
 
 

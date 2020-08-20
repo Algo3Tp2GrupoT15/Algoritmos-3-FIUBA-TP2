@@ -112,7 +112,7 @@ public class GroupChoiceVista extends VBox {
 
         Button continuar = new Button("Siguiente");
         Clock clock = new Clock(continuar);
-        BotonSiguienteVistaHandler botonSiguienteHandler = new BotonSiguienteVistaHandler(stage,kahoot, clock);
+        BotonSiguienteVistaHandler botonSiguienteHandler = new BotonSiguienteVistaHandler(stage,kahoot, clock,mediaPlayer);
         continuar.setOnAction(botonSiguienteHandler);
 
         this.getChildren().addAll(modificadoresDePuntos,turnoDelJugador,tipoDePregunta,pregunta,muestraOpciones,puntaje1,stackpane,responder,continuar,clock);

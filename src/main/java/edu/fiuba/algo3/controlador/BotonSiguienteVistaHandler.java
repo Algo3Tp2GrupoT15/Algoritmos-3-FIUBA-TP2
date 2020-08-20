@@ -7,6 +7,7 @@ import edu.fiuba.algo3.vista.Clock;
 import edu.fiuba.algo3.vista.PuntosVista;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class BotonSiguienteVistaHandler implements EventHandler<ActionEvent> {
@@ -15,28 +16,32 @@ public class BotonSiguienteVistaHandler implements EventHandler<ActionEvent> {
     private KahootModel kahoot;
     private DetectorDeVista  siguientePregunta;
     private Clock clock;
+    protected MediaPlayer mediaPlayer;
 
 
-    public BotonSiguienteVistaHandler(Stage stage, KahootModel kahoot, Clock clock) {
+    public BotonSiguienteVistaHandler(Stage stage, KahootModel kahoot, Clock clock, MediaPlayer mediaPlayer) {
 
         this.stage = stage;
         this.kahoot = kahoot;
         siguientePregunta = new DetectorDeVista(kahoot);
 
         this.clock = clock;
+        this.mediaPlayer = mediaPlayer;
     }
 
-    public BotonSiguienteVistaHandler(Stage stage, KahootModel kahoot) {
+    public BotonSiguienteVistaHandler(Stage stage, KahootModel kahoot, MediaPlayer mediaPlayer) {
 
         this.stage = stage;
         this.kahoot = kahoot;
         siguientePregunta = new DetectorDeVista(kahoot);
+        this.mediaPlayer = mediaPlayer;
 
     }
 
 
     @Override
     public void handle(ActionEvent actionEvent) {
+        this.mediaPlayer.stop();
 
         if (kahoot.esUltimaPregunta() && kahoot.ultimoJugador()){
 

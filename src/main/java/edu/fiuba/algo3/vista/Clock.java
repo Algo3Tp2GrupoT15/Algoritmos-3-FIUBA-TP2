@@ -12,10 +12,10 @@ import javafx.util.Duration;
 public class Clock extends Pane {
 
     private Timeline animation;
-    private int temp = 15;
+    private int temp = 30;
     private String s = "";
 
-    private Label label = new Label("15");
+    private Label label = new Label("30");
 
     private Button boton;
 
