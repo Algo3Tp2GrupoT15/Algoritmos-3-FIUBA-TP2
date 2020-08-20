@@ -1,8 +1,10 @@
 package edu.fiuba.algo3.Jason;
 
+import edu.fiuba.algo3.modelo.Opcion;
 import edu.fiuba.algo3.modelo.preguntas.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class CreadorDePreguntas {
 
@@ -50,8 +52,10 @@ public class CreadorDePreguntas {
                 OrderedChoice orderedChoice = new OrderedChoice(preguntaDatos.getContenido(), preguntaDatos.getOpciones());
                 preguntas.add(orderedChoice);
                 break;
-             case "GroupChoice" :
-                GroupChoice groupChoice = new GroupChoice(preguntaDatos.getContenido(), preguntaDatos.getOpciones(),new TipoClasico());
+            case "GroupChoice" :
+
+                ArrayList<Opcion> opciones = new ArrayList<Opcion>((preguntaDatos.getOpcionesGrupo()));
+                GroupChoice groupChoice = new GroupChoice(preguntaDatos.getContenido(), opciones,new TipoClasico());
                 preguntas.add(groupChoice);
                 break;
         }
