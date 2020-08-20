@@ -54,7 +54,6 @@ public class GroupChoiceVista extends VBox {
         modificadoresDePuntos.setSpacing(600);
         modificadoresDePuntos.setAlignment(Pos.CENTER);
 
-
         Text turnoDelJugador = new Text(kahoot.jugadorDeTurno().nombre());
         turnoDelJugador.setFont(Font.font("Arial", FontWeight.THIN, 30));
         Text tipoDePregunta = new Text("Group Choice");
@@ -62,15 +61,6 @@ public class GroupChoiceVista extends VBox {
         Text pregunta = new Text(kahoot.preguntaDeTurno().contenido());
         pregunta.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
         pregunta.setFill(Color.BLUE);
-
-        String stringOpciones = "Grupos a asignar:";
-        for (int i=0; i<kahoot.mostrarOpcionesDeTurno().size();i++){
-            OpcionGroup opcion = (OpcionGroup) kahoot.mostrarOpcionesDeTurno().get(i);
-            stringOpciones=stringOpciones.concat(" "+opcion.getGrupo()+",");
-        }
-        Text muestraOpciones = new Text(stringOpciones);
-        muestraOpciones.setFont(Font.font("Verdana", FontWeight.BOLD, 25));
-        muestraOpciones.setFill(Color.BLUE);
 
         ObservableList<String> opcionesMenu = FXCollections.observableArrayList();
         StackPane stackpane = new StackPane();
@@ -81,13 +71,24 @@ public class GroupChoiceVista extends VBox {
         Label label2 = new Label(" Grupo");
         gridpane.add(label2, 2,0 );
 
-
         for (int i=0; i<kahoot.mostrarOpcionesDeTurno().size();i++){
 
             OpcionGroup opcion= (OpcionGroup) kahoot.mostrarOpcionesDeTurno().get(i);
             opcionesMenu.add(opcion.getGrupo());
 
         }
+
+        opcionesMenu = this.eliminarDuplicados(opcionesMenu);
+
+        String stringOpciones = "Grupos a asignar:";
+        for (int i=0; i<opcionesMenu.size();i++){
+            String opcion = opcionesMenu.get(i);
+            stringOpciones=stringOpciones.concat(" "+opcion+",");
+        }
+        Text muestraOpciones = new Text(stringOpciones);
+        muestraOpciones.setFont(Font.font("Verdana", FontWeight.BOLD, 25));
+        muestraOpciones.setFill(Color.BLUE);
+
 
         for (int i=0; i<kahoot.mostrarOpcionesDeTurno().size();i++){
 
@@ -131,15 +132,17 @@ public class GroupChoiceVista extends VBox {
 
     }
 
-    OpcionGroup buscarOpcion(String item) {
-        for(int i=0;i<kahoot.mostrarOpcionesDeTurno().size();i++) {
-            OpcionGroup opcion = (OpcionGroup)kahoot.mostrarOpcionesDeTurno().get(i);
-            if(opcion.getGrupo().equals(item)) {
-                return opcion;
+    public ObservableList<String> eliminarDuplicados(ObservableList<String> lista){
+
+        ObservableList<String> nuevaLista = FXCollections.observableArrayList();;
+        for(String item: lista){
+            if(!nuevaLista.contains(item)){
+                nuevaLista.add(item);
             }
         }
-        return null;
+        return nuevaLista;
     }
+
 
 }
 
