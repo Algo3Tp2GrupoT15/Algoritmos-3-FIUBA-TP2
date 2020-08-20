@@ -64,7 +64,9 @@ public class MultipleChoiceVista extends VBox {
         BotonSiguienteVistaHandler botonSiguienteHandler = new BotonSiguienteVistaHandler(stage,kahoot);
         continuar.setOnAction(botonSiguienteHandler);
 
-        this.getChildren().addAll(turnoDelJugador,tipoDePregunta,pregunta,puntaje1,flowpane,continuar);
+        Clock clock = new Clock(continuar);
+
+        this.getChildren().addAll(turnoDelJugador,tipoDePregunta,pregunta,puntaje1,flowpane,continuar, clock);
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
 

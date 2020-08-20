@@ -26,7 +26,7 @@ public class PuntosVista extends VBox {
         this.stage = stage;
         this.kahoot = kahoot;
 
-        Image imagen = new Image("file:src/main/java/edu/fiuba/algo3/vista/imagenes/textura.png");
+        Image imagen = new Image("file:src/main/java/recursos/imagen.png");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         this.setBackground(new Background(imagenDeFondo));
 
