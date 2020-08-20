@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.Jason.CreadorDePreguntas;
 import edu.fiuba.algo3.Jason.LectorDePreguntas;
+import edu.fiuba.algo3.modelo.excepciones.NoHayPreguntasCargadasExcepcion;
 import edu.fiuba.algo3.modelo.preguntas.*;
 
 import java.util.ArrayList;
@@ -36,8 +37,12 @@ public class KahootModel {
         LectorDePreguntas lector = new LectorDePreguntas();
 
         CreadorDePreguntas creadorDePreguntas = new CreadorDePreguntas(lector.getPreguntasLeidas());
-        preguntas = creadorDePreguntas.getPreguntas();
 
+        try {
+            preguntas = creadorDePreguntas.getPreguntas();
+        }catch (NoHayPreguntasCargadasExcepcion noHayPreguntasCargadasExcepcion) {
+            noHayPreguntasCargadasExcepcion.printStackTrace();
+        }
 
     }
 

@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.Jason;
 
 import edu.fiuba.algo3.modelo.Opcion;
+import edu.fiuba.algo3.modelo.excepciones.NoHayPreguntasCargadasExcepcion;
+import edu.fiuba.algo3.modelo.excepciones.PreguntaNoIdentificadaExcepcion;
 import edu.fiuba.algo3.modelo.preguntas.*;
 
 import java.util.ArrayList;
@@ -16,12 +18,18 @@ public class CreadorDePreguntas {
 
         preguntas = new ArrayList<Preguntas>();
 
-        preguntasLeidas.forEach(this::determinarPreguntaACrear);
+        for (PreguntaACrearInfo preguntasLeida : preguntasLeidas) {
+            try {
+                determinarPreguntaACrear(preguntasLeida);
+            } catch (PreguntaNoIdentificadaExcepcion preguntaNoIdentificadaExcepcion) {
+                preguntaNoIdentificadaExcepcion.printStackTrace();
+            }
+        }
 
 
     }
 
-    private void determinarPreguntaACrear(PreguntaACrearInfo preguntaDatos) {
+    private void determinarPreguntaACrear(PreguntaACrearInfo preguntaDatos) throws PreguntaNoIdentificadaExcepcion {
 
         switch (preguntaDatos.getTipoDePregunta()){
 
@@ -58,12 +66,19 @@ public class CreadorDePreguntas {
                 GroupChoice groupChoice = new GroupChoice(preguntaDatos.getContenido(), opciones,new TipoClasico());
                 preguntas.add(groupChoice);
                 break;
+            default:
+                throw new PreguntaNoIdentificadaExcepcion("Tipo de pregunta no identificada");
         }
 
 
     }
 
-    public ArrayList<Preguntas> getPreguntas() {
+    public ArrayList<Preguntas> getPreguntas() throws NoHayPreguntasCargadasExcepcion {
+
+        if (preguntas.isEmpty()){
+            throw  new NoHayPreguntasCargadasExcepcion("No hay pregfuntas cargadas");
+        }
+
         return preguntas;
     }
 }
