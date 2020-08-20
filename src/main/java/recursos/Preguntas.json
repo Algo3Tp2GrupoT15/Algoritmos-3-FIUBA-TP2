@@ -12,6 +12,7 @@
       }
     ]
 },
+
   {
     "tipoDePregunta": "MultipleChoiceClasico",
     "contenido": "2+2=..?",
@@ -33,7 +34,6 @@
         "esCorrecta": false
       }
     ]
-
   },
 
   {
@@ -84,7 +84,132 @@
         "grupo": "par"
       }
     ]
+  },
 
+  {
+    "tipoDePregunta": "VerdaderoFalsoConPenalidad",
+    "contenido": "Argentina limita con Perú.",
+    "opciones": [
+      {
+        "texto": "Falso",
+        "esCorrecta": true
+      },
+      {
+        "texto": "Verdadero",
+        "esCorrecta": false
+      }
+    ]
+  },
+
+  {
+    "tipoDePregunta": "OrderedChoice",
+    "contenido": " Ordene los numeros de forma descendente ",
+    "opciones": [
+      {
+        "texto": "1",
+        "esCorrecta": true
+      },
+      {
+        "texto": "2",
+        "esCorrecta": true
+      },
+      {
+        "texto": "3",
+        "esCorrecta": true
+      },
+      {
+        "texto": "4",
+        "esCorrecta": true
+      }
+    ]
+  },
+
+  {
+    "tipoDePregunta": "MultipleChoiceConPuntajeParcial",
+    "contenido": "Que paises están en Europa ?",
+    "opciones": [
+      {
+        "texto": "Francia",
+        "esCorrecta": true
+      },
+      {
+        "texto": "Polonia",
+        "esCorrecta": true
+      },
+      {
+        "texto": "Israel",
+        "esCorrecta": false
+      },
+      {
+        "texto": "Singapur",
+        "esCorrecta": false
+      }
+    ]
+  },
+
+  {
+    "tipoDePregunta": "MultipleChoiceConPenalidad",
+    "contenido": "Que animales son mamíferos  ?",
+    "opciones": [
+      {
+        "texto": "Elefante",
+        "esCorrecta": true
+      },
+      {
+        "texto": "Ballena",
+        "esCorrecta": true
+      },
+      {
+        "texto": "Aguila",
+        "esCorrecta": false
+      },
+      {
+        "texto": "Cocodrilo",
+        "esCorrecta": false
+      }
+    ]
+  },
+
+  {
+    "tipoDePregunta": "GroupChoice",
+    "contenido": " Clasifique las ciudades según pertenezcan a Argentina o Uruguay: ",
+    "opciones": [
+      {
+        "texto": "Colonia",
+        "esCorrecta": true,
+        "grupo": "Uruguay"
+      },
+      {
+        "texto": "Rosario",
+        "esCorrecta": true,
+        "grupo": "Argentina"
+      },
+      {
+        "texto": "Montevideo",
+        "esCorrecta": true,
+        "grupo": "Uruguay"
+      },
+      {
+        "texto": "Bariloche",
+        "esCorrecta": true,
+        "grupo": "Argentina"
+      }
+    ]
+  },
+
+  {
+    "tipoDePregunta": "VerdaderoFalsoClasico",
+    "contenido": "Marte es un planeta gaseoso",
+    "opciones": [
+      {
+        "texto": "Falso",
+        "esCorrecta": true
+      },
+      {
+        "texto": "Verdadero",
+        "esCorrecta": false
+      }
+    ]
   }
 ]
 
