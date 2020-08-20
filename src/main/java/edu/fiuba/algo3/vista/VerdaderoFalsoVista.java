@@ -20,6 +20,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.ArrayList;
 
 
 public class VerdaderoFalsoVista extends VBox {
@@ -27,6 +28,7 @@ public class VerdaderoFalsoVista extends VBox {
     private Stage stage;
     private Respuesta respuesta;
     private KahootModel kahoot;
+    private ArrayList<RadioButton> radioButtons;
 
     public VerdaderoFalsoVista(Stage stage, KahootModel kahoot) { //prueba para ver la vista de una pregunta VyF
 
@@ -65,8 +67,6 @@ public class VerdaderoFalsoVista extends VBox {
         modificadoresDePuntos.setSpacing(600);
         modificadoresDePuntos.setAlignment(Pos.CENTER);
 
-
-
         FlowPane flowpane = new FlowPane();
         ToggleGroup opciones = new ToggleGroup(); //esto es para que solo se pueda seleccionar una opcion
         crearOpciones(flowpane, opciones);
@@ -81,15 +81,10 @@ public class VerdaderoFalsoVista extends VBox {
         BotonResponderHandler botonResponderHandler = new BotonResponderHandler(kahoot, puntaje1, responder);
         responder.setOnAction(botonResponderHandler);
 
-
-
         Button continuar = new Button("Siguiente");
         Clock clock = new Clock(continuar);
         BotonSiguienteVistaHandler botonSiguienteHandler = new BotonSiguienteVistaHandler(stage, kahoot, clock);
         continuar.setOnAction(botonSiguienteHandler);
-
-
-
 
         this.getChildren().addAll(modificadoresDePuntos,turnoDelJugador,tipoDePregunta,pregunta,puntaje1,flowpane,continuar, clock);
 
@@ -106,14 +101,14 @@ public class VerdaderoFalsoVista extends VBox {
         multiplicadorX2.setOnAction(x2);
         multiplicadorX3.setOnAction(x3);
 
-
         gridPane.add(multiplicadorX2, 0, 0, 1, 1);
         gridPane.add(multiplicadorX3, 0, 1, 1, 1);
-
 
     }
 
     private void crearOpciones(FlowPane flowpane, ToggleGroup opciones) {
+
+        this.radioButtons = new ArrayList<>();
 
         for (int i=0; i<kahoot.mostrarOpcionesDeTurno().size();i++) {
             RadioButton opcionRB = new RadioButton(kahoot.mostrarOpcionesDeTurno().get(i).contenido());
@@ -121,7 +116,7 @@ public class VerdaderoFalsoVista extends VBox {
             opcionRB.setToggleGroup(opciones);
             BotonRadioHandler botonRadioHandler = new BotonRadioHandler(respuesta,kahoot.mostrarOpcionesDeTurno().get(i));
             opcionRB.setOnAction(botonRadioHandler);
-
+            this.radioButtons.add(opcionRB);
         }
     }
 
