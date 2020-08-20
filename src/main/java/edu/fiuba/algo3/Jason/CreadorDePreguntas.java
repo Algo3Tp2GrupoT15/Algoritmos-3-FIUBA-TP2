@@ -52,7 +52,7 @@ public class CreadorDePreguntas {
                 MultipleChoice multipleChoiceConPenalidad = new MultipleChoice(preguntaDatos.getContenido(), preguntaDatos.getOpciones(), new TipoConPenalidad());
                 preguntas.add(multipleChoiceConPenalidad);
                 break;
-            case "MultipleChoiceConPutajeParcial" :
+            case "MultipleChoiceConPuntajeParcial" :
                 MultipleChoice multipleChoiceConPutajeParcial = new MultipleChoice(preguntaDatos.getContenido(), preguntaDatos.getOpciones(), new TipoParcial());
                 preguntas.add(multipleChoiceConPutajeParcial);
                 break;
