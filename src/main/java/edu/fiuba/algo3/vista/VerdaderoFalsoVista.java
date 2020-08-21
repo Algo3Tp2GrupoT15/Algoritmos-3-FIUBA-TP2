@@ -50,7 +50,7 @@ public class VerdaderoFalsoVista extends VBox {
 
         Text turnoDelJugador = new Text(kahoot.jugadorDeTurno().nombre());
         turnoDelJugador.setFont(Font.font("Arial", FontWeight.THIN, 30));
-        Text tipoDePregunta = new Text("VervaderoFalso "+ kahoot.preguntaDeTurno().tipo().tipoDePuntaje());
+        Text tipoDePregunta = new Text(kahoot.preguntaDeTurno().tipoDePregunta() +" "+ kahoot.preguntaDeTurno().tipo().tipoDePuntaje());
         tipoDePregunta.setFont(Font.font("Arial", FontWeight.BLACK, 36));
         Text pregunta = new Text(kahoot.preguntaDeTurno().contenido());
         pregunta.setFont(Font.font("Verdana", FontWeight.BOLD, 36));
@@ -74,7 +74,7 @@ public class VerdaderoFalsoVista extends VBox {
         flowpane.setHgap(50);
         flowpane.setAlignment(Pos.CENTER);
 
-        Text puntaje1 = new Text("Puntaje de " + kahoot.jugadorDeTurno().nombre() + " : " + kahoot.jugadorDeTurno().puntaje());
+        Text puntaje1 = new Text("Puntaje acumulado de " + kahoot.jugadorDeTurno().nombre() + " : " + kahoot.jugadorDeTurno().puntaje());
         puntaje1.setFont(Font.font("Arial", FontWeight.BLACK, 20));
 
         Button responder = new Button("Responder");

@@ -58,7 +58,7 @@ public class MultipleChoiceVista extends VBox {
 
         Text turnoDelJugador = new Text(kahoot.jugadorDeTurno().nombre());
         turnoDelJugador.setFont(Font.font("Arial", FontWeight.THIN, 30));
-        Text tipoDePregunta = new Text("MultipleChoice Clasico");
+        Text tipoDePregunta = new Text(kahoot.preguntaDeTurno().tipoDePregunta() +" "+ kahoot.preguntaDeTurno().tipo().tipoDePuntaje());
         tipoDePregunta.setFont(Font.font("Arial", FontWeight.BLACK, 36));
         Text pregunta = new Text(kahoot.preguntaDeTurno().contenido());
         pregunta.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
@@ -69,8 +69,7 @@ public class MultipleChoiceVista extends VBox {
         flowpane.setHgap(50);
         flowpane.setAlignment(Pos.CENTER);
 
-
-        Text puntaje1 = new Text("Puntaje de "+ kahoot.jugadorDeTurno().nombre()+" : "+kahoot.jugadorDeTurno().puntaje());
+        Text puntaje1 = new Text("Puntaje acumulado de "+ kahoot.jugadorDeTurno().nombre()+" : "+kahoot.jugadorDeTurno().puntaje());
         puntaje1.setFont(Font.font("Arial", FontWeight.BLACK, 20));
 
         Button responder = new Button("Responder");
@@ -81,8 +80,6 @@ public class MultipleChoiceVista extends VBox {
         Clock clock = new Clock(continuar);
         BotonSiguienteVistaHandler botonSiguienteHandler = new BotonSiguienteVistaHandler(stage,kahoot, clock,mediaPlayer);
         continuar.setOnAction(botonSiguienteHandler);
-
-
 
         this.getChildren().addAll(modificadoresDePuntos,turnoDelJugador,tipoDePregunta,pregunta,puntaje1,flowpane,responder,continuar, clock);
 
@@ -121,7 +118,6 @@ public class MultipleChoiceVista extends VBox {
         MultiplicadorHandlerX3 x3 = new MultiplicadorHandlerX3(multiplicadorX3,kahoot);
         multiplicadorX2.setOnAction(x2);
         multiplicadorX3.setOnAction(x3);
-
 
         gridPane.add(multiplicadorX2, 0, 0, 1, 1);
         gridPane.add(multiplicadorX3, 0, 1, 1, 1);

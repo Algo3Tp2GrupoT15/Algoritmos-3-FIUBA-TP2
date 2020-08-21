@@ -33,7 +33,6 @@ public class BotonResponderRBHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
 
-       // this.kahoot.calcularPuntosDelTurno();
         for(int i=0; i<radioButtons.size();i++){
             if(radioButtons.get(i).isSelected()){
                 String texto=radioButtons.get(i).getText();

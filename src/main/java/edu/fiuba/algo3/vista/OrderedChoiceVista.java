@@ -103,7 +103,7 @@ public class OrderedChoiceVista extends VBox {
         gridpane.setAlignment(Pos.CENTER);
         stackpane.getChildren().add(gridpane);
 
-        Text puntaje1 = new Text("Puntaje de "+ kahoot.jugadorDeTurno().nombre()+" : "+kahoot.jugadorDeTurno().puntaje());
+        Text puntaje1 = new Text("Puntaje acumulado de "+ kahoot.jugadorDeTurno().nombre()+" : "+kahoot.jugadorDeTurno().puntaje());
         puntaje1.setFont(Font.font("Arial", FontWeight.BLACK, 20));
 
         Button responder = new Button("Responder");

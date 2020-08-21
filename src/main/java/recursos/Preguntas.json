@@ -177,7 +177,7 @@
 
   {
     "tipoDePregunta": "GroupChoice",
-    "contenido": " Clasifique las ciudades según pertenezcan a Argentina o Uruguay: ",
+    "contenido": " Clasifique las ciudades segun sean argentinas o uruguayas: ",
     "opcionesGrupo": [
       {
         "texto": "Colonia",
