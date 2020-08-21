@@ -105,8 +105,6 @@ public class MultipleChoiceVista extends VBox {
         for (int i=0; i<kahoot.mostrarOpcionesDeTurno().size();i++) {
             RadioButton opcionRB = new RadioButton(kahoot.mostrarOpcionesDeTurno().get(i).contenido());
             flowpane.getChildren().add(opcionRB);
-            BotonRadioHandler botonRadioHandler = new BotonRadioHandler(respuesta,kahoot.mostrarOpcionesDeTurno().get(i));
-            opcionRB.setOnAction(botonRadioHandler);
             this.radioButtons.add(opcionRB);
         }
     }

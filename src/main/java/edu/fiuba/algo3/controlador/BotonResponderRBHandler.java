@@ -42,7 +42,7 @@ public class BotonResponderRBHandler implements EventHandler<ActionEvent> {
 
         }
 
-        this.texto.setText("Puntaje de "+ kahoot.jugadorDeTurno().nombre()+" : "+kahoot.jugadorDeTurno().puntaje());
+        this.texto.setText("Puntaje acumulado de "+ kahoot.jugadorDeTurno().nombre()+" : "+kahoot.jugadorDeTurno().puntaje());
         this.boton.setDisable(true);
 
     }
