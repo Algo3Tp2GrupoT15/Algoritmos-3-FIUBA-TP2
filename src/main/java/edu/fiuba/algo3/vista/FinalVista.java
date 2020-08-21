@@ -29,6 +29,7 @@ public class FinalVista extends VBox {
         this.kahoot = kahoot;
 
         Jugador jugadorGanador = new Jugador();
+        jugadorGanador.agregarPuntaje(-1000000000);
 
         for(Jugador jugador:kahoot.jugadores()){
 
