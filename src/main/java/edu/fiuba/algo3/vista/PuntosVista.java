@@ -57,6 +57,7 @@ public class PuntosVista extends VBox {
 
         this.getChildren().add(continuar);
         this.setAlignment(Pos.CENTER);
+        this.setSpacing(20);
 
     }
 

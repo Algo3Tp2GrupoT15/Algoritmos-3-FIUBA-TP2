@@ -21,6 +21,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -67,8 +68,11 @@ public class GroupChoiceVista extends VBox {
         GridPane gridpane = new GridPane();
 
         Label label1 = new Label("Opción ");
+        label1.setFont(new Font("Arial", 20));
+        label1.setTextAlignment(TextAlignment.CENTER);
         gridpane.add(label1, 1,0);
-        Label label2 = new Label(" Grupo");
+        Label label2 = new Label( " Grupo");
+        label2.setFont(new Font("Arial", 20));
         gridpane.add(label2, 2,0 );
 
         for (int i=0; i<kahoot.mostrarOpcionesDeTurno().size();i++){
@@ -95,6 +99,8 @@ public class GroupChoiceVista extends VBox {
             ComboBox menuOrden = new ComboBox (opcionesMenu);
             gridpane.add(menuOrden,2,(i+1));
             Label label = new Label(kahoot.mostrarOpcionesDeTurno().get(i).contenido());
+            label1.setFont(new Font("Arial", 20));
+            label.setTextAlignment(TextAlignment.CENTER);
             gridpane.add(label, 1, (i+1));
             ComboBoxHandlerGroupChoice comboBoxHandlerGroupChoice = new ComboBoxHandlerGroupChoice(kahoot,menuOrden,respuesta);
             menuOrden.setOnAction(comboBoxHandlerGroupChoice);

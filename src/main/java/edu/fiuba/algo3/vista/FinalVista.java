@@ -56,6 +56,7 @@ public class FinalVista extends VBox {
         tecla.setFill(Color.BLUE);
 
         Button salir = new Button("Salir");
+        salir.setMinSize(20,20);
         BotonSalirHandler botonSalirHandler = new BotonSalirHandler(stage, kahoot);
         salir.setOnAction(botonSalirHandler);
 

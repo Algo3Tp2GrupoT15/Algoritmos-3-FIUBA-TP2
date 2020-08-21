@@ -19,6 +19,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.control.ComboBox;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -73,14 +74,16 @@ public class OrderedChoiceVista extends VBox {
         muestraOpciones.setFont(Font.font("Verdana", FontWeight.BOLD, 25));
         muestraOpciones.setFill(Color.BLUE);
 
-
-       ObservableList<String> opcionesMenu = FXCollections.observableArrayList();
+        ObservableList<String> opcionesMenu = FXCollections.observableArrayList();
         StackPane stackpane = new StackPane();
         GridPane gridpane = new GridPane();
 
         Label label1 = new Label("Orden ");
+        label1.setFont(new Font("Arial", 20));
+        label1.setTextAlignment(TextAlignment.CENTER);
         gridpane.add(label1, 1,0);
         Label label2 = new Label(" Opción");
+        label2.setFont(new Font("Arial", 20));
         gridpane.add(label2, 2,0 );
 
         for (int i=0; i<opcionesList.size();i++){
@@ -95,6 +98,8 @@ public class OrderedChoiceVista extends VBox {
             ComboBox menuOrden = new ComboBox (opcionesMenu);
             gridpane.add(menuOrden,2,(i+1));
             Label label = new Label(String.valueOf(i+1));
+            label1.setFont(new Font("Arial", 20));
+            label1.setTextAlignment(TextAlignment.CENTER);
             gridpane.add(label, 1, (i+1));
             ComboBoxHandlerOrderedChoice comboBoxHandlerOrderedChoice = new ComboBoxHandlerOrderedChoice(menuOrden,respuesta,opcionesList);
             menuOrden.setOnAction(comboBoxHandlerOrderedChoice);
