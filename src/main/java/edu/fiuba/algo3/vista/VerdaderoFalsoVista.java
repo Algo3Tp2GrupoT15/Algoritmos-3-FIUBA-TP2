@@ -86,7 +86,7 @@ public class VerdaderoFalsoVista extends VBox {
         BotonSiguienteVistaHandler botonSiguienteHandler = new BotonSiguienteVistaHandler(stage, kahoot, clock, mediaPlayer);
         continuar.setOnAction(botonSiguienteHandler);
 
-        this.getChildren().addAll(modificadoresDePuntos,turnoDelJugador,tipoDePregunta,pregunta,puntaje1,flowpane,continuar, clock);
+        this.getChildren().addAll(modificadoresDePuntos,turnoDelJugador,tipoDePregunta,pregunta,puntaje1,flowpane,responder,continuar, clock);
 
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
